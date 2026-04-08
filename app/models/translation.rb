@@ -34,21 +34,21 @@ class Translation < ApplicationRecord
     return unless translation_key&.value_type.present?
 
     valid = case translation_key.value_type
-            when "text"
-              value.is_a?(String)
-            when "boolean"
-              value == true || value == false
-            when "integer"
-              value.is_a?(Integer)
-            when "float"
-              value.is_a?(Numeric)
-            when "array"
-              value.is_a?(Array)
-            when "plural"
-              value.is_a?(Hash)
-            else
-              false
-            end
+    when "text"
+      value.is_a?(String)
+    when "boolean"
+      value == true || value == false
+    when "integer"
+      value.is_a?(Integer)
+    when "float"
+      value.is_a?(Numeric)
+    when "array"
+      value.is_a?(Array)
+    when "plural"
+      value.is_a?(Hash)
+    else
+      false
+    end
 
     return if valid
 
