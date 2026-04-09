@@ -2,7 +2,11 @@
 
 [![CI](https://github.com/bsboris/loki/actions/workflows/ci.yml/badge.svg)](https://github.com/bsboris/loki/actions/workflows/ci.yml)
 
-Loki is a translation management platform for working with YAML-based translation files through a web interface. It is intended for teams that want a simpler way to manage application translations without editing locale files directly.
+Loki is a Git-native translation workspace system for YAML-based i18n files, such as Rails locale files.
+
+It provides a web UI on top of Git branches, where each branch acts as an isolated translation workspace. Users can explore translation diffs, edit entries, review status, and publish changes through the existing Git and pull request workflow.
+
+Git remains the single source of truth. Loki does not introduce an external translation management system.
 
 ## Basic Commands
 
