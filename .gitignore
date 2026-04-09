@@ -11,3 +11,5 @@
 !/log/.keep
 /tmp/*
 !/tmp/.keep
+
+.DS_Store

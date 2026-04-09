@@ -4,7 +4,7 @@
 
 Далее отчет по каждой фиче отдельно.
 
-## Feature 002: Establish initial application entry point and operability check
+## Feature 001: Establish initial application entry point and operability check
 
 Бриф родился со второго раза, сначала агент родил скорее спеку с AC и прочим (хотя я довел ее до 0 замечаний).
 
@@ -18,7 +18,7 @@
 - с первого раза вместо брифа получилась скорее спека. Для решения проблемы скорректировал промпт (попросил быть короче, сфокусироваться на проблеме, а не решении и перечислил желаемые секции)
 - нужны шаблоны брифа/спеки, чтобы не раздувать промпты и не дублировать каждый раз одно и то же
 
-## Feature 004: Loki lacks a way for users to register repositories
+## Feature 002: Loki lacks a way for users to register repositories
 
 Здесь все прошло быстрее, бриф и спека заняли примерно час суммарно.
 

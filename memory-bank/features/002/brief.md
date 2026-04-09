@@ -1,21 +1,23 @@
 ---
-title: "Establish a verifiable application startup baseline"
-issue_link: "https://github.com/bsboris/loki/issues/2"
+title: "Loki lacks a way for users to register repositories"
+issue_link: "https://github.com/bsboris/loki/issues/4"
 status: active
 ---
 
 ## Problem
 
-The project does not yet define a verification step that confirms the Rails application has booted and that `GET /` returns HTTP 200. Without that baseline, the team cannot confirm that the application is running before starting or validating subsequent product work.
+Users currently cannot create or store a repository record in Loki, so zero repositories can be registered in the system. Without a stored repository record, a user cannot begin repository setup or create a translation workspace tied to a repository.
 
 ## Stakeholder
 
-Developers setting up the application locally, reviewers validating setup work, and operators checking that a deployed environment is reachable.
+Primary stakeholder: app users who need to register a repository before creating a translation workspace.
+
+Secondary stakeholder: product developers who are blocked on repository-dependent MVP features.
 
 ## Context
 
-This task comes from the project foundation work tracked in issue #2, before any MVP product features are built. It is important now because feature development, review, and environment validation depend on a documented startup check.
+This task is important now because repository registration is the prerequisite for upcoming MVP flows: GitHub integration, repository configuration, and workspace setup. Repositories are a core domain object in Loki, and these dependent flows cannot proceed until repository records exist in the system.
 
 ## Desired outcome
 
-The team can verify application startup by confirming that the application boots and that `GET /` returns HTTP 200 during local setup, review, and deployment validation.
+Users can register and view repository records in Loki, and those records exist in the system for use by the next MVP steps: GitHub integration, repository configuration, and workspace creation.

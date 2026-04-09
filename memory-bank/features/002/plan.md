@@ -1,6 +1,6 @@
 ---
 title: "Repository Registration Implementation Plan"
-spec_link: "memory-bank/features/004/spec.md"
+spec_link: "memory-bank/features/002/spec.md"
 status: draft
 ---
 
