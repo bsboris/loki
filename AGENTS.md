@@ -19,6 +19,11 @@ Ruby on Rails 8.1, PostgreSQL, RSpec. Hotwire + Importmaps + Tailwind for fronte
 - Preserve backwards compatibility unless the task explicitly requires breaking changes
 - For destructive database changes, call out risks explicitly
 
+## Ruby conventions
+- Prefer `%i[...]` and `%w[...]` array literals over `[:...]` and `["..."]` where applicable
+- Prefer Ruby hash shorthand syntax when the local variable name matches the key
+- Prefer passing data to Rails views via `render locals: { ... }` instead of controller instance variables
+
 ## Workflow
 - Before changing code, inspect the relevant files and follow existing patterns
 - For non-trivial work, briefly state the plan before editing
