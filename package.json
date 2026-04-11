@@ -1,0 +1,7 @@
+{
+  "name": "loki",
+  "private": true,
+  "dependencies": {
+    "daisyui": "^5.3.0"
+  }
+}

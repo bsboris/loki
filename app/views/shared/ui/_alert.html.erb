@@ -1,0 +1,6 @@
+<% alert_classes = ["alert"] %>
+<% alert_classes << "alert-info" if variant == :info %>
+
+<div class="<%= alert_classes.join(" ") %>" role="alert">
+  <span><%= message %></span>
+</div>

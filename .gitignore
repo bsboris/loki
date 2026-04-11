@@ -11,5 +11,6 @@
 !/log/.keep
 /tmp/*
 !/tmp/.keep
+/node_modules/
 
 .DS_Store

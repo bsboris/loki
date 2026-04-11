@@ -74,6 +74,19 @@ RSpec.describe Repository, type: :model do
     end
   end
 
+  describe "#qualified_name" do
+    it "joins namespace_path and name" do
+      repository = described_class.new(
+        provider: "github",
+        namespace_path: "acme/platform",
+        name: "loki",
+        default_base_ref: "main"
+      )
+
+      expect(repository.qualified_name).to eq("acme/platform/loki")
+    end
+  end
+
   describe "database constraints" do
     it "enforces unique provider, namespace_path, and name at the database level" do
       described_class.create!(
