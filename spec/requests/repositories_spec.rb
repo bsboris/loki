@@ -8,9 +8,10 @@ RSpec.describe "Repositories", type: :request do
       expect(response).to have_http_status(:ok)
       expect(response.media_type).to eq("text/html")
       expect(response.body).to include("No repositories yet")
+      expect(Nokogiri::HTML5(response.body).at_css(".alert")).to be_present
     end
 
-    it "renders persisted repository data including default_base_ref" do
+    it "renders repository cards with the full name and default_base_ref" do
       Repository.create!(
         provider: "github",
         namespace_path: "acme/platform",
@@ -27,8 +28,9 @@ RSpec.describe "Repositories", type: :request do
       get "/repositories"
 
       expect(response).to have_http_status(:ok)
-      expect(response.body).to include("github", "acme/platform", "loki", "main")
-      expect(response.body).to include("gitlab", "acme/tools", "atlas", "develop")
+      expect(response.body).to include("github", "acme/platform/loki", "main")
+      expect(response.body).to include("gitlab", "acme/tools/atlas", "develop")
+      expect(Nokogiri::HTML5(response.body).css(".card").count).to eq(2)
     end
 
     it "routes to repositories#index" do
