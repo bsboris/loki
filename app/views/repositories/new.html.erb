@@ -1,0 +1,31 @@
+<section class="space-y-6 p-8 sm:p-10">
+  <header class="space-y-2">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Catalog</p>
+    <h1 class="text-3xl font-bold tracking-tight">Add Repository</h1>
+    <p class="max-w-2xl text-base-content/70">
+      Connect a GitHub repository to Loki.
+    </p>
+  </header>
+
+  <% if repository.errors.any? %>
+    <div class="space-y-2">
+      <% repository.errors.full_messages.each do |message| %>
+        <%= render "shared/ui/alert", message: message, variant: :error %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form_with model: repository, url: repositories_path, class: "space-y-4 max-w-lg" do |f| %>
+    <div class="form-control">
+      <%= f.label :namespace_path, "Owner", class: "label" %>
+      <%= f.text_field :namespace_path, class: "input input-bordered w-full", placeholder: "e.g. acme" %>
+    </div>
+
+    <div class="form-control">
+      <%= f.label :name, "Repository Name", class: "label" %>
+      <%= f.text_field :name, class: "input input-bordered w-full", placeholder: "e.g. my-repo" %>
+    </div>
+
+    <%= f.submit "Add Repository", class: "btn btn-primary" %>
+  <% end %>
+</section>
