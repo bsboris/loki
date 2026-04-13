@@ -1,5 +1,5 @@
-<% alert_classes = ["alert"] %>
-<% alert_classes << "alert-info" if variant == :info %>
+<% raise ArgumentError, "Unknown alert variant: #{variant.inspect}. Must be one of [:info, :error]" unless %i[info error].include?(variant) %>
+<% alert_classes = ["alert", "alert-#{variant}"] %>
 
 <div class="<%= alert_classes.join(" ") %>" role="alert">
   <span><%= message %></span>
