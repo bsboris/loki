@@ -8,7 +8,7 @@ status: active
 
 These principles apply to **Loki** (this repository) as-is. They govern how we structure the memory bank, ADRs, and supporting docs so intent stays traceable and duplication stays out.
 
-**Note:** The canonical product summary is [`memory-bank/domain/problem.md`](../domain/problem.md). [`PROJECT.md`](../../PROJECT.md) at the repository root may still exist for external links; prefer `problem.md` for current intent (see Phase 5 in the memory-bank plan for deprecation wording on `PROJECT.md`).
+**Note:** The canonical product summary is [`memory-bank/domain/problem.md`](../domain/problem.md).
 
 1. **SSoT.** Every fact has exactly one canonical owner. Duplicates are a defect.
 2. **Atomicity.** One file = one topic. If it grows, split it.

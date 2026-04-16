@@ -1,6 +1,6 @@
 # Backlog
 
-MVP feature backlog for Loki, based on `PROJECT.md`.
+MVP feature backlog for Loki, aligned with [memory-bank/domain/problem.md](memory-bank/domain/problem.md).
 
 ## Rules
 

@@ -90,5 +90,4 @@ Outcome metrics are not fixed for the MVP documentation pass. When product instr
 
 ## Source documents
 
-- Upstream product detail previously lived in [`PROJECT.md`](../../PROJECT.md) at the repository root; this file is the canonical replacement for that summary.
 - Link PRDs, research, or roadmaps here when they exist as separate artifacts.
