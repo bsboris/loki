@@ -8,6 +8,7 @@ Stage: **Active MVP development.**
 ## Conventions (apply throughout)
 
 - All index files in `memory-bank/` must be named `index.md`, not `README.md`.
+- In every `memory-bank/**/index.md` file, **each markdown link** to another doc (same repo) must be followed by a short descriptiond and a **`Read when:`** line (same list item, on the next line, indented) that states when a reader should follow and scan that target. Apply this to navigation indexes and template indexes under `flows/` as well.
 - All memory bank files must be written in English.
 - The `flows/` folder is kept as-is structurally; its content must be translated to English.
 - `AGENTS.md` will contain a single line pointing to the memory bank index.
@@ -83,8 +84,8 @@ Replace template placeholders with real project content. All files are already i
 
 ### 3.1 Root index
 
-- [ ] Rewrite `memory-bank/index.md` as the single navigation entry point for humans and agents.
-  List all active sections with one-line purpose annotations. Clearly mark deferred sections.
+- [x] Rewrite `memory-bank/index.md` as the single navigation entry point for humans and agents.
+  List all active sections; after each link, add description and **`Read when:`** (per global convention). Clearly mark deferred sections the same way.
 
 ### 3.2 DNA
 
