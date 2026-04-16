@@ -69,7 +69,7 @@ flowchart LR
 
 ### Bootstrap Feature Package
 
-- [ ] `README.md` создан по шаблону `templates/feature/README.md`
+- [ ] `README.md` создан по шаблону `templates/feature/index.md`
 - [ ] `feature.md` создан по шаблону `short.md` или `large.md`
 - [ ] `implementation-plan.md` отсутствует
 
@@ -105,7 +105,7 @@ flowchart LR
 - [ ] required test suites зелёные локально и в CI
 - [ ] каждый manual-only gap явно approved человеком (approval ref в `AG-*`)
 - [ ] simplify review выполнен: код минимально сложен или complexity обоснована ссылкой на `CON-*`, `FM-*` или `DEC-*`
-- [ ] если feature добавляет новый stable flow или materially changes существующий project-level scenario, соответствующий `UC-*` создан или обновлен и зарегистрирован в `memory-bank/use-cases/README.md`
+- [ ] если feature добавляет новый stable flow или materially changes существующий project-level scenario, соответствующий `UC-*` создан или обновлен и зарегистрирован в `memory-bank/use-cases/index.md`
 - [ ] `feature.md` → `delivery_status: done`
 - [ ] `implementation-plan.md` → `status: archived`
 

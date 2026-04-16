@@ -17,4 +17,4 @@ audience: humans_and_agents
 - [Autonomy Boundaries](autonomy-boundaries.md) — границы автономии агента: автопилот, супервизия, эскалация. Отвечает на вопрос: что агент может делать сам, а где должен остановиться и спросить.
 - [Coding Style](coding-style.md) — конвенции оформления кода, tooling и правила локальной сложности.
 - [Git Workflow](git-workflow.md) — git-конвенции: commits, ветки, PR и optional worktrees.
-- [ADR](../adr/README.md) — instantiated Architecture Decision Records проекта.
+- [ADR](../adr/index.md) — instantiated Architecture Decision Records проекта.

@@ -14,7 +14,7 @@ audience: humans_and_agents
 
 Каталог `memory-bank/prd/` хранит instantiated PRD проекта.
 
-PRD нужен, когда задача живет на уровне продуктовой инициативы или capability, а не одного vertical slice. Обычно PRD стоит между общим контекстом из [`../domain/problem.md`](../domain/problem.md) и downstream feature packages из [`../features/README.md`](../features/README.md).
+PRD нужен, когда задача живет на уровне продуктовой инициативы или capability, а не одного vertical slice. Обычно PRD стоит между общим контекстом из [`../domain/problem.md`](../domain/problem.md) и downstream feature packages из [`../features/index.md`](../features/index.md).
 
 ## Граница С `domain/problem.md`
 

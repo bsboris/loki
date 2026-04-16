@@ -15,29 +15,29 @@ audience: humans_and_agents
 
 ## Аннотированный индекс
 
-- [`domain/README.md`](domain/README.md)
+- [`domain/index.md`](domain/index.md)
   Читать, когда нужно: зафиксировать product context, архитектурные границы и UI-соглашения проекта.
 
-- [`prd/README.md`](prd/README.md)
+- [`prd/index.md`](prd/index.md)
   Читать, когда нужно: описать продуктовую инициативу между общим problem statement и downstream feature packages.
 
-- [`use-cases/README.md`](use-cases/README.md)
+- [`use-cases/index.md`](use-cases/index.md)
   Читать, когда нужно: зарегистрировать устойчивый пользовательский или операционный сценарий проекта.
 
-- [`ops/README.md`](ops/README.md)
+- [`ops/index.md`](ops/index.md)
   Читать, когда нужно: описать локальную разработку, окружения, релизы, конфигурацию и runbooks.
 
-- [`engineering/README.md`](engineering/README.md)
+- [`engineering/index.md`](engineering/index.md)
   Читать, когда нужно: задать testing policy, coding style, git workflow и границы автономии агента.
 
-- [`dna/README.md`](dna/README.md)
+- [`dna/index.md`](dna/index.md)
   Читать, когда нужно: проверить SSoT rules, frontmatter contract и governance-правила документации.
 
-- [`flows/README.md`](flows/README.md)
+- [`flows/index.md`](flows/index.md)
   Читать, когда нужно: создать feature package, провести фичу по lifecycle gates или использовать шаблон.
 
-- [`adr/README.md`](adr/README.md)
+- [`adr/index.md`](adr/index.md)
   Читать, когда нужно: найти или завести Architecture Decision Record.
 
-- [`features/README.md`](features/README.md)
+- [`features/index.md`](features/index.md)
   Читать, когда нужно: понять, где живут instantiated feature packages.

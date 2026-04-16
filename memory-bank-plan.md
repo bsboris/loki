@@ -21,20 +21,20 @@ Stage: **Active MVP development.**
 
 Rename every `README.md` inside `memory-bank/` to `index.md`, then update all internal cross-references.
 
-- [ ] Rename `memory-bank/README.md` → `memory-bank/index.md`
-- [ ] Rename `memory-bank/dna/README.md` → `memory-bank/dna/index.md`
-- [ ] Rename `memory-bank/domain/README.md` → `memory-bank/domain/index.md`
-- [ ] Rename `memory-bank/engineering/README.md` → `memory-bank/engineering/index.md`
-- [ ] Rename `memory-bank/ops/README.md` → `memory-bank/ops/index.md`
-- [ ] Rename `memory-bank/ops/runbooks/README.md` → `memory-bank/ops/runbooks/index.md`
-- [ ] Rename `memory-bank/prd/README.md` → `memory-bank/prd/index.md`
-- [ ] Rename `memory-bank/features/README.md` → `memory-bank/features/index.md`
-- [ ] Rename `memory-bank/use-cases/README.md` → `memory-bank/use-cases/index.md`
-- [ ] Rename `memory-bank/adr/README.md` → `memory-bank/adr/index.md`
-- [ ] Rename `memory-bank/flows/README.md` → `memory-bank/flows/index.md`
-- [ ] Rename `memory-bank/flows/templates/README.md` → `memory-bank/flows/templates/index.md`
-- [ ] Rename `memory-bank/flows/templates/feature/README.md` → `memory-bank/flows/templates/feature/index.md`
-- [ ] Update all internal links (`README.md` → `index.md`) across every file in `memory-bank/`
+- [x] Rename `memory-bank/README.md` → `memory-bank/index.md`
+- [x] Rename `memory-bank/dna/README.md` → `memory-bank/dna/index.md`
+- [x] Rename `memory-bank/domain/README.md` → `memory-bank/domain/index.md`
+- [x] Rename `memory-bank/engineering/README.md` → `memory-bank/engineering/index.md`
+- [x] Rename `memory-bank/ops/README.md` → `memory-bank/ops/index.md`
+- [x] Rename `memory-bank/ops/runbooks/README.md` → `memory-bank/ops/runbooks/index.md`
+- [x] Rename `memory-bank/prd/README.md` → `memory-bank/prd/index.md`
+- [x] Rename `memory-bank/features/README.md` → `memory-bank/features/index.md`
+- [x] Rename `memory-bank/use-cases/README.md` → `memory-bank/use-cases/index.md`
+- [x] Rename `memory-bank/adr/README.md` → `memory-bank/adr/index.md`
+- [x] Rename `memory-bank/flows/README.md` → `memory-bank/flows/index.md`
+- [x] Rename `memory-bank/flows/templates/README.md` → `memory-bank/flows/templates/index.md`
+- [x] Rename `memory-bank/flows/templates/feature/README.md` → `memory-bank/flows/templates/feature/index.md`
+- [x] Update all internal links (`README.md` → `index.md`) across every file in `memory-bank/`
 
 ---
 

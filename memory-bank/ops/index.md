@@ -15,4 +15,4 @@ audience: humans_and_agents
 - [Stages And Non-Local Environments](stages.md) — доступ к runtime-окружениям, логи, smoke-checks и права доступа.
 - [Release And Deployment](release.md) — релизный процесс, checklist и release test plan.
 - [Configuration](config.md) — ownership-модель конфигурации, naming conventions и env contract.
-- [Runbooks](runbooks/README.md) — шаблон для operational runbooks и инцидентных инструкций.
+- [Runbooks](runbooks/index.md) — шаблон для operational runbooks и инцидентных инструкций.
