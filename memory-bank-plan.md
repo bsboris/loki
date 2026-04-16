@@ -156,7 +156,7 @@ Replace template placeholders with real project content. All files are already i
 
 ## Phase 4 — Update AGENTS.md
 
-- [ ] Replace the entire content of `AGENTS.md` with:
+- [x] Replace the entire content of `AGENTS.md` with:
   ```
   See [memory-bank/index.md](memory-bank/index.md).
   ```
