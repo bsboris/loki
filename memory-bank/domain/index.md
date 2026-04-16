@@ -2,15 +2,15 @@
 title: Domain Documentation Index
 doc_kind: domain
 doc_function: index
-purpose: Навигация по domain-level документации шаблона. Читать для фиксации бизнес-контекста, архитектурных границ и UI-слоя проекта.
+purpose: Navigation for domain-level template documentation. Read to capture business context, architectural boundaries, and the UI layer.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Domain Documentation Index
+# Domain documentation index
 
-- [Project Problem Statement](problem.md) — общий продуктовый контекст и top-level outcomes проекта. Не заменяет PRD, а служит upstream-слоем для него и для feature-спек.
-- [Architecture Patterns](architecture.md) — границы модулей, асинхронные процессы, обработка ошибок и ownership конфигурации. Читать при изменении системного поведения.
-- [Frontend](frontend.md) — шаблон описания UI-поверхностей, design system и i18n-слоя. Читать при работе с интерфейсом.
+- [Project problem statement](problem.md) — shared product context and top-level outcomes. Does not replace a PRD; it is upstream for PRDs and feature specs.
+- [Architecture patterns](architecture.md) — module boundaries, async behavior, error handling, and configuration ownership. Read when changing system behavior.
+- [Frontend](frontend.md) — UI surfaces, design system, and i18n layer. Read when working on the interface.

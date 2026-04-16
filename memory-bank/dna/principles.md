@@ -1,17 +1,17 @@
 ---
 doc_kind: governance
 doc_function: canonical
-purpose: Фундаментальные принципы документации проекта. Корневой документ dependency tree.
+purpose: Foundational documentation principles for the project. Root document of the dependency tree.
 status: active
 ---
 # Principles
 
-1. **SSoT.** Каждый факт имеет ровно одного canonical owner. Дубли = дефект.
-2. **Атомарность.** Один файл = одна тема. Разрастается — разбивай.
-3. **Компактность.** Документ должен оставаться читаемым. Разрастается — разбивай.
-4. **Progressive disclosure.** Сначала обзор, затем ссылки вглубь. Сверху вниз.
-5. **WHY / WHAT / HOW.** `adr/` = почему, `feature/` и `spec/` = что, код = как.
-6. **Code vs Docs.** Код владеет реализацией. Документация владеет intent, rationale и contracts.
-7. **Index-first.** Каждый документ в индексе. Orphan файл = дефект.
-8. **Аннотированные ссылки.** Ссылка объясняет: что по ней и зачем читать.
-9. Каждое архитектурное решение  — отдельный ADR в выделенном разделе. 
+1. **SSoT.** Every fact has exactly one canonical owner. Duplicates are a defect.
+2. **Atomicity.** One file = one topic. If it grows, split it.
+3. **Compactness.** A document must stay readable. If it grows, split it.
+4. **Progressive disclosure.** Overview first, then links deeper. Top down.
+5. **WHY / WHAT / HOW.** `adr/` = why, `feature/` and specs = what, code = how.
+6. **Code vs docs.** Code owns implementation. Documentation owns intent, rationale, and contracts.
+7. **Index-first.** Every document appears in an index. An orphan file is a defect.
+8. **Annotated links.** A link explains what is there and why to read it.
+9. Every architectural decision is a separate ADR in the dedicated section.

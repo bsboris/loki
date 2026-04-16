@@ -2,7 +2,7 @@
 title: Frontend
 doc_kind: domain
 doc_function: canonical
-purpose: Шаблон описания UI-поверхностей, design system и i18n-слоя. Читать при работе с web, mobile или internal UI.
+purpose: Placeholder for UI surfaces, design system, and i18n layer. Read when working on web, mobile, or internal UI conventions.
 derived_from:
   - ../dna/governance.md
 status: active
@@ -11,59 +11,37 @@ audience: humans_and_agents
 
 # Frontend
 
-Этот документ должен описывать реальные UI-поверхности downstream-проекта. Если в системе нет отдельного frontend-слоя, сократи документ до минимально полезного набора правил.
+This document should describe real UI surfaces for the product when the Hotwire/Turbo/Stimulus layer needs explicit conventions. Until then, keep this file minimal.
 
-## UI Surfaces
+## UI surfaces
 
-Опиши основные интерфейсы системы.
+For each surface, record when populated:
 
-Пример:
+- where code lives;
+- stack in use;
+- boundary with backend;
+- canonical owner for design decisions.
 
-- public web;
-- internal backoffice;
-- mobile app;
-- embedded widgets;
-- shared component library.
+## Component and styling rules
 
-Для каждой поверхности полезно зафиксировать:
+Record when populated:
 
-- где лежит код;
-- какой стек используется;
-- где проходит boundary с backend;
-- что считается canonical owner для design decisions.
+- whether a shared design system exists;
+- where shared components live;
+- whether ad hoc UI without shared components is allowed;
+- who owns theme tokens, spacing, typography, and states.
 
-## Component And Styling Rules
+## Interaction patterns
 
-Опиши проектные правила по UI-компонентам:
-
-- используется ли единая design system;
-- где живут shared components;
-- можно ли создавать ad hoc UI без общего компонента;
-- какой слой владеет токенами темы, spacing, typography и states.
-
-Пример записи:
-
-- новые UI-элементы сначала ищут место в `packages/ui`;
-- локальный CSS допустим только внутри feature boundary;
-- сложная интерактивность требует ADR или явного архитектурного решения.
-
-## Interaction Patterns
-
-Опиши здесь canonical pattern для интерактивности: server-rendered UI, SPA, islands, HTMX/Turbo-like подход, native mobile и т.д.
-
-Вместо project-specific выбора можно использовать шаблонную формулировку:
-
-- для новых feature используй текущий основной interactive stack;
-- не смешивай два конкурирующих паттерна без явного основания;
-- если проект живет в переходном состоянии между стеками, зафиксируй migration rule и allowed exceptions.
+Record the canonical interactivity pattern for the project (for example server-rendered UI, SPA, islands, Hotwire/Turbo).
 
 ## Localization
 
-Документируй:
+Record when populated:
 
-- откуда берутся переводы;
-- как они попадают в UI;
-- где кэшируются или versionируются;
-- как добавлять новые ключи и кто владеет fallback behavior.
+- where translations come from;
+- how they reach the UI;
+- caching or versioning;
+- how new keys are added and who owns fallback behavior.
 
-Если в проекте есть несколько источников переводов, зафиксируй приоритеты и merge order.
+If multiple translation sources exist, record priority and merge order.

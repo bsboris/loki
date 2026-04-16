@@ -2,7 +2,7 @@
 title: "PRD-XXX: Product Initiative Name"
 doc_kind: prd
 doc_function: template
-purpose: Governed wrapper-шаблон PRD. Читать, чтобы инстанцировать компактный Product Requirements Document без смешения wrapper-метаданных и frontmatter будущего PRD.
+purpose: Governed PRD wrapper template. Read to instantiate a compact Product Requirements Document without mixing wrapper metadata and the future PRD frontmatter.
 derived_from:
   - ../../../dna/governance.md
   - ../../../dna/frontmatter.md
@@ -17,23 +17,23 @@ canonical_for:
 
 # PRD-XXX: Product Initiative Name
 
-Этот файл описывает wrapper-template. Инстанцируемый PRD живет ниже как embedded contract и копируется без wrapper frontmatter и history.
+This file describes the wrapper template. The instantiated PRD lives below as an embedded contract and is copied without wrapper frontmatter and history.
 
-## Wrapper Notes
+## Wrapper notes
 
-PRD в этом шаблоне intentionally lean. Он фиксирует продуктовую проблему, пользователей, goals, scope и success metrics, но не берет на себя implementation sequencing, architecture decisions или verify/evidence contracts downstream feature package.
+The PRD in this template is intentionally lean. It records product problem, users, goals, scope, and success metrics, but does not own implementation sequencing, architecture decisions, or verify/evidence contracts in downstream feature packages.
 
-PRD опирается на `domain/problem.md`, а не подменяет его. Не копируй в него весь project-wide контекст, если он уже стабильно описан upstream.
+The PRD builds on `domain/problem.md` and does not replace it. Do not copy the entire project-wide context if it is already described upstream.
 
-Используй PRD как upstream-слой между общим контекстом проекта и несколькими feature packages. Если инициатива локальна и не требует отдельного product-layer документа, PRD можно не создавать.
+Use a PRD as an upstream layer between general project context and several feature packages. If the initiative is local and does not need a separate product-layer document, you may omit a PRD.
 
-## Instantiated Frontmatter
+## Instantiated frontmatter
 
 ```yaml
 title: "PRD-XXX: Product Initiative Name"
 doc_kind: prd
 doc_function: canonical
-purpose: "Фиксирует продуктовую проблему, целевых пользователей, goals, scope и success metrics инициативы."
+purpose: "Records product problem, target users, goals, scope, and success metrics for the initiative."
 derived_from:
   - ../domain/problem.md
 status: draft
@@ -44,66 +44,66 @@ must_not_define:
   - feature_level_verify_contract
 ```
 
-## Instantiated Body
+## Instantiated body
 
 ```markdown
 # PRD-XXX: Product Initiative Name
 
 ## Problem
 
-Какую пользовательскую или бизнес-проблему решает инициатива. Описывай язык проблемы, а не решение. Ссылайся на общий контекст из `../domain/problem.md` и фиксируй только delta этой инициативы.
+User or business problem the initiative solves. Use problem language, not solution language. Reference general context from `../domain/problem.md` and record only this initiative's delta.
 
-## Users And Jobs
+## Users and jobs
 
-Кто является основным пользователем и какую работу он пытается выполнить.
+Who the primary user is and what job they are trying to do.
 
-| User / Segment | Job To Be Done | Current Pain |
+| User / segment | Job to be done | Current pain |
 | --- | --- | --- |
-| `primary-user` | Что хочет сделать | Что мешает сегодня |
+| `primary-user` | What they want to achieve | What blocks them today |
 
 ## Goals
 
-- `G-01` Какой продуктовый outcome обязателен.
-- `G-02` Какой дополнительный outcome желателен.
+- `G-01` Required product outcome.
+- `G-02` Optional additional outcome.
 
-## Non-Goals
+## Non-goals
 
-- `NG-01` Что сознательно не входит в инициативу.
-- `NG-02` Что нельзя молча додумывать на уровне реализации.
+- `NG-01` What is explicitly out of initiative scope.
+- `NG-02` What must not be silently assumed at implementation level.
 
-## Product Scope
+## Product scope
 
-Опиши scope на уровне capability, а не change set.
+Describe scope at capability level, not as a change set.
 
-### In Scope
+### In scope
 
-- Что должно стать возможным для пользователя или системы.
+- What must become possible for the user or system.
 
-### Out Of Scope
+### Out of scope
 
-- Что остается за границами инициативы.
+- What stays outside the initiative.
 
-## UX / Business Rules
+## UX / business rules
 
-- `BR-01` Важное правило продукта или операции.
-- `BR-02` Ограничение, которое должна уважать любая downstream feature.
+- `BR-01` Important product or operations rule.
+- `BR-02` Constraint every downstream feature must respect.
 
-## Success Metrics
+## Success metrics
 
 | Metric ID | Metric | Baseline | Target | Measurement method |
 | --- | --- | --- | --- | --- |
-| `MET-01` | Что измеряем | От чего стартуем | Что считаем успехом | Как проверяем |
+| `MET-01` | What we measure | Starting point | What counts as success | How we verify |
 
-## Risks And Open Questions
+## Risks and open questions
 
-- `RISK-01` Что может сорвать инициативу на уровне продукта.
-- `OQ-01` Какая неизвестность еще не снята.
+- `RISK-01` What could derail the initiative at product level.
+- `OQ-01` What is still unknown.
 
-## Downstream Features
+## Downstream features
 
-Перечисли ожидаемые feature packages, если они уже понятны.
+List expected feature packages if already known.
 
 | Feature | Why it exists | Status |
 | --- | --- | --- |
-| `FT-XXX` | Какой slice реализует | planned / draft / active |
+| `FT-XXX` | Which slice it implements | planned / draft / active |
 ```

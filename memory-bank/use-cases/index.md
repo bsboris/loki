@@ -2,7 +2,7 @@
 title: Use Cases Index
 doc_kind: use_case
 doc_function: index
-purpose: Навигация по instantiated use cases проекта. Читать, чтобы найти канонический сценарий продукта или зарегистрировать новый.
+purpose: Navigation for instantiated project use cases. Read to find a canonical product scenario or register a new one.
 derived_from:
   - ../dna/governance.md
   - ../flows/templates/use-case/UC-XXX.md
@@ -12,34 +12,33 @@ audience: humans_and_agents
 
 # Use Cases Index
 
-Каталог `memory-bank/use-cases/` хранит канонические пользовательские и операционные сценарии проекта.
+The `memory-bank/use-cases/` directory holds canonical user and operational scenarios for the project.
 
-Use case нужен для сценария, который живет на уровне продукта, повторяется во времени и может быть upstream для нескольких feature packages. Это не замена `SC-*` внутри `feature.md`: `SC-*` описывают acceptance сценарии delivery-единицы, а `UC-*` описывают устойчивое поведение системы на уровне проекта.
+Use a use case for behavior that lives at product level, repeats over time, and may be upstream for several feature packages. It does not replace `SC-*` inside `feature.md`: `SC-*` are acceptance scenarios for a delivery unit; `UC-*` describe durable system behavior at project level.
 
-## Когда Заводить Use Case
+## When to add a use case
 
-- появляется новый стабильный пользовательский или операционный сценарий;
-- несколько features реализуют или меняют один и тот же flow;
-- нужен канонический owner для trigger, preconditions, main flow и postconditions.
+- a new stable user or operational scenario appears;
+- several features implement or change the same flow;
+- you need a canonical owner for trigger, preconditions, main flow, and postconditions.
 
-## Когда Use Case Не Нужен
+## When a use case is not needed
 
-- сценарий одноразовый и живет только внутри одной feature;
-- это implementation detail, а не продуктовый или операционный flow;
-- его достаточно описать через `SC-*` в `feature.md`.
+- the scenario is one-off and lives only inside one feature;
+- it is an implementation detail, not a product or operations flow;
+- `SC-*` in `feature.md` is enough.
 
-## Реестр
+## Registry
 
 | UC ID | Title | Status | Primary actor | Upstream PRD | Implemented by | Last updated |
 | --- | --- | --- | --- | --- | --- | --- |
-| `UC-XXX` | Название сценария | `draft` / `active` / `archived` | Кто запускает flow | `PRD-XXX` / `none` | `FT-XXX` | YYYY-MM-DD |
 
 ## Naming
 
-- Формат файла: `UC-XXX-short-name.md`
-- Вместо `XXX` используй стабильный проектный идентификатор
-- Один use case может быть upstream для нескольких feature packages
+- File format: `UC-XXX-short-name.md`
+- Replace `XXX` with a stable project identifier.
+- One use case may be upstream for several feature packages.
 
 ## Template
 
-- Используй шаблон [`../flows/templates/use-case/UC-XXX.md`](../flows/templates/use-case/UC-XXX.md)
+- Use [`../flows/templates/use-case/UC-XXX.md`](../flows/templates/use-case/UC-XXX.md)

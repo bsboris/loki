@@ -2,17 +2,17 @@
 title: Operations Index
 doc_kind: engineering
 doc_function: index
-purpose: Навигация по операционной документации шаблона. Читать при адаптации dev/prod workflow, релизов, конфигурации и runbooks под проект.
+purpose: Navigation for operations template documentation. Read when adapting dev/prod workflow, releases, configuration, and runbooks to the project.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Operations Index
+# Operations index
 
-- [Development Environment](development.md) — локальная разработка, запуск приложения, тестов и вспомогательных сервисов.
-- [Stages And Non-Local Environments](stages.md) — доступ к runtime-окружениям, логи, smoke-checks и права доступа.
-- [Release And Deployment](release.md) — релизный процесс, checklist и release test plan.
-- [Configuration](config.md) — ownership-модель конфигурации, naming conventions и env contract.
-- [Runbooks](runbooks/index.md) — шаблон для operational runbooks и инцидентных инструкций.
+- [Development environment](development.md) — local development, running the app, tests, and supporting services.
+- [Stages and non-local environments](stages.md) — access to runtime environments, logs, smoke checks, and access rights.
+- [Release and deployment](release.md) — release process, checklists, and release test plan.
+- [Configuration](config.md) — configuration ownership model, naming conventions, and env contract.
+- [Runbooks](runbooks/index.md) — structure for operational runbooks and incident instructions.

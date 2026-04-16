@@ -2,7 +2,7 @@
 title: Project Problem Statement
 doc_kind: domain
 doc_function: canonical
-purpose: Каноничное описание продукта, проблемного пространства и целевых outcomes. Читать перед feature-спеками, чтобы не повторять общий контекст в каждой delivery-единице.
+purpose: Canonical description of the product, problem space, and target outcomes. Read before feature specs so shared context is not repeated in every delivery unit.
 derived_from:
   - ../dna/governance.md
 status: active
@@ -13,49 +13,44 @@ canonical_for:
   - top_level_outcomes
 ---
 
-# Project Problem Statement
+# Project problem statement
 
-Этот документ фиксирует общий продуктовый контекст проекта. Feature-документы должны ссылаться на него, а не переписывать один и тот же background каждый раз.
+This document captures shared product context for the project. Feature documents should link here instead of repeating the same background.
 
-PRD, если он нужен, не заменяет этот документ, а уточняет отдельную инициативу относительно уже зафиксированного project-wide контекста.
+If a PRD is needed, it does not replace this document; it refines a specific initiative against the project-wide context already recorded here.
 
-## Boundary With PRD
+## Boundary with PRD
 
-- `domain/problem.md` — общий для всего проекта контекст: продукт, ключевые workflows, top-level outcomes и устойчивые ограничения.
-- `prd/PRD-XXX-short-name.md` — инициативный слой: какая именно продуктовая проблема берется в работу сейчас, для каких пользователей и с каким scope.
-- Если новый документ просто повторяет общий фон проекта и не вводит initiative-specific scope, PRD создавать не нужно.
+- `domain/problem.md` — project-wide context: product, core workflows, top-level outcomes, and durable constraints.
+- `prd/PRD-XXX-short-name.md` — initiative layer: which product problem is in scope now, for which users, and with what scope.
+- If a new document would only repeat general project background without initiative-specific scope, do not create a PRD.
 
-## Product Context
+## Product context
 
-Опиши проект в 2-4 коротких абзацах:
+Describe the project in 2–4 short paragraphs:
 
-- кто основные пользователи;
-- какую задачу система помогает решать;
-- почему существующее решение недостаточно;
-- какие границы у продукта или платформы.
+- who the primary users are;
+- what job the system helps with;
+- why the current approach is insufficient;
+- product or platform boundaries.
 
-Пример:
+## Core workflows
 
-> Команда поддерживает внутреннюю SaaS-платформу для операционной автоматизации. Пользователи ожидают предсказуемые workflow, прозрачные статусы и быстрый доступ к критичным действиям. Любая новая feature должна либо сокращать операционную нагрузку, либо уменьшать риск ошибок, либо ускорять путь пользователя к целевому результату.
-
-## Core Workflows
-
-- `WF-01` Ключевой пользовательский поток номер один.
-- `WF-02` Ключевой пользовательский поток номер два.
-- `WF-03` Внутренний или операционный поток, который важно не сломать.
+- `WF-01` Primary user workflow (populate).
+- `WF-02` Secondary user workflow (populate).
+- `WF-03` Internal or operational workflow that must not break (populate).
 
 ## Outcomes
 
 | Metric ID | Metric | Baseline | Target | Measurement method |
 | --- | --- | --- | --- | --- |
-| `MET-01` | Что считаем успехом на уровне продукта | Текущее состояние | Желаемый уровень | Как измеряем |
 
 ## Constraints
 
-- `PCON-01` Ограничение домена, которое влияет почти на все downstream-фичи.
-- `PCON-02` Ограничение интеграций, compliance или производительности.
+- `PCON-01` Domain constraint that affects most downstream features (populate).
+- `PCON-02` Integration, compliance, or performance constraint (populate).
 
-## Source Documents
+## Source documents
 
-- Добавь сюда ссылки на PRD, roadmap, customer research или другие upstream-артефакты, если они существуют.
-- Если upstream-источников пока нет, так и напиши, не выдумывай их.
+- Add links to PRDs, roadmap, customer research, or other upstream artifacts when they exist.
+- If none exist yet, state that explicitly.

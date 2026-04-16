@@ -2,38 +2,38 @@
 title: Git Workflow
 doc_kind: engineering
 doc_function: convention
-purpose: Шаблон git workflow документа. После копирования зафиксируй реальные branch names, commit rules и PR expectations проекта.
+purpose: Git workflow template. Populate with real branch names, commit rules, and PR expectations for the project.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Git Workflow
+# Git workflow
 
-## Default Branch
+## Default branch
 
-Явно укажи branch, который считается основным: например `main`, `master` или release branch.
+State which branch is primary (for example `main`, `master`, or a release branch).
 
 ## Commits
 
-- Present-tense, concise (`fix: normalize cache key`)
-- Если проект требует issue refs в commit message, зафиксируй это явно
-- Если auto-close keywords допустимы, перечисли их
-- Если squash merge обязателен или запрещен, укажи это здесь
+- Present tense, concise (`fix: normalize cache key`)
+- If the project requires issue references in commit messages, state it explicitly
+- If auto-close keywords are allowed, list them
+- If squash merge is required or forbidden, state it here
 
-## Pull Requests
+## Pull requests
 
-- Перед PR должны быть зелёными canonical local checks проекта
-- PR title должен быть коротким и предметным
-- В body полезно фиксировать: что изменено, как проверено, какие риски или manual steps остаются
+- Canonical local checks must be green before opening a PR
+- PR title should be short and specific
+- PR body should record what changed, how it was verified, and remaining risks or manual steps
 
 ## Worktrees
 
-Если проект использует worktrees, зафиксируй:
+If the project uses worktrees, document:
 
-- где они создаются;
-- требуется ли bootstrap script после `git worktree add`;
-- какие каталоги считаются запрещенными для временной работы.
+- where they are created;
+- whether a bootstrap script is required after `git worktree add`;
+- which directories are off limits for scratch work.
 
-Если worktrees не используются, этот раздел можно удалить при адаптации.
+If worktrees are not used, remove this section when adapting.

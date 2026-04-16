@@ -2,79 +2,54 @@
 title: Architecture Patterns
 doc_kind: domain
 doc_function: canonical
-purpose: Каноничное место для архитектурных границ проекта. Читать при изменениях, затрагивающих модули, фоновые процессы, интеграции или конфигурацию.
+purpose: Canonical place for architectural boundaries. Read when changes touch modules, background processes, integrations, or configuration.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Architecture Patterns
+# Architecture patterns
 
-Этот документ задает не конкретную реализацию, а ожидаемые архитектурные правила проекта. Подставь сюда реальные bounded contexts, integration boundaries и технические ограничения downstream-системы.
+This document defines expected architectural rules for the project, not a specific implementation. Record real bounded contexts, integration boundaries, and technical constraints when populated.
 
-## Module Boundaries
-
-Зафиксируй здесь главные изолированные области системы.
-
-Пример:
+## Module boundaries
 
 | Context | Owns | Must not depend on directly |
 | --- | --- | --- |
-| `customer-facing` | пользовательский путь, публичные API | внутренние админские детали |
-| `operations` | backoffice, ручные действия, moderation | приватные внутренности billing/storage |
-| `platform` | shared services, auth, delivery infrastructure | product-specific UI assumptions |
 
-Минимальные правила:
+Minimum rules when documenting:
 
-- модуль владеет своим state и публичными контрактами;
-- межмодульные зависимости проходят через явно названный API, event или adapter;
-- UI, jobs и интеграции не должны читать чужие внутренние детали в обход owner-модуля.
+- a module owns its state and public contracts;
+- cross-module dependencies go through an explicitly named API, event, or adapter;
+- UI, jobs, and integrations must not read other modules’ internals without going through the owner.
 
-## Concurrency And Critical Sections
+## Concurrency and critical sections
 
-Если проект содержит конкурентные операции, зафиксируй canonical pattern для критических секций и фона.
+If the project has concurrent work, record the canonical pattern for critical sections and background processing:
 
-Пример:
+- allowed locking pattern;
+- forbidden patterns and why;
+- what counts as idempotent recovery;
+- transaction boundaries relative to external APIs.
 
-```ruby
-ResourceLock.with_lock(resource_key) do
-  # критическая секция
-end
-```
+If the project uses a job queue, add canonical rules for concurrency control.
 
-Укажи явно:
+## Failure handling and error tracking
 
-- какой locking pattern разрешен;
-- какой pattern запрещен и почему;
-- что считается idempotent recovery;
-- где проходят границы транзакции относительно внешних API.
+Record a single approach for:
 
-Если проект использует job queue, добавь canonical правило для concurrency control.
+- where errors propagate vs map to a domain verdict;
+- how contextual metadata is added for an error tracker;
+- where retry policy is owned by infrastructure and must not be duplicated with local `rescue`.
 
-## Failure Handling And Error Tracking
+## Configuration ownership
 
-Зафиксируй единый подход:
+Document the configuration ownership model, not every environment variable:
 
-- где ошибки поднимаются наверх, а где переводятся в domain verdict;
-- как добавляется contextual metadata для error tracker;
-- где retry policy уже реализована инфраструктурно и ее нельзя дублировать локальным `rescue`.
+- where the canonical configuration schema lives;
+- which files or classes own the layer;
+- where defaults are set;
+- who maintains the env contract.
 
-Пример вопроса, на который должен отвечать этот раздел:
-
-> Нужно ли вручную логировать ошибку в job, если базовый job class уже делает retries и нотификацию?
-
-## Configuration Ownership
-
-Документируй не все переменные окружения подряд, а ownership-модель конфигурации:
-
-- где живет canonical schema конфигурации;
-- какие файлы или классы считаются owner-слоем;
-- где задаются defaults;
-- кто отвечает за документацию env contract.
-
-Пример:
-
-1. Обновить schema-owner конфигурации.
-2. Обновить default values или environment overlays.
-3. Обновить [`../ops/config.md`](../ops/config.md).
+When configuration changes, update schema owner, defaults or overlays, and [`../ops/config.md`](../ops/config.md).

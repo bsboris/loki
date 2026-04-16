@@ -2,42 +2,42 @@
 title: Template Documentation Index
 doc_kind: project
 doc_function: index
-purpose: Корневая навигация по шаблонному memory-bank. Читать сначала, чтобы понять структуру и точки адаптации под конкретный проект.
+purpose: Root navigation for the memory-bank template. Read first to understand structure and adaptation points for a concrete project.
 status: active
 audience: humans_and_agents
 ---
 
-# Documentation Index
+# Documentation index
 
-Каталог `memory-bank/` содержит переносимый шаблон проектной документации для разработки ПО. После копирования в downstream-репозиторий адаптируй `domain/`, `engineering/` и `ops/` под реальный стек, процессы и ограничения проекта.
+The `memory-bank/` directory holds a portable software documentation template. After copying into a downstream repository, adapt `domain/`, `engineering/`, and `ops/` to the real stack, processes, and constraints.
 
-Конкретные instantiated примеры вынесены в корневой каталог `examples/`.
+Concrete instantiated examples live in the repository root `examples/` directory (if present).
 
-## Аннотированный индекс
+## Annotated index
 
 - [`domain/index.md`](domain/index.md)
-  Читать, когда нужно: зафиксировать product context, архитектурные границы и UI-соглашения проекта.
+  Read when: capturing product context, architectural boundaries, and UI conventions.
 
 - [`prd/index.md`](prd/index.md)
-  Читать, когда нужно: описать продуктовую инициативу между общим problem statement и downstream feature packages.
+  Read when: describing a product initiative between the shared problem statement and downstream feature packages.
 
 - [`use-cases/index.md`](use-cases/index.md)
-  Читать, когда нужно: зарегистрировать устойчивый пользовательский или операционный сценарий проекта.
+  Read when: registering a durable user or operational scenario for the project.
 
 - [`ops/index.md`](ops/index.md)
-  Читать, когда нужно: описать локальную разработку, окружения, релизы, конфигурацию и runbooks.
+  Read when: describing local development, environments, releases, configuration, and runbooks.
 
 - [`engineering/index.md`](engineering/index.md)
-  Читать, когда нужно: задать testing policy, coding style, git workflow и границы автономии агента.
+  Read when: defining testing policy, coding style, git workflow, and agent autonomy boundaries.
 
 - [`dna/index.md`](dna/index.md)
-  Читать, когда нужно: проверить SSoT rules, frontmatter contract и governance-правила документации.
+  Read when: checking SSoT rules, frontmatter contract, and documentation governance.
 
 - [`flows/index.md`](flows/index.md)
-  Читать, когда нужно: создать feature package, провести фичу по lifecycle gates или использовать шаблон.
+  Read when: creating a feature package, moving a feature through lifecycle gates, or using a template.
 
 - [`adr/index.md`](adr/index.md)
-  Читать, когда нужно: найти или завести Architecture Decision Record.
+  Read when: finding or creating an Architecture Decision Record.
 
 - [`features/index.md`](features/index.md)
-  Читать, когда нужно: понять, где живут instantiated feature packages.
+  Read when: locating instantiated feature packages.

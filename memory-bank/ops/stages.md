@@ -2,7 +2,7 @@
 title: Stages And Non-Local Environments
 doc_kind: engineering
 doc_function: canonical
-purpose: Шаблон документа по доступу к production-like окружениям. Читать при адаптации прав доступа, smoke-checks, логов и runtime-операций под проект.
+purpose: Placeholder for access to production-like environments. Populate when staging or production exists.
 derived_from:
   - ../dna/governance.md
 status: active
@@ -11,80 +11,37 @@ audience: humans_and_agents
 
 # Stages And Non-Local Environments
 
-Опиши здесь не только production, но и stage, beta, preview, sandbox или другие non-local окружения, если они существуют.
+Document non-local environments here (production, staging, preview, sandbox, and so on) when they exist.
 
-## Environment Inventory
+## Environment inventory
 
 | Environment | Purpose | Access path | Notes |
 | --- | --- | --- | --- |
-| `production` | Реальные пользователи и live traffic | Команда, jump host или UI | Самые строгие ограничения |
-| `staging` | Предрелизная проверка | Команда, URL или namespace | Может использоваться для smoke |
-| `sandbox` | Проверка интеграций и unsafe экспериментов | Optional | Если есть |
 
-## Common Operations
+## Common operations
 
-Здесь должны быть только реально разрешенные операции и их canonical entrypoints.
+List only real, allowed operations and their canonical entry points. For each operation, record who may run it, approval gates, and read-only vs mutating access boundaries.
 
-```bash
-# Примеры:
-make console ENV=staging
-make logs ENV=production
-kubectl -n staging logs deploy/app
-ssh <bastion>
-psql "$DATABASE_URL"
-```
+## Credentials and access
 
-Для каждой операции зафиксируй:
+Record where secrets live, how access is granted, which env vars or secret stores are used, and what counts as bypassing access procedure. Never store real production credentials in the repository.
 
-- кто имеет право ее запускать;
-- какие approval gates нужны;
-- где проходит граница read-only vs mutating access.
+## Version and health checks
 
-## Credentials And Access
+Document safe ways to check deployed version, health endpoint, smoke URL, and basic operational dashboards.
 
-Опиши:
+## Logs and observability
 
-- где хранятся секреты;
-- как выдаются права;
-- какие env vars или secret stores используются;
-- что считается недопустимым обходом процедуры доступа.
+Document canonical paths to application logs, metrics, traces, error tracking, and dashboards for primary services.
 
-Никогда не храни реальные production credentials в шаблоне.
+## Test data and smoke targets
 
-## Version And Health Checks
+If staging or demo tenants, seed users, or test accounts exist, list them with usage rules.
 
-Задокументируй безопасные способы проверить:
+## Adoption checklist
 
-- текущую deployed version;
-- health endpoint;
-- smoke URL;
-- базовые operational dashboards.
-
-Пример:
-
-```bash
-curl -fsS https://<stage-host>/health
-kubectl -n <namespace> get deploy <app>
-```
-
-## Logs And Observability
-
-Опиши canonical пути к:
-
-- application logs;
-- metrics;
-- traces;
-- error tracker;
-- dashboards для основных сервисов.
-
-## Test Data And Smoke Targets
-
-Если проект использует staging/demo tenants, seed users или test accounts, перечисли их здесь вместе с правилами использования.
-
-## Adoption Checklist
-
-- [ ] перечислены все non-local environments
-- [ ] указаны canonical access paths
-- [ ] описаны safe health/version checks
-- [ ] перечислены observability entrypoints
-- [ ] удалены фальшивые или нерелевантные примеры
+- [ ] all non-local environments listed
+- [ ] canonical access paths recorded
+- [ ] safe health/version checks described
+- [ ] observability entrypoints listed
+- [ ] fake or irrelevant examples removed

@@ -2,19 +2,19 @@
 title: Engineering Documentation Index
 doc_kind: engineering
 doc_function: index
-purpose: Навигация по engineering-level документации шаблона.
+purpose: Navigation for engineering-level template documentation.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Engineering Documentation Index
+# Engineering documentation index
 
-Каталог `memory-bank/engineering/` содержит инженерные правила, которые обычно нужно адаптировать под конкретный репозиторий после копирования шаблона.
+The `memory-bank/engineering/` directory holds engineering rules that are usually adapted per repository after copying the template.
 
-- [Testing Policy](testing-policy.md) — правила тестирования, обязательные automated tests, sufficient coverage. Отвечает на вопрос: когда feature обязана иметь test cases и когда допустим manual-only verify.
-- [Autonomy Boundaries](autonomy-boundaries.md) — границы автономии агента: автопилот, супервизия, эскалация. Отвечает на вопрос: что агент может делать сам, а где должен остановиться и спросить.
-- [Coding Style](coding-style.md) — конвенции оформления кода, tooling и правила локальной сложности.
-- [Git Workflow](git-workflow.md) — git-конвенции: commits, ветки, PR и optional worktrees.
-- [ADR](../adr/index.md) — instantiated Architecture Decision Records проекта.
+- [Testing policy](testing-policy.md) — testing rules, required automated tests, sufficient coverage. Answers: when a feature must have test cases and when manual-only verify is allowed.
+- [Autonomy boundaries](autonomy-boundaries.md) — agent autonomy: autopilot, supervision, escalation. Answers: what the agent may do alone and where it must stop and ask.
+- [Coding style](coding-style.md) — code conventions, tooling, and local complexity rules.
+- [Git workflow](git-workflow.md) — git conventions: commits, branches, PRs, and optional worktrees.
+- [ADR](../adr/index.md) — instantiated Architecture Decision Records for the project.

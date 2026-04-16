@@ -2,7 +2,7 @@
 title: Product Requirements Documents Index
 doc_kind: prd
 doc_function: index
-purpose: Навигация по instantiated PRD проекта. Читать, чтобы найти существующий Product Requirements Document или завести новый по шаблону.
+purpose: Navigation for instantiated project PRDs. Read to find an existing Product Requirements Document or create a new one from the template.
 derived_from:
   - ../dna/governance.md
   - ../flows/templates/prd/PRD-XXX.md
@@ -12,33 +12,33 @@ audience: humans_and_agents
 
 # Product Requirements Documents Index
 
-Каталог `memory-bank/prd/` хранит instantiated PRD проекта.
+The `memory-bank/prd/` directory holds instantiated project PRDs.
 
-PRD нужен, когда задача живет на уровне продуктовой инициативы или capability, а не одного vertical slice. Обычно PRD стоит между общим контекстом из [`../domain/problem.md`](../domain/problem.md) и downstream feature packages из [`../features/index.md`](../features/index.md).
+Use a PRD when work lives at product initiative or capability level rather than a single vertical slice. A PRD usually sits between general context in [`../domain/problem.md`](../domain/problem.md) and downstream feature packages in [`../features/index.md`](../features/index.md).
 
-## Граница С `domain/problem.md`
+## Boundary with `domain/problem.md`
 
-- [`../domain/problem.md`](../domain/problem.md) остается project-wide документом и не превращается в PRD.
-- PRD наследует этот контекст через `derived_from`, но фиксирует только initiative-specific проблему, users, goals и scope.
-- Если документ нужен только для того, чтобы повторить общий background проекта, оставайся на уровне `domain/problem.md`.
+- [`../domain/problem.md`](../domain/problem.md) stays the project-wide document and is not turned into a PRD.
+- A PRD inherits that context via `derived_from` but records only initiative-specific problem, users, goals, and scope.
+- If a document would only repeat general project background, stay at `domain/problem.md`.
 
-## Когда Заводить PRD
+## When to add a PRD
 
-- инициатива распадается на несколько feature packages;
-- нужно зафиксировать users, goals, product scope и success metrics до проектирования реализации;
-- есть риск смешать продуктовые требования с architecture/design detail.
+- the initiative splits into several feature packages;
+- users, goals, product scope, and success metrics must be fixed before implementation design;
+- there is a risk of mixing product requirements with architecture or design detail.
 
-## Когда PRD Не Нужен
+## When a PRD is not needed
 
-- задача локальна и полностью помещается в один `feature.md`;
-- общий продуктовый контекст уже покрыт [`../domain/problem.md`](../domain/problem.md), а feature не требует отдельного product-layer документа.
+- the task is local and fits entirely in one `feature.md`;
+- general product context is already covered by [`../domain/problem.md`](../domain/problem.md) and the feature does not need a separate product-layer document.
 
 ## Naming
 
-- Формат файла: `PRD-XXX-short-name.md`
-- Вместо `XXX` используй идентификатор, принятый в проекте: initiative id, epic id или другой стабильный ключ
-- Один PRD может быть upstream для нескольких feature packages
+- File format: `PRD-XXX-short-name.md`
+- Replace `XXX` with the project’s stable identifier (initiative id, epic id, or another stable key).
+- One PRD may be upstream for several feature packages.
 
 ## Template
 
-- Используй шаблон [`../flows/templates/prd/PRD-XXX.md`](../flows/templates/prd/PRD-XXX.md)
+- Use [`../flows/templates/prd/PRD-XXX.md`](../flows/templates/prd/PRD-XXX.md)

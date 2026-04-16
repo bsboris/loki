@@ -2,44 +2,32 @@
 title: Coding Style
 doc_kind: engineering
 doc_function: convention
-purpose: Шаблон coding style документа. После копирования зафиксируй здесь реальные project-specific соглашения по коду и tooling.
+purpose: Coding style template. Populate with real project-specific conventions and tooling.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Coding Style
+# Coding style
 
-## General Rules
+## General rules
 
-- Имена файлов, модулей и каталогов должны соответствовать правилам основного языка проекта.
-- Комментарии добавляются только там, где без них тяжело понять why или boundary condition.
-- Предпочитай минимальную локальную сложность вместо преждевременных абстракций.
-- Generated code, vendored code и миграции подчиняются отдельным правилам, если проект их вводит.
+- File, module, and directory names follow the primary language’s conventions.
+- Add comments only where `why` or boundary conditions are hard to see without them.
+- Prefer minimal local complexity over premature abstraction.
+- Generated code, vendored code, and migrations follow separate rules if the project defines them.
 
-## Tooling Contract
+## Tooling contract
 
-Зафиксируй здесь canonical formatting/linting toolchain.
+Record the canonical formatting and linting toolchain (formatters, liners, optional pre-commit hooks).
 
-Пример:
+## Language-specific addendum
 
-- formatter: `prettier`, `ruff format`, `rubocop -A`, `gofmt`
-- linter: `eslint`, `ruff`, `rubocop`, `golangci-lint`
-- pre-commit hooks: optional, но если они canonical, это должно быть явно сказано
+Add real rules per language or area when adapting (for example backend, frontend, SQL/migrations).
 
-## Language-Specific Addendum
+## Change discipline
 
-После адаптации добавь реальные правила для языков проекта.
-
-Пример структуры:
-
-- `Backend`: naming, error handling, module layout, typing policy
-- `Frontend`: component boundaries, state management, styling rules
-- `SQL / migrations`: naming, rollback expectations, data migration policy
-
-## Change Discipline
-
-- Не переписывай несвязанный код только ради единообразия, если задача этого не требует.
-- При touch-up изменениях следуй существующему локальному стилю файла, если нет явного конфликта с canonical rule.
-- Если проект находится в переходе между двумя стеками или стилями, зафиксируй migration rule явно, а не оставляй ее на догадки.
+- Do not rewrite unrelated code for consistency alone unless the task requires it.
+- For small touch-ups, follow the file’s existing local style unless it conflicts with a canonical rule.
+- If the project is migrating between stacks or styles, record the migration rule explicitly.

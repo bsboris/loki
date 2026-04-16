@@ -2,7 +2,7 @@
 title: FT-XXX Feature Template - Implementation Plan
 doc_kind: feature
 doc_function: template
-purpose: Governed wrapper-шаблон плана имплементации. Фиксирует, как инстанцировать execution-документ без переопределения scope, архитектуры или критериев приемки и без смешения wrapper с целевым `implementation-plan.md`.
+purpose: Governed wrapper template for an implementation plan. Defines how to instantiate an execution document without redefining scope, architecture, or acceptance criteria, and without mixing wrapper metadata with target `implementation-plan.md`.
 derived_from:
   - ../../feature-flow.md
   - ../../../dna/frontmatter.md
@@ -13,34 +13,34 @@ template_for: feature
 template_target_path: ../../../features/FT-XXX/implementation-plan.md
 ---
 
-# План имплементации
+# Implementation plan
 
-Этот файл описывает wrapper-template. Инстанцируемый `implementation-plan.md` живет ниже как embedded contract и копируется без wrapper frontmatter и history.
+This file describes the wrapper template. The instantiated `implementation-plan.md` lives below as an embedded contract and is copied without wrapper frontmatter and history.
 
-## Wrapper Notes
+## Wrapper notes
 
-Требования, дизайн, blocker-state и критерии приемки задаются в sibling `feature.md`. Этот документ определяет только sequencing работ и checkpoints выполнения.
-В создаваемом feature package sibling `feature.md` должен быть инстанцирован из canonical feature template в `memory-bank/flows/templates/feature/`.
+Requirements, design, blocker state, and acceptance criteria live in sibling `feature.md`. This document only defines work sequencing and execution checkpoints.
+In the feature package being created, sibling `feature.md` must be instantiated from the canonical feature template in `memory-bank/flows/templates/feature/`.
 
-Создавай этот документ только после того, как sibling `feature.md` переведен в `status: active`. Пока план только формируется, сам `implementation-plan.md` может оставаться в `status: draft`; до перехода feature в `delivery_status: in_progress` план должен стать `status: active`.
+Create this document only after sibling `feature.md` is moved to `status: active`. While the plan is still being shaped, `implementation-plan.md` may stay `status: draft`; before the feature moves to `delivery_status: in_progress`, the plan must become `status: active`.
 
-Когда feature переходит в `delivery_status: done` или `delivery_status: cancelled`, `implementation-plan.md` архивируется, если он больше не используется как рабочий execution-документ.
+When the feature moves to `delivery_status: done` or `delivery_status: cancelled`, archive `implementation-plan.md` if it is no longer used as a working execution document.
 
-Документ должен быть исполнимым без дополнительного толкования. Если шаг нельзя связать с canonical IDs, артефактом, проверкой или явной ручной процедурой, шаг описан недостаточно.
-План должен быть заземлен в текущем состоянии репозитория: сначала зафиксируй релевантные модули, локальные паттерны, открытые вопросы и execution environment, и только после этого расписывай sequencing изменений.
-План обязан явно зафиксировать, какие automated tests будут добавлены или обновлены по change surface, какие suites обязаны быть зелёными локально и в CI, а какие gaps временно остаются manual-only с justification и approval ref.
+The document must be executable without extra interpretation. If a step cannot be tied to canonical IDs, an artifact, a check, or an explicit manual procedure, the step is underspecified.
+The plan must be grounded in the current repository state: first record relevant modules, local patterns, open questions, and execution environment, then sequence changes.
+The plan must explicitly record which automated tests will be added or updated for the change surface, which suites must be green locally and in CI, and which gaps remain temporarily manual-only with justification and approval ref.
 
-Для ссылок внутри плана используй стабильные идентификаторы по taxonomy из [../../feature-flow.md#stable-identifiers](../../feature-flow.md#stable-identifiers).
+For links inside the plan, use stable identifiers from the taxonomy in [../../feature-flow.md#stable-identifiers](../../feature-flow.md#stable-identifiers).
 
-Если неизвестность меняет scope, архитектуру, acceptance criteria, blocker-state или evidence contract, она сначала поднимается upstream в sibling `feature.md` или ADR и только после этого фигурирует в плане.
+If an unknown changes scope, architecture, acceptance criteria, blocker state, or the evidence contract, raise it upstream in sibling `feature.md` or the ADR first, then reflect it in the plan.
 
-## Instantiated Frontmatter
+## Instantiated frontmatter
 
 ```yaml
 title: "FT-XXX: Implementation Plan"
 doc_kind: feature
 doc_function: derived
-purpose: "Execution-план реализации FT-XXX. Фиксирует discovery context, шаги, риски и test strategy без переопределения canonical feature-фактов."
+purpose: "Execution plan for FT-XXX. Records discovery context, steps, risks, and test strategy without redefining canonical feature facts."
 derived_from:
   - feature.md
 status: draft
@@ -52,113 +52,113 @@ must_not_define:
   - ft_xxx_blocker_state
 ```
 
-## Instantiated Body
+## Instantiated body
 
 ```markdown
-# План имплементации
+# Implementation plan
 
-## Цель текущего плана
+## Plan goal
 
-Какой delivery outcome должен дать этот план.
+Delivery outcome this plan should produce.
 
-## Current State / Reference Points
+## Current state / reference points
 
-Какие существующие файлы, модули, команды или документы агент обязан изучить до начала изменений. Этот раздел фиксирует grounding в текущем состоянии репозитория и локальные паттерны, которые нельзя игнорировать.
+Existing files, modules, commands, or documents the agent must study before changes. This section records grounding in the current repository state and local patterns that must not be ignored.
 
 | Path / module | Current role | Why relevant | Reuse / mirror |
 | --- | --- | --- | --- |
-| `path/to/module` | Что уже делает этот артефакт | Почему без него нельзя планировать корректно | Какой паттерн, helper, command или contract нужно повторить |
+| `path/to/module` | What this artifact already does | Why planning is wrong without it | Pattern, helper, command, or contract to repeat |
 
-## Test Strategy
+## Test strategy
 
-Какие test surfaces должны быть обновлены по мере реализации. Этот раздел фиксирует expected automated coverage, required local/CI gates и manual-only exceptions для change surface, не переопределяя canonical test cases из `feature.md`.
+Test surfaces that should be updated during implementation. This section records expected automated coverage, required local/CI gates, and manual-only exceptions for the change surface, without redefining canonical test cases from `feature.md`.
 
 | Test surface | Canonical refs | Existing coverage | Planned automated coverage | Required local suites / commands | Required CI suites / jobs | Manual-only gap / justification | Manual-only approval ref |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `path/or/behavior` | `REQ-01`, `SC-01`, `NEG-01`, `CHK-01` | Что покрыто сейчас | Какой suite, test type или deterministic check обязаны добавить или обновить | Какие команды или suites обязаны быть зелёными локально | Какие jobs или suites обязаны быть зелёными в CI | Что пока остается manual-only и почему | `AG-01` / review link / `none` |
+| `path/or/behavior` | `REQ-01`, `SC-01`, `NEG-01`, `CHK-01` | What is covered now | Suite, test type, or deterministic check to add or update | Commands or suites that must be green locally | Jobs or suites that must be green in CI | What stays manual-only and why | `AG-01` / review link / `none` |
 
-## Open Questions / Ambiguities
+## Open questions / ambiguities
 
-Какие неизвестности ещё не сняты после discovery. Если вопрос меняет upstream semantics, его нельзя молча разрешать в шаге исполнения.
+Unknowns not yet resolved after discovery. If a question changes upstream semantics, it must not be silently resolved inside an execution step.
 
-| Open Question ID | Question | Why unresolved | Blocks | Default action / escalation owner |
+| Open question ID | Question | Why unresolved | Blocks | Default action / escalation owner |
 | --- | --- | --- | --- | --- |
-| `OQ-01` | Что именно неизвестно | Почему это ещё не доказано | `STEP-02` / `WS-1` / whole plan | Что делаем по умолчанию и кто принимает решение при эскалации |
+| `OQ-01` | What is unknown | Why it is not yet proven | `STEP-02` / `WS-1` / whole plan | Default action and who decides on escalation |
 
-## Environment Contract
+## Environment contract
 
-Какой execution environment считается допустимым для плана: setup, test commands, env vars, permissions, mocks, внешние зависимости и другие operational assumptions.
+Execution environment considered valid for the plan: setup, test commands, env vars, permissions, mocks, external dependencies, and other operational assumptions.
 
 | Area | Contract | Used by | Failure symptom |
 | --- | --- | --- | --- |
-| setup | Какая подготовка среды обязательна | `STEP-01`, `STEP-02` | По какому симптому понятно, что среда невалидна |
-| test | Какая команда или процедура считается эталонной для verify на этом этапе | `CHK-01` | Что считается недостоверным verify |
-| access / network / secrets | Какие доступы, домены, ключи или sandbox assumptions нужны | `STEP-03` | Когда работа должна остановиться и уйти на эскалацию |
+| setup | Required environment prep | `STEP-01`, `STEP-02` | Symptom of invalid environment |
+| test | Command or procedure treated as canonical for verify at this stage | `CHK-01` | When verify is unreliable |
+| access / network / secrets | Access, domains, keys, or sandbox assumptions | `STEP-03` | When work must stop and escalate |
 
 ## Preconditions
 
-Что должно быть готово до старта работ: данные, доступы, ADR, окружение, договоренности. Каждая строка ссылается на canonical ref и не пересказывает его смысл своими словами.
+What must be ready before work starts: data, access, ADR, environment, agreements. Each row references a canonical ref and does not paraphrase its meaning.
 
 | Precondition ID | Canonical ref | Required state | Used by steps | Blocks start |
 | --- | --- | --- | --- | --- |
-| `PRE-01` | `ASM-01` / `DEC-01` / `CON-01` / ADR path | Какой state upstream считается допустимым для старта | `STEP-01`, `STEP-02` | yes / no |
+| `PRE-01` | `ASM-01` / `DEC-01` / `CON-01` / ADR path | Upstream state acceptable to start | `STEP-01`, `STEP-02` | yes / no |
 
 ## Workstreams
 
-Разбей работу на независимые потоки с явным результатом каждого.
+Split work into independent streams with an explicit result each.
 
 | Workstream | Implements | Result | Owner | Dependencies |
 | --- | --- | --- | --- | --- |
-| `WS-1` | `REQ-01`, `CTR-01` | Что должно появиться | human / agent / either | Что блокирует старт или завершение |
+| `WS-1` | `REQ-01`, `CTR-01` | What must appear | human / agent / either | What blocks start or completion |
 
-## Approval Gates
+## Approval gates
 
-Какие действия нельзя выполнять без явного человеческого подтверждения. Используй этот раздел для рискованных, необратимых, дорогих или внешне-эффективных операций.
+Actions that must not run without explicit human confirmation. Use for risky, irreversible, costly, or externally visible operations.
 
-| Approval Gate ID | Trigger | Applies to | Why approval is required | Approver / evidence |
+| Approval gate ID | Trigger | Applies to | Why approval is required | Approver / evidence |
 | --- | --- | --- | --- | --- |
-| `AG-01` | Какой шаг или симптом запрашивает approval | `STEP-03` / `WS-2` | Почему нельзя продолжать автономно | Кто подтверждает и чем это фиксируется |
+| `AG-01` | Which step or symptom requests approval | `STEP-03` / `WS-2` | Why autonomous continuation is unsafe | Who confirms and how it is recorded |
 
-## Порядок работ
+## Work order
 
-Опиши выполнение как атомарные шаги. Каждый шаг должен быть достаточно маленьким, чтобы его можно было проверить и при необходимости откатить или остановить без расползания change surface.
+Describe execution as atomic steps. Each step must be small enough to verify and, if needed, roll back or stop without the change surface spreading.
 
 | Step ID | Actor | Implements | Goal | Touchpoints | Artifact | Verifies | Evidence IDs | Check command / procedure | Blocked by | Needs approval | Escalate if |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `STEP-01` | human / agent / either | `REQ-01`, `REQ-02`, `CTR-01` | Что делаем на этом шаге | Какие файлы, сервисы или данные трогаем | Что должно появиться после шага | `CHK-01` | `EVID-01` | Как подтверждаем завершение | `PRE-01`, `OQ-01` | `AG-01` / `none` | Когда нельзя продолжать без эскалации |
+| `STEP-01` | human / agent / either | `REQ-01`, `REQ-02`, `CTR-01` | What this step does | Files, services, or data touched | What must exist after the step | `CHK-01` | `EVID-01` | How completion is confirmed | `PRE-01`, `OQ-01` | `AG-01` / `none` | When to stop without escalation |
 
-## Parallelizable Work
+## Parallelizable work
 
-Какие шаги или workstreams можно выполнять параллельно без конфликта по change surface.
+Steps or workstreams that can run in parallel without change-surface conflict.
 
-- `PAR-01` Что может идти параллельно.
-- `PAR-02` Что нельзя распараллеливать из-за общего write-surface.
+- `PAR-01` What may run in parallel.
+- `PAR-02` What must not be parallelized due to shared write surface.
 
 ## Checkpoints
 
-Какие промежуточные точки должны быть пройдены до rollout или handoff.
+Intermediate points that must be passed before rollout or handoff.
 
 | Checkpoint ID | Refs | Condition | Evidence IDs |
 | --- | --- | --- | --- |
-| `CP-01` | `STEP-01`, `CHK-01` | Какой промежуточный state должен быть доказан | `EVID-01` |
+| `CP-01` | `STEP-01`, `CHK-01` | Intermediate state that must be proven | `EVID-01` |
 
-## Execution Risks
+## Execution risks
 
-Какие практические риски могут сорвать сроки или потребовать пересборки плана.
+Practical risks that can break schedule or force plan rebuild.
 
 | Risk ID | Risk | Impact | Mitigation | Trigger |
 | --- | --- | --- | --- | --- |
-| `ER-01` | Что может пойти не так | Что это ломает | Что делаем заранее | По какому сигналу активируется mitigation |
+| `ER-01` | What can go wrong | What it breaks | What we do upfront | Signal that activates mitigation |
 
-## Stop Conditions / Fallback
+## Stop conditions / fallback
 
-Когда план должен остановиться или откатиться в безопасное состояние.
+When the plan must stop or roll back to a safe state.
 
 | Stop ID | Related refs | Trigger | Immediate action | Safe fallback state |
 | --- | --- | --- | --- | --- |
-| `STOP-01` | `DEC-01`, `RJ-01` | По какому симптому останавливаемся | Что делаем сразу | До какого состояния откатываемся или замораживаем работу |
+| `STOP-01` | `DEC-01`, `RJ-01` | Symptom that triggers stop | What to do immediately | State to roll back to or freeze |
 
-## Готово для приемки
+## Ready for acceptance
 
-Какие условия должны выполниться, чтобы считать план исчерпанным и перейти к финальной приемке по секции `Verify` в sibling `feature.md`.
+Conditions that must hold to treat the plan as exhausted and move to final acceptance per the `Verify` section in sibling `feature.md`.
 ```

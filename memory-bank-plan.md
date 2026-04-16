@@ -44,36 +44,36 @@ Translate all template files to English. No Loki-specific content yet — just m
 
 ### `flows/` (keep structure, translate everything)
 
-- [ ] Translate `memory-bank/flows/index.md`
-- [ ] Translate `memory-bank/flows/workflows.md`
-- [ ] Translate `memory-bank/flows/feature-flow.md`
-- [ ] Translate `memory-bank/flows/templates/index.md`
-- [ ] Translate `memory-bank/flows/templates/feature/index.md`
-- [ ] Translate `memory-bank/flows/templates/feature/short.md`
-- [ ] Translate `memory-bank/flows/templates/feature/large.md`
-- [ ] Translate `memory-bank/flows/templates/feature/implementation-plan.md`
-- [ ] Translate `memory-bank/flows/templates/prd/PRD-XXX.md`
-- [ ] Translate `memory-bank/flows/templates/use-case/UC-XXX.md`
-- [ ] Translate `memory-bank/flows/templates/adr/ADR-XXX.md`
+- [x] Translate `memory-bank/flows/index.md`
+- [x] Translate `memory-bank/flows/workflows.md`
+- [x] Translate `memory-bank/flows/feature-flow.md`
+- [x] Translate `memory-bank/flows/templates/index.md`
+- [x] Translate `memory-bank/flows/templates/feature/index.md`
+- [x] Translate `memory-bank/flows/templates/feature/short.md`
+- [x] Translate `memory-bank/flows/templates/feature/large.md`
+- [x] Translate `memory-bank/flows/templates/feature/implementation-plan.md`
+- [x] Translate `memory-bank/flows/templates/prd/PRD-XXX.md`
+- [x] Translate `memory-bank/flows/templates/use-case/UC-XXX.md`
+- [x] Translate `memory-bank/flows/templates/adr/ADR-XXX.md`
 
 ### Deferred files — translate + strip dummy content
 
 For each file: translate to English, remove all template examples and dummy placeholder rows,
 leave only real structure. `dna/` files are translated only — dummy content may stay (see convention).
 
-- [ ] Translate `memory-bank/dna/index.md`
-- [ ] Translate `memory-bank/dna/governance.md`
-- [ ] Translate `memory-bank/dna/frontmatter.md`
-- [ ] Translate `memory-bank/dna/lifecycle.md`
-- [ ] Translate `memory-bank/dna/cross-references.md`
-- [ ] Translate + strip `memory-bank/domain/frontend.md`
-- [ ] Translate + strip `memory-bank/ops/stages.md`
-- [ ] Translate + strip `memory-bank/ops/release.md`
-- [ ] Translate + strip `memory-bank/ops/config.md`
-- [ ] Translate + strip `memory-bank/ops/runbooks/index.md`
-- [ ] Translate + strip `memory-bank/prd/index.md`
-- [ ] Translate + strip `memory-bank/features/index.md`
-- [ ] Translate + strip `memory-bank/use-cases/index.md`
+- [x] Translate `memory-bank/dna/index.md`
+- [x] Translate `memory-bank/dna/governance.md`
+- [x] Translate `memory-bank/dna/frontmatter.md`
+- [x] Translate `memory-bank/dna/lifecycle.md`
+- [x] Translate `memory-bank/dna/cross-references.md`
+- [x] Translate + strip `memory-bank/domain/frontend.md`
+- [x] Translate + strip `memory-bank/ops/stages.md`
+- [x] Translate + strip `memory-bank/ops/release.md`
+- [x] Translate + strip `memory-bank/ops/config.md`
+- [x] Translate + strip `memory-bank/ops/runbooks/index.md`
+- [x] Translate + strip `memory-bank/prd/index.md`
+- [x] Translate + strip `memory-bank/features/index.md`
+- [x] Translate + strip `memory-bank/use-cases/index.md`
 
 ---
 

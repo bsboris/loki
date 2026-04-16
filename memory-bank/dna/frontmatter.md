@@ -1,32 +1,32 @@
 ---
 doc_kind: governance
 doc_function: canonical
-purpose: Schema обязательных и условных полей YAML frontmatter.
+purpose: Schema of required and conditional YAML frontmatter fields.
 derived_from:
   - governance.md
 status: active
 ---
-# Frontmatter Schema
+# Frontmatter schema
 
-## Обязательные
+## Required
 
-| Поле | Тип | Описание |
+| Field | Type | Description |
 |---|---|---|
 | `status` | enum | `draft` / `active` / `archived` |
 
-## Условно обязательные
+## Conditionally required
 
-| Поле | Когда | Описание |
+| Field | When | Description |
 |---|---|---|
-| `derived_from` | Есть upstream-документ | Прямые upstream-зависимости. Каждый элемент — строка (путь) или объект `{path, fit}`, где `fit` объясняет scope зависимости |
-| `delivery_status` | Feature-документы | `planned` / `in_progress` / `done` / `cancelled` |
-| `decision_status` | ADR-документы | `proposed` / `accepted` / `superseded` / `rejected` |
+| `derived_from` | Upstream document exists | Direct upstream dependencies. Each entry is a string (path) or object `{path, fit}` where `fit` explains dependency scope |
+| `delivery_status` | Feature documents | `planned` / `in_progress` / `done` / `cancelled` |
+| `decision_status` | ADR documents | `proposed` / `accepted` / `superseded` / `rejected` |
 
-## Дополнительные поля
+## Additional fields
 
-Governed-документы могут содержать дополнительные поля, не описанные в этой schema. Дополнительные поля не требуют регистрации здесь и интерпретируются на уровне конкретного `doc_kind` или flow.
+Governed documents may contain fields not listed in this schema. Extra fields do not need to be registered here and are interpreted at the level of the specific `doc_kind` or flow.
 
-## Примеры
+## Examples
 
 ```yaml
 ---
@@ -42,7 +42,7 @@ delivery_status: planned
 derived_from:
   - ../feature.md
   - path: ../../../adr/ADR-001-model-stack.md
-    fit: "используются только выбранные модели и VRAM constraints"
+    fit: "only selected models and VRAM constraints apply"
 status: active
 ---
 ```

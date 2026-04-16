@@ -2,7 +2,7 @@
 title: Task Workflows
 doc_kind: governance
 doc_function: canonical
-purpose: Маршрутизация задач по типам и базовый цикл разработки. Читать при получении новой задачи для выбора подхода.
+purpose: Task routing by type and baseline development cycle. Read when receiving a new task to choose an approach.
 derived_from:
   - ../dna/governance.md
   - feature-flow.md
@@ -17,83 +17,83 @@ audience: humans_and_agents
 
 # Task Workflows
 
-## Базовый цикл
+## Baseline cycle
 
-Любой workflow — цепочка повторений одного цикла:
-
-```text
-Артефакт → Ревью → Полировка
-                  → Декомпозиция
-                  → Принят
-```
-
-Артефакт — то, что создаётся на каждом этапе: спецификация, дизайн-док, план, код, PR, runbook.
-
-## Градиент участия человека
-
-Чем ближе к бизнес-требованиям, тем больше участия человека. Чем ближе к коду и локальному verify, тем больше агент работает автономно.
+Every workflow is a chain of repetitions of one cycle:
 
 ```text
-Бизнес-требования  ← человек  |  агент →  Код
-  PRD, Use Cases      Спека, План           PR, Тесты
+Artifact → Review → Polish
+                  → Decomposition
+                  → Accepted
 ```
 
-## Типы Workflow
+An artifact is what is produced at each stage: specification, design doc, plan, code, PR, runbook.
 
-### 1. Малая фича
+## Human involvement gradient
 
-Когда:
+The closer to business requirements, the more human involvement. The closer to code and local verification, the more the agent works autonomously.
 
-- задача понятна;
-- scope локален;
-- решение помещается в одну сессию или один компактный change set.
+```text
+Business requirements  ← human  |  agent →  Code
+  PRD, Use Cases         Spec, Plan           PR, Tests
+```
+
+## Workflow types
+
+### 1. Small feature
+
+When:
+
+- the task is clear;
+- scope is local;
+- the solution fits one session or one compact change set.
 
 Flow:
 
 `issue/task -> routing -> implementation -> review -> merge`
 
-### 2. Средняя или большая фича
+### 2. Medium or large feature
 
-Когда:
+When:
 
-- затрагивает несколько слоёв;
-- требует design choices;
-- нужны checkpoints и явный execution plan.
+- it touches several layers;
+- design choices are needed;
+- checkpoints and an explicit execution plan are required.
 
 Flow:
 
 `issue/task -> spec -> feature package -> implementation plan -> execution -> review -> handoff`
 
-### 3. Баг-фикс
+### 3. Bug fix
 
-Источники могут быть любыми: error tracker, support, QA, прямой report от пользователя, инцидентный анализ.
+Sources may be anything: error tracker, support, QA, direct user report, incident analysis.
 
 Flow:
 
 `report -> reproduction -> analysis -> fix -> regression coverage -> review`
 
-### 4. Рефакторинг
+### 4. Refactoring
 
-Разделяй минимум на три класса:
+Split at least into three classes:
 
-- по ходу delivery-задачи;
-- исследовательский;
-- системный, с большим change surface.
+- in the course of a delivery task;
+- exploratory;
+- systemic, with a large change surface.
 
-Исследовательский и системный refactoring обычно требуют явного плана и checkpoints.
+Exploratory and systemic refactoring usually require an explicit plan and checkpoints.
 
-### 5. Инцидент / PIR
+### 5. Incident / PIR
 
 Flow:
 
 `incident -> timeline -> root cause analysis -> fixes -> prevention work`
 
-Здесь человек обычно подтверждает RCA и приоритеты follow-up задач.
+Here a human usually confirms RCA and priorities for follow-up work.
 
-## Routing Rules
+## Routing rules
 
-Используй минимальный workflow, который не теряет контроль над риском.
+Use the smallest workflow that does not lose control of risk.
 
-- Если задача маленькая и понятная, не раздувай её до большого feature package.
-- Если задача меняет контракт, rollout или требует approvals, поднимай её до feature flow.
-- Если замечания не уменьшаются от итерации к итерации, проблема может быть upstream, а не в коде.
+- If the task is small and clear, do not inflate it into a large feature package.
+- If the task changes contract, rollout, or needs approvals, elevate it to feature flow.
+- If feedback does not shrink from iteration to iteration, the problem may be upstream, not in code.

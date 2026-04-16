@@ -2,7 +2,7 @@
 title: Flows And Templates Index
 doc_kind: governance
 doc_function: index
-purpose: Навигация по lifecycle flows и governed-шаблонам. Читать при создании feature package, переводе feature между стадиями или инстанцировании нового governed-документа.
+purpose: Navigation for lifecycle flows and governed templates. Read when creating a feature package, moving a feature between stages, or instantiating a new governed document.
 derived_from:
   - ../dna/governance.md
   - feature-flow.md
@@ -14,8 +14,8 @@ audience: humans_and_agents
 
 # Flows And Templates Index
 
-Каталог `memory-bank/flows/` содержит reusable process-layer для шаблона: lifecycle rules, taxonomy стабильных идентификаторов и governed templates.
+The `memory-bank/flows/` directory holds reusable process-layer material for the template: lifecycle rules, taxonomy of stable identifiers, and governed templates.
 
-- [Task Workflows](workflows.md) — маршрутизация задач по типам, базовый цикл разработки и градиент автономии.
-- [Feature Flow](feature-flow.md) — lifecycle от draft до closure, gates и стабильные ID (`REQ-*`, `CHK-*`, `STEP-*`).
-- [Templates Index](templates/index.md) — эталонные шаблоны governed-документов, включая PRD, use case, feature и ADR.
+- [Task Workflows](workflows.md) — task routing by type, baseline development cycle, and autonomy gradient.
+- [Feature Flow](feature-flow.md) — lifecycle from draft to closure, gates, and stable IDs (`REQ-*`, `CHK-*`, `STEP-*`).
+- [Templates Index](templates/index.md) — reference governed-document templates, including PRD, use case, feature, and ADR.

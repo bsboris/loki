@@ -2,7 +2,7 @@
 title: "FT-XXX: Feature Template - Short"
 doc_kind: feature
 doc_function: template
-purpose: Governed wrapper-шаблон для короткого canonical `feature.md` в AI-driven development. Читать, чтобы инстанцировать минимальный feature contract без смешения wrapper и целевого frontmatter.
+purpose: Governed wrapper template for a short canonical `feature.md` in AI-driven development. Read to instantiate a minimal feature contract without mixing wrapper and target frontmatter.
 derived_from:
   - ../../feature-flow.md
   - ../../../dna/frontmatter.md
@@ -17,37 +17,37 @@ canonical_for:
 
 # FT-XXX: Feature Name
 
-Этот файл описывает wrapper-template. Инстанцируемый `feature.md` живет ниже как embedded contract и копируется без wrapper frontmatter и history.
+This file describes the wrapper template. The instantiated `feature.md` lives below as an embedded contract and is copied without wrapper frontmatter and history.
 
-## Wrapper Notes
+## Wrapper notes
 
-Используй этот шаблон, только если фича укладывается в один локальный slice и её можно описать через `REQ-*`, `NS-*`, один `SC-*`, максимум один `CON-*`, один `EC-*`, один `CHK-*` и один `EVID-*`.
+Use this template only if the feature fits one local slice and can be described with `REQ-*`, `NS-*`, one `SC-*`, at most one `CON-*`, one `EC-*`, one `CHK-*`, and one `EVID-*`.
 
-Если тебе нужны `ASM-*`, `DEC-*`, `CTR-*`, `FM-*`, feature-specific negative cases, больше одного acceptance scenario, больше одного `CHK-*` / `EVID-*` или явная ADR-dependent design logic, сделай upgrade до `large.md` до продолжения работы. Значение prefixes зафиксировано в [../../feature-flow.md](../../feature-flow.md#stable-identifiers).
+If you need `ASM-*`, `DEC-*`, `CTR-*`, `FM-*`, feature-specific negative cases, more than one acceptance scenario, more than one `CHK-*` / `EVID-*`, or explicit ADR-dependent design logic, upgrade to `large.md` before continuing. Prefix meanings are fixed in [../../feature-flow.md](../../feature-flow.md#stable-identifiers).
 
-### Frontmatter Quick Ref
+### Frontmatter quick reference
 
-Полная schema — в [../../../dna/frontmatter.md](../../../dna/frontmatter.md). Для стандартного feature достаточно:
+Full schema is in [../../../dna/frontmatter.md](../../../dna/frontmatter.md). For a standard feature, the following is enough:
 
-| Поле | Обязательность | Значения / default |
+| Field | Required | Values / default |
 |---|---|---|
 | `title` | required | `"FT-XXX: Name"` |
 | `doc_kind` | required | `feature` |
 | `doc_function` | required | `canonical` |
-| `purpose` | required | 1-2 предложения |
+| `purpose` | required | 1–2 sentences |
 | `status` | required | `draft` → `active` → `archived` |
-| `derived_from` | required для active | upstream-документы |
-| `delivery_status` | required для feature | `planned` → `in_progress` → `done` / `cancelled` |
+| `derived_from` | required for `active` | upstream documents |
+| `delivery_status` | required for feature | `planned` → `in_progress` → `done` / `cancelled` |
 | `audience` | recommended | `humans_and_agents` |
-| `must_not_define` | recommended | что документ НЕ определяет |
+| `must_not_define` | recommended | what the document does **not** define |
 
-## Instantiated Frontmatter
+## Instantiated frontmatter
 
 ```yaml
 title: "FT-XXX: Feature Name"
 doc_kind: feature
 doc_function: canonical
-purpose: "Короткий canonical feature-документ для небольшой и локальной delivery-единицы."
+purpose: "Short canonical feature document for a small, local delivery unit."
 derived_from:
   - ../../domain/problem.md
   # Optional:
@@ -60,7 +60,7 @@ must_not_define:
   - implementation_sequence
 ```
 
-## Instantiated Body
+## Instantiated body
 
 ```markdown
 # FT-XXX: Feature Name
@@ -69,52 +69,52 @@ must_not_define:
 
 ### Problem
 
-Какую конкретную проблему или opportunity закрывает фича.
+The specific problem or opportunity this feature addresses.
 
-Если существует upstream PRD, здесь не переписывай весь продуктовый контекст, а сфокусируйся на slice-specific постановке задачи.
+If an upstream PRD exists, do not restate full product context here; focus on slice-specific problem framing.
 
-Если существует upstream use case, здесь зафиксируй только то, как текущая delivery-единица реализует или меняет этот сценарий.
+If an upstream use case exists, record only how this delivery unit implements or changes that scenario.
 
 ### Scope
 
-- `REQ-01` Что обязательно входит.
-- `REQ-02` Что еще обязательно входит.
+- `REQ-01` What must be in scope.
+- `REQ-02` What else must be in scope.
 
-### Non-Scope
+### Non-scope
 
-- `NS-01` Что точно не делаем.
+- `NS-01` What we explicitly do not do.
 
 ### Constraints
 
-- `CON-01` Какое ограничение задает границы решения.
+- `CON-01` Constraint that bounds the solution.
 
 ## How
 
 ### Solution
 
-Один короткий абзац: основной подход и ключевой trade-off.
+One short paragraph: main approach and key trade-off.
 
-### Change Surface
+### Change surface
 
 | Surface | Why |
 | --- | --- |
-| `path/or/component` | Почему меняется |
+| `path/or/component` | Why it changes |
 
 ### Flow
 
-1. Вход.
-2. Обработка.
-3. Выход.
+1. Input.
+2. Processing.
+3. Output.
 
 ## Verify
 
-### Exit Criteria
+### Exit criteria
 
-- `EC-01` Что должно быть истинно после реализации.
+- `EC-01` What must be true after implementation.
 
-### Acceptance Scenarios
+### Acceptance scenarios
 
-- `SC-01` Основной happy path и canonical positive test case для этой delivery-единицы.
+- `SC-01` Primary happy path and canonical positive test case for this delivery unit.
 
 ### Traceability matrix
 
@@ -125,11 +125,11 @@ must_not_define:
 
 ### Checks
 
-Verify должен быть исполнимым и задавать минимум один explicit test case через `SC-01`.
+Verify must be executable and define at least one explicit test case via `SC-01`.
 
 | Check ID | Covers | How to check | Expected |
 | --- | --- | --- | --- |
-| `CHK-01` | `EC-01`, `SC-01` | Команда или процедура | Ожидаемый результат |
+| `CHK-01` | `EC-01`, `SC-01` | Command or procedure | Expected result |
 
 ### Test matrix
 
@@ -139,11 +139,11 @@ Verify должен быть исполнимым и задавать миним
 
 ### Evidence
 
-- `EVID-01` Какой артефакт должен остаться после проверки.
+- `EVID-01` Artifact that must remain after verification.
 
 ### Evidence contract
 
 | Evidence ID | Artifact | Producer | Path contract | Reused by checks |
 | --- | --- | --- | --- | --- |
-| `EVID-01` | Минимальный verify-артефакт | verify-runner / human | `artifacts/ft-xxx/verify/chk-01/` | `CHK-01` |
+| `EVID-01` | Minimal verify artifact | verify-runner / human | `artifacts/ft-xxx/verify/chk-01/` | `CHK-01` |
 ```

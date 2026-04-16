@@ -2,7 +2,7 @@
 title: Architecture Decision Records Index
 doc_kind: adr
 doc_function: index
-purpose: Навигация по ADR проекта. Читать, чтобы найти уже принятые решения или завести новый ADR по шаблону.
+purpose: Navigation for project ADRs. Read to find accepted decisions or create a new ADR from the template.
 derived_from:
   - ../dna/governance.md
   - ../flows/templates/adr/ADR-XXX.md
@@ -10,23 +10,23 @@ status: active
 audience: humans_and_agents
 ---
 
-# Architecture Decision Records Index
+# Architecture Decision Records index
 
-Каталог `memory-bank/adr/` хранит instantiated ADR проекта.
+The `memory-bank/adr/` directory holds instantiated project ADRs.
 
-- Заводи новый ADR из шаблона [`../flows/templates/adr/ADR-XXX.md`](../flows/templates/adr/ADR-XXX.md).
-- Держи в этом каталоге только реальные decision records, а не заметки или черновые исследования.
-- Если ADR пока нет, этот индекс остается пустым и служит ожидаемой точкой размещения для будущих решений.
+- Create new ADRs from [`../flows/templates/adr/ADR-XXX.md`](../flows/templates/adr/ADR-XXX.md).
+- Keep only real decision records in this directory, not notes or exploratory drafts.
+- If there are no ADRs yet, this index remains the expected location for future decisions.
 
 ## Naming
 
-- Формат файла: `ADR-XXX-short-decision-name.md`
-- Нумерация монотонная и не переиспользуется
-- Заголовок файла должен совпадать с `title` во frontmatter
+- File format: `ADR-XXX-short-decision-name.md`
+- Use monotonic numbering; do not reuse numbers
+- The file title should match `title` in frontmatter
 
 ## Statuses
 
-- `proposed` — решение сформулировано, но еще не принято
-- `accepted` — решение принято и считается canonical input для downstream-документов
-- `superseded` — решение заменено другим ADR
-- `rejected` — решение рассмотрено и отклонено
+- `proposed` — decision drafted but not accepted
+- `accepted` — decision accepted and treated as canonical input for downstream documents
+- `superseded` — decision replaced by another ADR
+- `rejected` — decision considered and declined

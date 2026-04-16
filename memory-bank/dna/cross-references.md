@@ -1,26 +1,27 @@
 ---
 doc_kind: governance
 doc_function: canonical
-purpose: Правила двусторонней навигации между кодом и документацией.
+purpose: Rules for bidirectional navigation between code and documentation.
 derived_from:
   - principles.md
 status: active
 ---
 # Cross-references (code ↔ docs)
 
-Цель: поддерживать двустороннюю навигацию:
+Goal: keep bidirectional navigation:
 
-- из кода к архитектурной/фиче-спеке,
-- из документации к реализации и тестам.
+- from code to architectural or feature specs;
+- from documentation to implementation and tests.
 
 ## Code → docs
 
-Модуль, реализующий задокументированную логику, содержит комментарий-ссылку на canonical документ. 
+A module that implements documented logic contains a comment link to the canonical document.
 
-Минимальный контракт:
-1. Ссылка указывает относительный путь от корня репозитория.
-2. Аннотация объясняет, какой аспект документа релевантен данному модулю.
+Minimum contract:
+
+1. The link uses a path relative to the repository root.
+2. The annotation explains which aspect of the document is relevant to this module.
 
 ## Docs → code (target)
 
-В документации допускаются ссылки на файлы и строки (после появления кода). Каждая ссылка должна быть аннотированной (что по ссылке + зачем читать).
+Documentation may link to files and line ranges (once code exists). Each link must be annotated (what is at the link + why read it).

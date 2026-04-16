@@ -2,7 +2,7 @@
 title: "ADR-XXX: Short Decision Name"
 doc_kind: adr
 doc_function: template
-purpose: Governed wrapper-шаблон ADR. Читать, чтобы инстанцировать decision record без смешения metadata wrapper-документа и frontmatter будущего ADR.
+purpose: Governed ADR wrapper template. Read to instantiate a decision record without mixing wrapper metadata and the future ADR frontmatter.
 derived_from:
   - ../../../dna/governance.md
   - ../../../dna/frontmatter.md
@@ -14,19 +14,19 @@ template_target_path: ../../../adr/ADR-XXX.md
 
 # ADR-XXX: Short Decision Name
 
-Этот файл описывает wrapper-template. Инстанцируемый ADR живет ниже как embedded contract и копируется без wrapper frontmatter и history.
+This file describes the wrapper template. The instantiated ADR lives below as an embedded contract and is copied without wrapper frontmatter and history.
 
-## Wrapper Notes
+## Wrapper notes
 
-`decision_status: proposed` в embedded contract ниже означает, что текст ADR является предложением и не считается принятым решением до перевода инстанцированного ADR в статус `accepted`.
+`decision_status: proposed` in the embedded contract below means the ADR text is a proposal and is not treated as an accepted decision until the instantiated ADR is moved to `accepted`.
 
-## Instantiated Frontmatter
+## Instantiated frontmatter
 
 ```yaml
 title: "ADR-XXX: Short Decision Name"
 doc_kind: adr
 doc_function: canonical
-purpose: "Фиксирует архитектурное или инженерное решение, его текущий `decision_status` и последствия."
+purpose: "Records an architectural or engineering decision, its current `decision_status`, and consequences."
 derived_from:
   - ../features/FT-XXX/feature.md
 status: draft
@@ -38,55 +38,55 @@ must_not_define:
   - implementation_plan
 ```
 
-## Instantiated Body
+## Instantiated body
 
 ```markdown
 # ADR-XXX: Short Decision Name
 
-## Контекст
+## Context
 
-Какую проблему, ограничение, trade-off или архитектурное напряжение нужно разрешить.
+Problem, constraint, trade-off, or architectural tension to resolve.
 
-## Драйверы решения
+## Decision drivers
 
-- какие требования или ограничения влияют на выбор;
-- какие KPI, эксплуатационные или продуктовые факторы важны;
-- какие зависимости и уже принятые решения нужно учитывать.
+- requirements or constraints that affect the choice;
+- KPIs, operational, or product factors that matter;
+- dependencies and prior decisions to respect.
 
-## Рассмотренные варианты
+## Options considered
 
-| Вариант | Плюсы | Минусы | Почему рассматривается как основной кандидат / не основной кандидат |
+| Option | Pros | Cons | Why it is / is not the primary candidate |
 | --- | --- | --- | --- |
-| `Option A` | Что дает | Какие ограничения создает | Причина решения |
+| `Option A` | What it gives | What limits it creates | Rationale |
 
-## Решение
+## Decision
 
-Для `decision_status: proposed` опиши здесь предлагаемое решение и избегай языка финального выбора (`выбрано`, `окончательно отвергнуто`, `принято`) до перевода ADR в `accepted`. После перевода ADR в `accepted` обнови формулировки так, чтобы секция фиксировала уже принятое решение, его границы действия и затронутые компоненты.
+For `decision_status: proposed`, describe the proposed decision here and avoid final-choice language (`chosen`, `definitively rejected`, `accepted`) until the ADR moves to `accepted`. After `accepted`, update wording so this section records the accepted decision, its scope, and touched components.
 
-## Последствия
+## Consequences
 
-### Положительные
+### Positive
 
-Что упрощается, улучшается или становится возможным.
+What becomes simpler, better, or possible.
 
-### Отрицательные
+### Negative
 
-Какие ограничения, долги или дополнительные издержки появляются.
+What limits, debt, or extra cost appears.
 
-### Нейтральные / организационные
+### Neutral / organizational
 
-Какие документы, процессы или зоны ответственности нужно обновить после принятия.
+What documents, processes, or ownership zones must be updated after acceptance.
 
-## Риски и mitigation
+## Risks and mitigation
 
-Какие риски остаются после выбора и как мы их снижаем.
+Risks that remain after the choice and how they are reduced.
 
 ## Follow-up
 
-Какие downstream-документы, задачи, бенчмарки или миграции должны последовать за этим решением.
+Downstream documents, tasks, benchmarks, or migrations that should follow this decision.
 
-## Связанные ссылки
+## Related links
 
-- feature / spec / analysis документы, которые дают контекст;
-- связанные ADR, если решение зависит от них или уточняет их.
+- feature / spec / analysis documents that provide context;
+- related ADRs if the decision depends on or refines them.
 ```

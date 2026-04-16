@@ -2,79 +2,48 @@
 title: Development Environment
 doc_kind: engineering
 doc_function: canonical
-purpose: Шаблон документа для локальной разработки. Читать при адаптации setup, dev-команд и browser/database workflow под проект.
+purpose: Local development template. Populate with real setup, dev commands, and browser/database workflow for the project.
 derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Development Environment
+# Development environment
 
-После копирования шаблона замени placeholders ниже на реальные команды проекта.
+Replace placeholders below with real project commands.
 
 ## Setup
 
-Перечисли минимальную подготовку среды.
+Minimum environment preparation (commands, tools, services).
 
-```bash
-# Примеры:
-make setup
-./bin/setup
-npm install
-docker compose up -d
-direnv allow
-asdf install
-uv sync
-bundle install
-pnpm install
-```
+## Daily commands
 
-## Daily Commands
+Canonical local commands the agent should know (dev server, test, lint).
 
-Зафиксируй canonical локальные команды, которые должен знать агент.
+## Browser testing
 
-```bash
-# Примеры:
-make dev
-make test
-make lint
-docker compose up app db
-pnpm dev
-pytest
-bundle exec rspec
-go test ./...
-```
+If the project has a UI, document:
 
-## Browser Testing
+- how to determine the local URL;
+- where port or host come from;
+- whether they can be discovered automatically;
+- which browser verification approaches are canonical.
 
-Если проект имеет UI, опиши:
+## Database and services
 
-- как определить локальный URL;
-- где брать порт или host;
-- можно ли искать их автоматически;
-- какие способы browser verification считаются canonical.
+Document only what matters locally:
 
-Пример:
-
-1. Сначала читать `DEV_HOST` или `.env`.
-2. Если переменная не задана, использовать documented default.
-3. Не сканировать порты вручную без явного запроса пользователя.
-
-## Database And Services
-
-Документируй только то, что действительно важно для локальной работы:
-
-- миграции;
-- пересоздание локальной БД;
-- обязательные сервисы;
+- migrations;
+- resetting the local database;
+- required services;
 - seeded data;
-- known pitfalls для разработчиков и агентов.
+- known pitfalls for developers and agents.
 
-## Adoption Checklist
+## Adoption checklist
 
-- [ ] указаны реальные setup-команды
-- [ ] указаны реальные test/lint commands
-- [ ] документирован способ определения локального URL
-- [ ] перечислены локальные зависимости и сервисы
-- [ ] удалены нерелевантные примеры
+- [ ] real setup commands recorded
+- [ ] real test/lint commands recorded
+- [ ] local URL discovery documented
+- [ ] local dependencies and services listed
+- [ ] irrelevant examples removed

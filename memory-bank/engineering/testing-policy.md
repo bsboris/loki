@@ -2,7 +2,7 @@
 title: Testing Policy
 doc_kind: engineering
 doc_function: canonical
-purpose: Описывает testing policy репозитория: обязательность test case design, требования к automated regression coverage и допустимые manual-only gaps.
+purpose: Repository testing policy: test case design obligations, automated regression requirements, and allowed manual-only gaps.
 derived_from:
   - ../dna/governance.md
   - ../flows/feature-flow.md
@@ -21,98 +21,84 @@ must_not_define:
 audience: humans_and_agents
 ---
 
-# Testing Policy
+# Testing policy
 
-## Project Adaptation
+## Project adaptation
 
-После копирования шаблона заполни project-specific часть testing stack:
+Populate project-specific testing stack:
 
-- основной test framework;
-- стратегия тестовых данных;
+- primary test framework;
+- test data strategy;
 - canonical local commands;
-- обязательные CI jobs;
-- допустимые manual-only исключения.
+- required CI jobs;
+- allowed manual-only exceptions.
 
-Пример формулировок:
+## Core rules
 
-- **Framework:** `pytest`, `rspec`, `go test`, `vitest`
-- **Data:** fixtures / factories / builders / seeded test database
-- **Local commands:** `make test`, `npm test`, `bundle exec rspec`
-- **CI jobs:** `unit`, `integration`, `e2e`
+- Any behavior change that can be checked deterministically must get automated regression coverage.
+- Any new or changed contract must get contract-level automated verification.
+- Any bugfix must add a regression test for the reproducible scenario.
+- Required automated tests only close risk when they pass locally and in CI.
+- Manual-only verify is only allowed as an explicit exception and does not replace automated coverage where automation is realistic.
 
-## Core Rules
+## Ownership split
 
-- Любое изменение поведения, которое можно проверить детерминированно, обязано получить automated regression coverage.
-- Любой новый или измененный contract обязан получить contract-level automated verification.
-- Любой bugfix обязан добавить regression test на воспроизводимый сценарий.
-- Required automated tests считаются закрывающими риск только если они проходят локально и в CI.
-- Manual-only verify допустим только как явное исключение и не заменяет automated coverage там, где automation реалистична.
+- Canonical test cases for a delivery unit live in `feature.md` via `SC-*`, feature-specific `NEG-*`, `CHK-*`, and `EVID-*`.
+- `implementation-plan.md` only owns execution strategy: which test surfaces to add or update, which gaps stay temporarily manual-only and why.
 
-## Ownership Split
+## Feature flow expectations
 
-- Canonical test cases delivery-единицы задаются в `feature.md` через `SC-*`, feature-specific `NEG-*`, `CHK-*` и `EVID-*`.
-- `implementation-plan.md` владеет только стратегией исполнения: какие test surfaces будут добавлены или обновлены, какие gaps временно остаются manual-only и почему.
+Canonical lifecycle gates live in [../flows/feature-flow.md](../flows/feature-flow.md):
 
-## Feature Flow Expectations
+- by **Design ready**, `feature.md` already records the test case inventory;
+- by **Plan ready**, `implementation-plan.md` includes `Test strategy` with planned automated coverage and manual-only gaps;
+- by **Done**, required tests are added, local commands are green, and CI does not contradict local verify.
 
-Canonical lifecycle gates живут в [../flows/feature-flow.md](../flows/feature-flow.md):
+## What counts as sufficient coverage
 
-- к `Design Ready` `feature.md` уже фиксирует test case inventory;
-- к `Plan Ready` `implementation-plan.md` содержит `Test Strategy` с planned automated coverage и manual-only gaps;
-- к `Done` required tests добавлены, локальные команды зелёные и CI не противоречит локальному verify.
+- Main changed behavior and the nearest regression path are covered.
+- New or changed contracts, events, schema, or integration boundaries are covered.
+- Critical failure modes from `FM-*`, bug history, or acceptance risks are covered.
+- Feature-specific negative/edge scenarios are covered when they change the verdict.
+- Line coverage percentage alone is insufficient; scenario- and contract-level coverage matter.
 
-## Что Считается Sufficient Coverage
+## When manual-only is allowed
 
-- Покрыт основной changed behavior и ближайший regression path.
-- Покрыты новые или измененные contracts, события, schema или integration boundaries.
-- Покрыты критичные failure modes из `FM-*`, bug history или acceptance risks.
-- Покрыты feature-specific negative/edge scenarios, если они меняют verdict.
-- Процент line coverage сам по себе недостаточен: нужен scenario- и contract-level coverage.
+- The scenario depends on live infra, external systems, hardware, a non-deterministic environment, or human UI judgment.
+- For each manual-only gap: reason, manual procedure, follow-up owner.
+- If a manual-only gap leaves a critical path without regression protection, the feature is not done.
 
-## Когда Manual-Only Допустим
+## Simplify review
 
-- Сценарий зависит от live infra, внешних систем, hardware, недетерминированной среды или human оценки UI.
-- Для каждого manual-only gap: причина, ручная процедура, owner follow-up.
-- Если manual-only gap оставляет без regression protection критичный путь, feature не считается завершённой.
+A separate verification pass after functional testing. Goal: confirm the implementation is minimally complex.
 
-## Simplify Review
+- Runs after tests pass and before the closure gate.
+- Watch for: premature abstraction, deep nesting, duplicated logic, dead code, overengineering.
+- Three similar lines beat premature abstraction. Abstraction is justified only when it clearly reduces risk or repetition.
 
-Отдельный проход верификации после функционального тестирования. Цель: убедиться, что реализация минимально сложна.
+## Verification context separation
 
-- Выполняется после прохождения tests, но до closure gate.
-- Паттерны: premature abstractions, глубокая вложенность, дублирование логики, dead code, overengineering.
-- Три похожие строки лучше premature abstraction. Абстракция оправдана только когда она реально уменьшает риск или повтор.
+Treat verification stages as separate passes:
 
-## Verification Context Separation
+1. **Functional verification** — tests pass; acceptance scenarios covered
+2. **Simplify review** — code is minimally complex
+3. **Acceptance test** — end-to-end against `SC-*`
 
-Разные этапы верификации — отдельные проходы:
+Small features may combine passes in one session; simplify review is not skipped.
 
-1. **Функциональная верификация** — tests проходят, acceptance scenarios покрыты
-2. **Simplify review** — код минимально сложен
-3. **Acceptance test** — end-to-end по `SC-*`
+## Project-specific conventions
 
-Для small features допустимо в одной сессии, но simplify review не пропускается.
+Record when populated:
 
-## Project-Specific Conventions
+- where to add new tests;
+- canonical helper/setup pattern;
+- how to work with the database, mocks, and fixtures;
+- commands the agent must run before handoff.
 
-Ниже должен появиться downstream-specific блок после адаптации шаблона. Зафиксируй:
+## Checklist for template adoption
 
-- куда добавлять новые тесты;
-- какой helper/setup pattern считается canonical;
-- как работать с базой, моками и fixtures;
-- какие команды обязан прогонять агент перед handoff.
-
-Пример:
-
-- новые unit tests живут в `tests/unit/` или `spec/`;
-- integration tests обязаны покрывать changed contract;
-- для дорогого setup использовать shared fixtures или builders;
-- текстовые assertions не дублируют hardcoded UI-копию, если проект уже владеет переводами централизованно.
-
-## Checklist For Template Adoption
-
-- [ ] указаны реальные local test commands
-- [ ] перечислены обязательные CI suites
-- [ ] задокументирован deterministic test data pattern
-- [ ] описаны manual-only exceptions
-- [ ] policy не противоречит [../flows/feature-flow.md](../flows/feature-flow.md)
+- [ ] real local test commands recorded
+- [ ] required CI suites listed
+- [ ] deterministic test data pattern documented
+- [ ] manual-only exceptions described
+- [ ] policy does not contradict [../flows/feature-flow.md](../flows/feature-flow.md)

@@ -2,7 +2,7 @@
 title: Feature Packages Index
 doc_kind: feature
 doc_function: index
-purpose: Навигация по instantiated feature packages. Читать, чтобы найти существующую delivery-единицу или понять, где создавать новую.
+purpose: Navigation for instantiated feature packages. Read to find an existing delivery unit or decide where to create a new one.
 derived_from:
   - ../dna/governance.md
   - ../flows/feature-flow.md
@@ -12,17 +12,16 @@ audience: humans_and_agents
 
 # Feature Packages Index
 
-Каталог `memory-bank/features/` хранит instantiated feature packages вида `FT-XXX/`.
+The `memory-bank/features/` directory holds instantiated feature packages as `FT-XXX/`.
 
 ## Rules
 
-- Каждый package создается по правилам из [`../flows/feature-flow.md`](../flows/feature-flow.md).
-- Для bootstrap используй шаблоны из [`../flows/templates/feature/`](../flows/templates/feature/).
-- Если feature реализует или существенно меняет устойчивый сценарий проекта, она должна ссылаться на соответствующий `UC-*` из [`../use-cases/index.md`](../use-cases/index.md).
-- В шаблонном репозитории этот каталог может быть пустым. Это нормально.
+- Each package follows [`../flows/feature-flow.md`](../flows/feature-flow.md).
+- For bootstrap, use templates under [`../flows/templates/feature/`](../flows/templates/feature/).
+- If a feature implements or materially changes a durable project scenario, it must link to the corresponding `UC-*` in [`../use-cases/index.md`](../use-cases/index.md).
 
 ## Naming
 
-- Базовый формат: `FT-XXX/`
-- Вместо `XXX` используй идентификатор, принятый в проекте: issue id, ticket id или другой стабильный ключ
-- Один package = одна delivery-единица
+- Base format: `FT-XXX/`
+- Replace `XXX` with the project’s stable identifier (issue id, ticket id, or another stable key).
+- One package = one delivery unit.

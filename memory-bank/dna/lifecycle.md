@@ -1,27 +1,27 @@
 ---
 doc_kind: governance
 doc_function: canonical
-purpose: Maintenance rules и sync checklist для governed-документов.
+purpose: Maintenance rules and sync checklist for governed documents.
 derived_from:
   - governance.md
 status: active
 ---
-# Document Lifecycle
+# Document lifecycle
 
-Правила, обеспечивающие consistency governed-документации при изменениях.
+Rules that keep governed documentation consistent when things change.
 
-## Maintenance Rules
+## Maintenance rules
 
-1. **Upstream first.** Меняешь факт — сначала найди и обнови canonical owner.
-2. **Downstream sync.** После изменения upstream проверь `derived_from`-зависимых.
-3. **Index sync.** Добавлен/удалён/переименован документ — обнови parent `index.md`.
-4. **Конфликт = дефект.** Расхождение внутри authoritative set устраняется сразу.
-5. **Conflict = report, not fix.** Агент, обнаруживший расхождение при чтении, фиксирует его как finding и сообщает человеку. Самостоятельное исправление — только если текущая задача явно требует изменения этого документа.
+1. **Upstream first.** When you change a fact, find and update the canonical owner first.
+2. **Downstream sync.** After upstream changes, check `derived_from` dependents.
+3. **Index sync.** When a document is added, removed, or renamed, update the parent `index.md`.
+4. **Conflict = defect.** Disagreement inside the authoritative set is fixed immediately.
+5. **Conflict = report, not fix.** If an agent finds a mismatch while reading, record it as a finding and tell a human. Do not fix unilaterally unless the current task explicitly requires changing that document.
 
-## Sync Checklist
+## Sync checklist
 
-Перед фиксацией изменений в governed-документации:
+Before committing changes to governed documentation:
 
-- [ ] frontmatter валиден, для `active` non-root задан `derived_from`
-- [ ] для canonical `feature` задан `delivery_status`, для `adr` — `decision_status`
-- [ ] parent `index.md` обновлён при изменении состава или reading order
+- [ ] frontmatter is valid; `derived_from` is set for `active` non-root docs
+- [ ] canonical `feature` has `delivery_status`; `adr` has `decision_status`
+- [ ] parent `index.md` updated when membership or reading order changes

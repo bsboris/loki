@@ -2,7 +2,7 @@
 title: "UC-XXX: Use Case Name"
 doc_kind: use_case
 doc_function: template
-purpose: Governed wrapper-шаблон use case. Читать, чтобы инстанцировать канонический пользовательский или операционный сценарий без смешения wrapper-метаданных и frontmatter будущего use case.
+purpose: Governed use case wrapper template. Read to instantiate a canonical user or operational scenario without mixing wrapper metadata and the future use case frontmatter.
 derived_from:
   - ../../../dna/governance.md
   - ../../../dna/frontmatter.md
@@ -17,21 +17,21 @@ canonical_for:
 
 # UC-XXX: Use Case Name
 
-Этот файл описывает wrapper-template. Инстанцируемый use case живет ниже как embedded contract и копируется без wrapper frontmatter и history.
+This file describes the wrapper template. The instantiated use case lives below as an embedded contract and is copied without wrapper frontmatter and history.
 
-## Wrapper Notes
+## Wrapper notes
 
-Use case фиксирует устойчивый проектный сценарий. Он описывает trigger, preconditions, основной flow, альтернативы и postconditions, но не уходит в implementation sequence, архитектуру или feature-level verify.
+A use case records a durable project scenario. It describes trigger, preconditions, main flow, alternatives, and postconditions, but not implementation sequence, architecture, or feature-level verify.
 
-Если сценарий слишком локален и живет только внутри одной delivery-единицы, не поднимай его в `UC-*`: оставь его в `SC-*` у соответствующей feature.
+If the scenario is too local and lives only inside one delivery unit, do not promote it to `UC-*`: keep it in `SC-*` on the corresponding feature.
 
-## Instantiated Frontmatter
+## Instantiated frontmatter
 
 ```yaml
 title: "UC-XXX: Use Case Name"
 doc_kind: use_case
 doc_function: canonical
-purpose: "Фиксирует устойчивый пользовательский или операционный сценарий проекта."
+purpose: "Records a durable user or operational scenario for the project."
 derived_from:
   - ../domain/problem.md
   # Optional:
@@ -44,52 +44,52 @@ must_not_define:
   - feature_level_test_matrix
 ```
 
-## Instantiated Body
+## Instantiated body
 
 ```markdown
 # UC-XXX: Use Case Name
 
 ## Goal
 
-Какой результат должен получить actor после успешного выполнения сценария.
+Result the actor should get after successfully completing the scenario.
 
-## Primary Actor
+## Primary actor
 
-Кто инициирует сценарий.
+Who initiates the scenario.
 
 ## Trigger
 
-Какое событие или намерение запускает flow.
+Event or intent that starts the flow.
 
 ## Preconditions
 
-- Что должно быть истинно до начала сценария.
-- Какие данные, права или состояние системы обязательны.
+- What must be true before the scenario starts.
+- Required data, rights, or system state.
 
-## Main Flow
+## Main flow
 
-1. Первый шаг сценария.
-2. Второй шаг сценария.
-3. Наблюдаемый результат.
+1. First step of the scenario.
+2. Second step of the scenario.
+3. Observable outcome.
 
-## Alternate Flows / Exceptions
+## Alternate flows / exceptions
 
-- `ALT-01` Как сценарий ветвится при ожидаемой альтернативе.
-- `EX-01` Какой сбой или отказ должен быть корректно обработан.
+- `ALT-01` How the scenario branches on an expected alternative.
+- `EX-01` Failure or error that must be handled correctly.
 
 ## Postconditions
 
-- Что истинно после успешного завершения.
-- Что остается истинным после неуспешного завершения.
+- What is true after successful completion.
+- What remains true after unsuccessful completion.
 
-## Business Rules
+## Business rules
 
-- `BR-01` Правило, которое обязана соблюдать любая реализация этого сценария.
-- `BR-02` Ограничение или policy, которая влияет на flow.
+- `BR-01` Rule any implementation of this scenario must obey.
+- `BR-02` Constraint or policy that affects the flow.
 
 ## Traceability
 
-| Upstream / Downstream | References |
+| Upstream / downstream | References |
 | --- | --- |
 | PRD | `PRD-XXX` / `none` |
 | Features | `FT-XXX`, `FT-YYY` |

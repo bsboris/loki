@@ -2,27 +2,27 @@
 title: Runbooks Index
 doc_kind: engineering
 doc_function: index
-purpose: Точка входа в operational runbooks. Читать, чтобы завести пошаговую инструкцию для типовой ops-задачи или инцидента.
+purpose: Entry point for operational runbooks. Read to add step-by-step instructions for a typical ops task or incident.
 derived_from:
   - ../../dna/governance.md
 status: active
 audience: humans_and_agents
 ---
 
-# Runbooks Index
+# Runbooks index
 
-В этом каталоге живут runbooks для повторяемых operational задач.
+This directory holds runbooks for repeatable operational work.
 
-Runbook должен отвечать на вопросы:
+Each runbook should answer:
 
-- что является триггером;
-- что проверить сначала;
-- какие команды выполнять;
-- какой результат ожидать;
-- как безопасно откатиться;
-- кому и когда эскалировать проблему.
+- what triggers it;
+- what to check first;
+- which commands to run;
+- what result to expect;
+- how to roll back safely;
+- who to escalate to and when.
 
-## Suggested Structure
+## Suggested structure
 
 1. Summary
 2. Trigger / symptoms
@@ -32,4 +32,4 @@ Runbook должен отвечать на вопросы:
 6. Rollback
 7. Escalation
 
-Если у проекта пока нет runbooks, каталог может содержать только этот индекс.
+If there are no runbooks yet, this index may be the only file in the directory.

@@ -2,7 +2,7 @@
 title: Configuration Guide
 doc_kind: engineering
 doc_function: canonical
-purpose: Шаблон документа ownership-модели конфигурации. Читать при описании env contract, naming conventions и config sources проекта.
+purpose: Placeholder for configuration ownership. Populate when environment variables and config sources grow beyond a handful.
 derived_from:
   - ../dna/governance.md
 status: active
@@ -11,83 +11,56 @@ audience: humans_and_agents
 
 # Configuration Guide
 
-Этот документ не обязан перечислять все переменные окружения подряд. Его задача: объяснить, где живет canonical schema конфигурации и как downstream-проект документирует важные настройки.
+This document does not need to list every environment variable. Its job is to explain where the canonical configuration schema lives and how important settings are documented.
 
-## Configuration Architecture
+## Configuration architecture
 
-Опиши реальную модель конфигурации проекта.
+Describe the real configuration model when it is stable: typed config, `.env` + runtime vars, YAML/JSON/TOML with overlays, secret manager, deployment manifests, and so on.
 
-Примеры:
+### File layout
 
-- typed config class;
-- `.env` + runtime env vars;
-- YAML/JSON/TOML файлы с environment overlays;
-- secret manager;
-- Helm values / Terraform variables / deployment manifests.
+Record the real layout when it exists (paths relative to the repository root).
 
-### File Layout
+### Ownership rules
 
-```text
-config/
-├── application.yml
-├── environments/
-├── secrets/
-└── ...
-```
+Record:
 
-### Ownership Rules
+1. which file or module owns the configuration schema;
+2. where defaults are defined;
+3. where environment-specific overrides live;
+4. how secrets are documented without exposing values.
 
-Зафиксируй:
-
-1. какой файл или модуль владеет schema конфигурации;
-2. где задаются defaults;
-3. где лежат environment-specific overrides;
-4. как документируются секреты без раскрытия значений.
-
-```ruby
-# Пример API доступа к конфигурации:
-Config.database_url
-Settings.feature_flags.checkout_v2
-ENV.fetch("APP_PORT")
-```
-
-## Naming Convention For Env Vars
+## Naming convention for env vars
 
 | YAML structure | Env variable |
 | --- | --- |
-| `database.url` | `APP_DATABASE__URL` |
-| `feature_checkout_v2` | `APP_FEATURE_CHECKOUT_V2` |
-| `smtp.password` | `APP_SMTP__PASSWORD` |
-| `storage.bucket` | `APP_STORAGE__BUCKET` |
 
-Rules:
+Add rows for real mappings when they exist.
 
-- выбери один canonical префикс или явно задокументируй, что префикса нет;
-- если используется вложенность, зафиксируй separator;
-- перечисли правила для списков, boolean и secrets;
-- если проект запрещает interpolation внутри config-файлов, напиши это явно.
+Rules to document when populated:
 
-## Documenting Important Variables
+- canonical prefix, or explicit statement that there is none;
+- nesting separator rules if used;
+- rules for lists, booleans, and secrets;
+- whether interpolation inside config files is allowed.
 
-Если проекту нужен справочник ключевых переменных, не перечисляй все подряд. Сфокусируйся на значимых runtime contracts.
+## Documenting important variables
+
+If the project needs a reference of key variables, focus on meaningful runtime contracts—not exhaustive lists.
 
 | Variable | Description | Default | Owner |
 | --- | --- | --- | --- |
-| `APP_DATABASE__URL` | Основное подключение к БД | none | platform |
-| `APP_REDIS__URL` | Кэш или очередь | `redis://localhost:6379/0` | platform |
-| `APP_PUBLIC_BASE_URL` | Базовый URL для генерации ссылок | `http://localhost:3000` | product/platform |
-| `APP_FEATURE_X_ENABLED` | Feature flag | `false` | owning team |
 
 ## Secrets
 
-- Никогда не вставляй реальные значения секретов в репозиторий.
-- Документируй только способ их хранения, выдачи и rotation policy.
-- Если часть конфигурации приходит из secret manager, это должно быть написано явно.
+- Never commit real secret values.
+- Document storage, issuance, and rotation policy only.
+- If configuration comes from a secret manager, state that explicitly.
 
-## Adoption Checklist
+## Adoption checklist
 
-- [ ] описан schema-owner конфигурации
-- [ ] задокументирована naming convention
-- [ ] перечислены ключевые runtime/env contracts
-- [ ] описан secret handling
-- [ ] удалены ссылки на несуществующие downstream-справочники
+- [ ] configuration schema owner described
+- [ ] naming convention documented
+- [ ] key runtime/env contracts listed
+- [ ] secret handling described
+- [ ] references to non-existent downstream guides removed
