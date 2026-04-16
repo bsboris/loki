@@ -148,8 +148,8 @@ Replace template placeholders with real project content. All files are already i
 
 ### 3.6 ADR
 
-- [ ] Populate `memory-bank/adr/index.md` in English: keep as an empty registry with naming rules.
-- [ ] Create `memory-bank/adr/ADR-001-git-as-single-source-of-truth.md`. Document the founding
+- [x] Populate `memory-bank/adr/index.md` in English: keep as an empty registry with naming rules.
+- [x] Create `memory-bank/adr/ADR-001-git-as-single-source-of-truth.md`. Document the founding
   architectural decision: Git branch = workspace, no external TMS, rationale, consequences.
 
 ---
