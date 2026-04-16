@@ -2,103 +2,62 @@
 title: Testing Policy
 doc_kind: engineering
 doc_function: canonical
-purpose: Repository testing policy: test case design obligations, automated regression requirements, and allowed manual-only gaps.
+purpose: Loki testing expectations: RSpec, required automation, spec placement, and done criteria.
 derived_from:
   - ../dna/governance.md
   - ../flows/feature-flow.md
 status: active
 canonical_for:
   - repository_testing_policy
-  - feature_test_case_inventory_rules
   - automated_test_requirements
   - sufficient_test_coverage_definition
-  - manual_only_verification_exceptions
-  - simplify_review_discipline
-  - verification_context_separation
-must_not_define:
-  - feature_acceptance_criteria
-  - feature_scope
 audience: humans_and_agents
 ---
 
 # Testing policy
 
-## Project adaptation
+## Stack and commands
 
-Populate project-specific testing stack:
+- **Framework:** RSpec with **rspec-rails** (`spec/rails_helper.rb`, `spec/spec_helper.rb`).
+- **Run the suite:** `bin/rspec`.
+- **External HTTP in tests:** WebMock is enabled in `rails_helper`; stub outbound calls (see `spec/support/github_client_helpers.rb` for GitHub client helpers).
 
-- primary test framework;
-- test data strategy;
-- canonical local commands;
-- required CI jobs;
-- allowed manual-only exceptions.
+## Required automation
 
-## Core rules
+- Any **behavior change** that can be asserted deterministically must include or update **automated examples** (request, model, or view spec as appropriate).
+- **Bugfixes** should add a regression example for the failing scenario when it is practical to reproduce in specs.
+- **New or changed contracts** (routes, public model APIs, integration boundaries) should have coverage at the lowest layer that gives a stable signal—usually request or model specs.
 
-- Any behavior change that can be checked deterministically must get automated regression coverage.
-- Any new or changed contract must get contract-level automated verification.
-- Any bugfix must add a regression test for the reproducible scenario.
-- Required automated tests only close risk when they pass locally and in CI.
-- Manual-only verify is only allowed as an explicit exception and does not replace automated coverage where automation is realistic.
+## Done criteria
 
-## Ownership split
+- **`bin/rspec`** passes for the relevant scope (targeted files first for small edits, full suite when behavior is wide-ranging).
+- **`bin/rubocop`** passes.
+- The handoff should state **what changed** and **which checks were run** (see project agent guidelines).
 
-- Canonical test cases for a delivery unit live in `feature.md` via `SC-*`, feature-specific `NEG-*`, `CHK-*`, and `EVID-*`.
-- `implementation-plan.md` only owns execution strategy: which test surfaces to add or update, which gaps stay temporarily manual-only and why.
+## Where to add specs
 
-## Feature flow expectations
+| Change | Primary location |
+|--------|-------------------|
+| HTTP routes, controllers, HTML/Turbo responses | `spec/requests/**/*_spec.rb` (`type: :request`) |
+| Active Record models, validations, domain logic | `spec/models/**/*_spec.rb` (`type: :model`) |
+| View components or partials tested in isolation | `spec/views/**/*_spec.rb` |
+| Cross-cutting helpers | `spec/support/**/*.rb` (not `*_spec.rb`) |
 
-Canonical lifecycle gates live in [../flows/feature-flow.md](../flows/feature-flow.md):
+Generators place new specs next to the code they exercise; **keep that layout** unless a task explicitly reorganizes tests.
 
-- by **Design ready**, `feature.md` already records the test case inventory;
-- by **Plan ready**, `implementation-plan.md` includes `Test strategy` with planned automated coverage and manual-only gaps;
-- by **Done**, required tests are added, local commands are green, and CI does not contradict local verify.
+## Canonical RSpec patterns for Loki
 
-## What counts as sufficient coverage
+- Use **`require "rails_helper"`** at the top of files that need Rails (models, requests, views).
+- **Request specs** use integration-style examples: `get`/`post`/`patch`/`delete`, then `expect(response)` and, when needed, **`Nokogiri::HTML5`** for HTML assertions (see existing request specs).
+- **Model specs** exercise persistence and domain behavior; include **`GithubClientHelpers`** when stubbing GitHub access (`type: :model` or `:request` per `rails_helper`).
+- Prefer **explicit setup** in each example or small `let` blocks; avoid deep shared context unless it already exists for that area.
+- **Fixtures** live under `spec/fixtures` when used; transactional examples remain the default (`use_transactional_fixtures`).
 
-- Main changed behavior and the nearest regression path are covered.
-- New or changed contracts, events, schema, or integration boundaries are covered.
-- Critical failure modes from `FM-*`, bug history, or acceptance risks are covered.
-- Feature-specific negative/edge scenarios are covered when they change the verdict.
-- Line coverage percentage alone is insufficient; scenario- and contract-level coverage matter.
+## Doc-driven features
 
-## When manual-only is allowed
+When a change is driven by the full feature flow in [`../flows/feature-flow.md`](../flows/feature-flow.md), keep the **test inventory and strategy** aligned with that flow’s gates. For day-to-day fixes and small tasks, the rules above are sufficient.
 
-- The scenario depends on live infra, external systems, hardware, a non-deterministic environment, or human UI judgment.
-- For each manual-only gap: reason, manual procedure, follow-up owner.
-- If a manual-only gap leaves a critical path without regression protection, the feature is not done.
+## Manual-only gaps
 
-## Simplify review
-
-A separate verification pass after functional testing. Goal: confirm the implementation is minimally complex.
-
-- Runs after tests pass and before the closure gate.
-- Watch for: premature abstraction, deep nesting, duplicated logic, dead code, overengineering.
-- Three similar lines beat premature abstraction. Abstraction is justified only when it clearly reduces risk or repetition.
-
-## Verification context separation
-
-Treat verification stages as separate passes:
-
-1. **Functional verification** — tests pass; acceptance scenarios covered
-2. **Simplify review** — code is minimally complex
-3. **Acceptance test** — end-to-end against `SC-*`
-
-Small features may combine passes in one session; simplify review is not skipped.
-
-## Project-specific conventions
-
-Record when populated:
-
-- where to add new tests;
-- canonical helper/setup pattern;
-- how to work with the database, mocks, and fixtures;
-- commands the agent must run before handoff.
-
-## Checklist for template adoption
-
-- [ ] real local test commands recorded
-- [ ] required CI suites listed
-- [ ] deterministic test data pattern documented
-- [ ] manual-only exceptions described
-- [ ] policy does not contradict [../flows/feature-flow.md](../flows/feature-flow.md)
+- Manual checks are acceptable for **one-off UX polish** or **third-party behavior** that cannot be stubbed reliably—call them out in the PR with steps taken.
+- They **do not replace** automated coverage where a deterministic spec is realistic.

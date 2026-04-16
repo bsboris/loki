@@ -2,7 +2,7 @@
 title: Coding Style
 doc_kind: engineering
 doc_function: convention
-purpose: Coding style template. Populate with real project-specific conventions and tooling.
+purpose: Loki coding conventions: RuboCop, Rails patterns, locals, POROs, and complexity.
 derived_from:
   - ../dna/governance.md
 status: active
@@ -11,23 +11,26 @@ audience: humans_and_agents
 
 # Coding style
 
-## General rules
+## Linter and formatter
 
-- File, module, and directory names follow the primary language’s conventions.
-- Add comments only where `why` or boundary conditions are hard to see without them.
-- Prefer minimal local complexity over premature abstraction.
-- Generated code, vendored code, and migrations follow separate rules if the project defines them.
+- **RuboCop** with **rubocop-rails-omakase** is the authority for Ruby and Rails style.
+- Run **`bin/rubocop`** before handoff; fix new offenses in touched files (do not drive-by “fix the world” unless the task asks for it).
 
-## Tooling contract
+## Rails and structure
 
-Record the canonical formatting and linting toolchain (formatters, liners, optional pre-commit hooks).
+- Prefer **standard Rails patterns** over custom frameworks, service layers, or indirection that the codebase does not already use.
+- **Keep controllers thin**; push domain rules into models or small **POROs** when logic is not a natural fit for Active Record alone.
+- Pass data to views with **`render locals: { ... }`** instead of controller instance variables, unless an existing action already uses another pattern—in that case, match the file until a dedicated refactor.
 
-## Language-specific addendum
+## Complexity and change discipline
 
-Add real rules per language or area when adapting (for example backend, frontend, SQL/migrations).
-
-## Change discipline
-
-- Do not rewrite unrelated code for consistency alone unless the task requires it.
+- Prefer **minimal, local changes** that are easy to review over broad refactors.
+- **No premature abstractions**: follow existing patterns in the nearest neighbors before introducing new layers or gems.
 - For small touch-ups, follow the file’s existing local style unless it conflicts with a canonical rule.
-- If the project is migrating between stacks or styles, record the migration rule explicitly.
+- Do not rewrite unrelated code for consistency alone.
+- **New dependencies** need a clear justification; prefer built-in Rails and existing stack pieces.
+- Call out risks explicitly for **destructive database changes** or behavior that could break existing workspaces.
+
+## Comments
+
+- Add comments where **why** or non-obvious boundaries matter; skip noise that repeats the code.

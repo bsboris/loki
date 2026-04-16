@@ -110,25 +110,25 @@ Replace template placeholders with real project content. All files are already i
 
 ### 3.4 Engineering
 
-- [ ] Populate `memory-bank/engineering/index.md` in English: list all 4 active files.
-- [ ] Populate `memory-bank/engineering/coding-style.md`:
+- [x] Populate `memory-bank/engineering/index.md` in English: list all 4 active files.
+- [x] Populate `memory-bank/engineering/coding-style.md`:
   - linter: `rubocop` (rubocop-rails-omakase), `bin/rubocop`
   - prefer `render locals:` over controller instance variables
   - use POROs for domain logic
   - keep controllers thin
   - no premature abstractions; prefer minimal local complexity
   - follow existing local patterns before changing style
-- [ ] Populate `memory-bank/engineering/testing-policy.md`:
+- [x] Populate `memory-bank/engineering/testing-policy.md`:
   - framework: RSpec (`bin/rspec`)
   - required: automated coverage for any behavioral change
   - done criteria: all tests pass + lint passes
   - project-specific: where to add specs, canonical RSpec patterns for the project
-- [ ] Populate `memory-bank/engineering/autonomy-boundaries.md`. Adapt existing template sections
+- [x] Populate `memory-bank/engineering/autonomy-boundaries.md`. Adapt existing template sections
   to Loki-specific context:
   - autopilot: editing code, running tests/lint, creating branches, updating memory bank
   - supervision: DB migrations, schema changes, PR to main, architectural changes
   - escalation: unclear requirements, GitHub API/auth changes, any production actions
-- [ ] Populate `memory-bank/engineering/git-workflow.md`:
+- [x] Populate `memory-bank/engineering/git-workflow.md`:
   - default branch: `main`
   - commit style: present-tense, concise
   - PR: green local checks required before opening; short title; body covers what/how/risks
