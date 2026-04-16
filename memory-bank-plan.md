@@ -89,7 +89,7 @@ Replace template placeholders with real project content. All files are already i
 
 ### 3.2 DNA
 
-- [ ] Populate `memory-bank/dna/principles.md`. Keep the 9 principles as-is; they apply to Loki directly.
+- [x] Populate `memory-bank/dna/principles.md`. Keep the 9 principles as-is; they apply to Loki directly.
   Add one note: `PROJECT.md` is retired once `domain/problem.md` is populated.
 
 ### 3.3 Domain
