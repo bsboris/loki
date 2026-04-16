@@ -94,18 +94,18 @@ Replace template placeholders with real project content. All files are already i
 
 ### 3.3 Domain
 
-- [ ] Populate `memory-bank/domain/problem.md`. Migrate and adapt content from `PROJECT.md`:
+- [x] Populate `memory-bank/domain/problem.md`. Migrate and adapt content from `PROJECT.md`:
   product summary, users (Translator/PM + Developer), MVP goal, core workflows
   (open → explore → edit → publish), non-goals, constraints (Git as SSoT, no external TMS).
-- [ ] Populate `memory-bank/domain/architecture.md`. Include:
+- [x] Populate `memory-bank/domain/architecture.md`. Include:
   - data model: Repository, Workspace, Scope, Entry, Metadata, Snapshot, Diff
   - module boundaries: Git layer, workspace abstraction, YAML parsing, GitHub integration
   - failure handling for GitHub API calls
   - configuration ownership (repo config file: scopes, paths, locales)
-- [ ] Create `memory-bank/domain/glossary.md` (new file, not in template). Define canonical domain
+- [x] Create `memory-bank/domain/glossary.md` (new file, not in template). Define canonical domain
   terms: *Workspace*, *Scope*, *Entry*, *Snapshot*, *Diff*, *Missing*, *Outdated*, *base_ref*, *head_ref*.
   This is Loki-specific vocabulary that appears constantly and needs a single authoritative source.
-- [ ] Populate `memory-bank/domain/index.md` in English: list `problem.md`, `architecture.md`,
+- [x] Populate `memory-bank/domain/index.md` in English: list `problem.md`, `architecture.md`,
   `glossary.md` as active; note `frontend.md` as deferred.
 
 ### 3.4 Engineering

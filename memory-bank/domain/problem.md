@@ -15,42 +15,80 @@ canonical_for:
 
 # Project problem statement
 
-This document captures shared product context for the project. Feature documents should link here instead of repeating the same background.
+**Loki** is a **Git-native translation workspace** for YAML-based internationalization (for example Rails `config/locales`). It exposes a web UI on top of Git branches: each branch is an isolated **translation workspace**. People edit and review translations in the app; **publishing** means commit, push, and standard pull-request workflow on the host Git platform.
 
-If a PRD is needed, it does not replace this document; it refines a specific initiative against the project-wide context already recorded here.
+Git is the **single source of truth**. There is **no external TMS** (translation management system); branches, files, and merges remain the authority.
 
 ## Boundary with PRD
 
-- `domain/problem.md` — project-wide context: product, core workflows, top-level outcomes, and durable constraints.
-- `prd/PRD-XXX-short-name.md` — initiative layer: which product problem is in scope now, for which users, and with what scope.
-- If a new document would only repeat general project background without initiative-specific scope, do not create a PRD.
+- `domain/problem.md` — project-wide context: product, users, core workflows, outcomes, and durable constraints.
+- `prd/PRD-XXX-short-name.md` — initiative layer: which problem is in scope now, for whom, and with what boundaries.
+- If a new document would only repeat this background without initiative-specific scope, do not add a PRD.
 
-## Product context
+## Product summary
 
-Describe the project in 2–4 short paragraphs:
+Translators and project managers need a place to work on many locale files without learning Git day-to-day, while developers keep owning structure in the repo. Loki bridges that gap: the UI reflects **what changed** versus a base branch, supports **search** over the full tree at a ref, supports **editing** with clear review-oriented state, and ends in **publish** actions that land on a branch and in a PR.
 
-- who the primary users are;
-- what job the system helps with;
-- why the current approach is insufficient;
-- product or platform boundaries.
+The core workspace concept is: **repository** + **base_ref** + **head_ref** — the translation state on `head_ref`, including differences from `base_ref`. See [`glossary.md`](glossary.md) for definitions.
+
+## Users
+
+### Translator / PM
+
+- Edits and reviews translation **values** for configured locales.
+- Does not need Git expertise; uses the UI and PRs on the host.
+
+### Developer
+
+- Owns translation **structure** (keys, paths, file layout) in the repository.
+- Reviews and merges translation PRs like any other code change.
+
+## MVP goal
+
+End-to-end workflow:
+
+1. **Open** — open an existing workspace (branch) or create one.
+2. **Explore** — see **changed** strings (diff vs base) and **search** across the snapshot at a ref.
+3. **Edit** — change translations, see review-oriented status (for example missing / outdated).
+4. **Publish** — commit, push, and open or update a PR.
+
+### In scope (product intent)
+
+- GitHub integration for repository metadata and (as implemented) Git operations aligned with the MVP.
+- YAML parsing for Rails-style i18n trees.
+- Repository-level configuration (scopes, paths, locales) in a config file in the repo.
+- Diff between refs, search, editing with review signals, workspace abstraction.
 
 ## Core workflows
 
-- `WF-01` Primary user workflow (populate).
-- `WF-02` Secondary user workflow (populate).
-- `WF-03` Internal or operational workflow that must not break (populate).
+| Step | What the user does | What the system must support |
+| --- | --- | --- |
+| Open | Pick or create a branch-backed workspace | Resolve repository, base ref, head ref; load workspace context |
+| Explore | Switch between “changed vs base” and full snapshot views | Diff and flattened snapshot at refs; search |
+| Edit | Update locale values | Persist drafts; reflect missing/outdated and metadata where modeled |
+| Publish | Submit work upstream | Commit + push + PR to the Git remote; merge happens in normal Git flow |
 
-## Outcomes
+## Non-goals
 
-| Metric ID | Metric | Baseline | Target | Measurement method |
-| --- | --- | --- | --- | --- |
+- Editing translation **structure** (adding/removing keys or paths) from Loki.
+- In-app collaboration (comments, threads).
+- Runtime delivery (API/CDN for strings to apps in production).
+- Dedicated merge/conflict UI inside Loki (users resolve in Git as today).
+- Glossary/termbase product.
+- Fine-grained permissions beyond what the host and repo already provide.
+- Cross-branch automation beyond standard PR practice.
 
 ## Constraints
 
-- `PCON-01` Domain constraint that affects most downstream features (populate).
-- `PCON-02` Integration, compliance, or performance constraint (populate).
+- **Git as SSoT** — branches and files on the remote win; Loki does not replace the repo.
+- **No external TMS** — no third-party translation database as authority alongside Git.
+- **Host platform** — MVP centers on GitHub; other providers are out of scope until explicitly planned.
+
+## Outcomes
+
+Outcome metrics are not fixed for the MVP documentation pass. When product instrumentation exists, add a small table here (metric, baseline, target, how measured) instead of duplicating it across features.
 
 ## Source documents
 
-- Add links to PRDs, roadmap, customer research, or other upstream artifacts when they exist.
-- If none exist yet, state that explicitly.
+- Upstream product detail previously lived in [`PROJECT.md`](../../PROJECT.md) at the repository root; this file is the canonical replacement for that summary.
+- Link PRDs, research, or roadmaps here when they exist as separate artifacts.
