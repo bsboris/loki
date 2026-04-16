@@ -135,9 +135,9 @@ Replace template placeholders with real project content. All files are already i
 
 ### 3.5 Operations
 
-- [ ] Populate `memory-bank/ops/index.md` in English: list `development.md` as active;
+- [x] Populate `memory-bank/ops/index.md` in English: list `development.md` as active;
   note `stages.md`, `release.md`, `config.md`, `runbooks/` as deferred.
-- [ ] Populate `memory-bank/ops/development.md`:
+- [x] Populate `memory-bank/ops/development.md`:
   - setup: `bin/setup`
   - server: `bin/rails s`
   - tests: `bin/rspec`
