@@ -30,6 +30,8 @@ Use a use case for behavior that lives at product level, repeats over time, and 
 
 ## Registry
 
+*No entries yet — add a row when a `UC-*` file is added under this directory.*
+
 | UC ID | Title | Status | Primary actor | Upstream PRD | Implemented by | Last updated |
 | --- | --- | --- | --- | --- | --- | --- |
 

@@ -14,6 +14,8 @@ audience: humans_and_agents
 
 The `memory-bank/prd/` directory holds instantiated project PRDs.
 
+*No PRDs in this directory yet — add `PRD-XXX-*.md` files here when initiatives are instantiated.*
+
 Use a PRD when work lives at product initiative or capability level rather than a single vertical slice. A PRD usually sits between general context in [`../domain/problem.md`](../domain/problem.md) and downstream feature packages in [`../features/index.md`](../features/index.md).
 
 ## Boundary with `domain/problem.md`

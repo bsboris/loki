@@ -14,6 +14,8 @@ audience: humans_and_agents
 
 The `memory-bank/features/` directory holds instantiated feature packages as `FT-XXX/`.
 
+*No packages yet — create an `FT-XXX/` directory when a delivery unit is registered here.*
+
 ## Rules
 
 - Each package follows [`../flows/feature-flow.md`](../flows/feature-flow.md).
