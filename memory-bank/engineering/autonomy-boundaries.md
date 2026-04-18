@@ -5,10 +5,6 @@ doc_function: canonical
 purpose: Loki agent and automation boundaries: safe autopilot, checkpoints, and escalation.
 derived_from:
   - ../dna/governance.md
-canonical_for:
-  - agent_autonomy_rules
-  - escalation_triggers
-  - supervision_checkpoints
 status: active
 audience: humans_and_agents
 ---

@@ -6,11 +6,6 @@ purpose: Task routing by type and baseline development cycle. Read when receivin
 derived_from:
   - ../dna/governance.md
   - feature-flow.md
-canonical_for:
-  - task_routing_rules
-  - base_development_cycle
-  - workflow_type_selection
-  - autonomy_gradient
 status: active
 audience: humans_and_agents
 ---

@@ -7,10 +7,6 @@ derived_from:
   - ../dna/governance.md
   - ../flows/feature-flow.md
 status: active
-canonical_for:
-  - repository_testing_policy
-  - automated_test_requirements
-  - sufficient_test_coverage_definition
 audience: humans_and_agents
 ---
 

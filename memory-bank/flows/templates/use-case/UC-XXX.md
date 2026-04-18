@@ -11,8 +11,6 @@ status: active
 audience: humans_and_agents
 template_for: use_case
 template_target_path: ../../../use-cases/UC-XXX-short-name.md
-canonical_for:
-  - use_case_template
 ---
 
 # UC-XXX: Use Case Name

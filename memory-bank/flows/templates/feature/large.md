@@ -11,8 +11,6 @@ status: active
 audience: humans_and_agents
 template_for: feature
 template_target_path: ../../../features/FT-XXX/feature.md
-canonical_for:
-  - feature_template_large
 ---
 
 # FT-XXX: Feature Name

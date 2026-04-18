@@ -7,10 +7,6 @@ derived_from:
   - ../dna/governance.md
 status: active
 audience: humans_and_agents
-canonical_for:
-  - project_problem_statement
-  - product_context
-  - top_level_outcomes
 ---
 
 # Project problem statement

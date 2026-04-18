@@ -11,8 +11,6 @@ status: active
 audience: humans_and_agents
 template_for: prd
 template_target_path: ../../../prd/PRD-XXX-short-name.md
-canonical_for:
-  - prd_template
 ---
 
 # PRD-XXX: Product Initiative Name

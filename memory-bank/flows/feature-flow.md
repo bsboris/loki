@@ -6,18 +6,6 @@ purpose: "Defines stage-based flow for feature documentation and taxonomy of sta
 derived_from:
   - ../dna/governance.md
   - ../dna/frontmatter.md
-canonical_for:
-  - feature_directory_structure
-  - feature_document_boundaries
-  - feature_template_selection_rules
-  - feature_flow_stages
-  - feature_plan_gate_rules
-  - feature_closure_rules
-  - feature_identifier_taxonomy
-  - feature_plan_identifier_taxonomy
-  - feature_traceability_rules
-  - feature_decomposition_principle
-  - feature_grounding_gate
 status: active
 audience: humans_and_agents
 ---
