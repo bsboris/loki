@@ -78,23 +78,3 @@ These files exist under `ops/` but are not maintained for the current MVP; use t
 - [`domain/frontend.md`](domain/frontend.md)
   Hotwire, Turbo, Stimulus, and UI-layer conventions.
   Read when: the front-end stack needs explicit conventions beyond what engineering and domain docs already imply.
-
-### DNA (deferred detail)
-
-Meta-governance for large documentation sets. Principles stay under the DNA entry in Active sections until these files are activated.
-
-- [`dna/governance.md`](dna/governance.md)
-  Single source of truth rules and documentation dependency tree.
-  Read when: documentation volume makes meta-governance and ownership rules worth maintaining explicitly.
-
-- [`dna/frontmatter.md`](dna/frontmatter.md)
-  Frontmatter field schema for memory-bank documents.
-  Read when: documentation volume makes meta-governance and ownership rules worth maintaining explicitly.
-
-- [`dna/lifecycle.md`](dna/lifecycle.md)
-  Maintenance rules and sync checklist for documentation.
-  Read when: documentation volume makes meta-governance and ownership rules worth maintaining explicitly.
-
-- [`dna/cross-references.md`](dna/cross-references.md)
-  Bidirectional navigation between code and documentation.
-  Read when: documentation volume makes meta-governance and ownership rules worth maintaining explicitly.
