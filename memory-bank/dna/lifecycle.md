@@ -16,7 +16,7 @@ Rules that keep governed documentation consistent when things change.
 2. **Downstream sync.** After upstream changes, check `derived_from` dependents.
 3. **Index sync.** When a document is added, removed, or renamed, update the parent `index.md`.
 4. **Conflict = defect.** Disagreement inside the authoritative set is fixed immediately.
-5. **Conflict = report, not fix.** If an agent finds a mismatch while reading, record it as a finding and tell a human. Do not fix unilaterally unless the current task explicitly requires changing that document.
+5. **Conflict = report, not fix.** If an agent finds a mismatch while reading (docs vs docs, or docs vs code it did not change), record it as a finding and tell a human; do not pick winners without human or task ownership of the conflict. **Exception:** when the active task already includes those documents, or when the mismatch is a direct consequence of application or configuration edits in this change, update the governed docs and follow rules 1–3 (upstream, downstream, index).
 
 ## Sync checklist
 

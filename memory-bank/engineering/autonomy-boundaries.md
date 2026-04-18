@@ -19,7 +19,7 @@ These rules apply to **Loki** development: Rails + PostgreSQL, Git-backed i18n w
 - **Run tests and lint:** `bin/rspec`, `bin/rubocop`, and other project scripts requested for verification.
 - **Create branches and local Git state** (commits, rebases) that stay on the developer machine and do not affect shared branches without an explicit checkpoint below.
 - **Read logs and diagnostics** (test output, Rails logs, local stack traces).
-- **Update internal documentation**, including files under `memory-bank/`, when that is part of the task or required to keep docs truthful after a code change.
+- **Update internal documentation**, including files under `memory-bank/`, when they are in the agreed task scope or when your edits would leave docs false if left unchanged. Contradictions you only notice incidentally while reading—outside that scope—follow [Document lifecycle](../dna/lifecycle.md) rule 5 (report; do not unilaterally adjudicate intent or competing canonicity).
 
 ## Supervision — proceed, but surface a checkpoint
 
