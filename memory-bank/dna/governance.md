@@ -13,8 +13,7 @@ A `governed document` is a Markdown file under `memory-bank/` with valid YAML fr
 ## SSoT implementation
 
 1. Only `active` documents are authoritative. `draft` does not override `active`.
-2. Among documents allowed by status, upstream wins: first `canonical_for`, then the dependency tree.
-3. Publication status (`status`) is separate from entity lifecycle (`delivery_status`, `decision_status`).
+2. Publication status (`status`) is separate from entity lifecycle (`delivery_status`, `decision_status`).
 
 ## Source dependency tree
 
@@ -22,13 +21,9 @@ A `governed document` is a Markdown file under `memory-bank/` with valid YAML fr
 2. The root document is `principles.md` and has no `derived_from`. Every other `active` non-root document must have `derived_from`.
 3. Cycles are forbidden. Changing upstream may require updating downstream.
 
-## Governance-specific frontmatter fields
+## Classification fields (`doc_kind`, `doc_function`)
 
-Governance documents (DNA, flows) use additional fields outside the common schema ([frontmatter.md](frontmatter.md)):
+These fields classify governed Markdown for navigation and authority. The closed **`doc_kind`** vocabulary and **`doc_function`** roles live in [frontmatter.md](frontmatter.md) (sections *Document kind* and *Document role*).
 
-| Field | Values | Purpose |
-| --- | --- | --- |
-| `doc_kind` | `governance`, `project` | Document type. Governance = meta-rules; project = domain/ops |
-| `doc_function` | `canonical`, `index`, `template` | Role: canonical owner of a fact, navigation index, or template |
-
-These fields are required for governance documents and are not required on domain/ops/engineering documents.
+- **DNA and flows** canonicals and indexes should always set both fields consistently with that schema.
+- **Domain, engineering, ADR, and delivery docs** use the same fields with the `doc_kind` values listed there; omitting them is discouraged for new documents.
