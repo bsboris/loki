@@ -8,7 +8,6 @@ derived_from:
   - ../../../dna/frontmatter.md
   - ../../../engineering/testing-policy.md
 status: active
-audience: humans_and_agents
 template_for: feature
 template_target_path: ../../../features/FT-XXX/feature.md
 ---
@@ -36,7 +35,6 @@ Full schema is in [../../../dna/frontmatter.md](../../../dna/frontmatter.md). Fo
 | `status` | required | `draft` → `active` → `archived` |
 | `derived_from` | required for `active` | upstream documents |
 | `delivery_status` | required for feature | `planned` → `in_progress` → `done` / `cancelled` |
-| `audience` | recommended | `humans_and_agents` |
 | `must_not_define` | recommended | what the document does **not** define |
 
 ## Instantiated frontmatter
@@ -53,7 +51,6 @@ derived_from:
   # - ../../use-cases/UC-XXX-short-name.md
 status: draft
 delivery_status: planned
-audience: humans_and_agents
 must_not_define:
   - implementation_sequence
 ```

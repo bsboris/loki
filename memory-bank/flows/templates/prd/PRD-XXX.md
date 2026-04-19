@@ -8,7 +8,6 @@ derived_from:
   - ../../../dna/frontmatter.md
   - ../../../domain/problem.md
 status: active
-audience: humans_and_agents
 template_for: prd
 template_target_path: ../../../prd/PRD-XXX-short-name.md
 ---
@@ -35,7 +34,6 @@ purpose: "Records product problem, target users, goals, scope, and success metri
 derived_from:
   - ../domain/problem.md
 status: draft
-audience: humans_and_agents
 must_not_define:
   - implementation_sequence
   - architecture_decision

@@ -7,7 +7,6 @@ derived_from:
   - ../../feature-flow.md
   - ../../../dna/frontmatter.md
 status: active
-audience: humans_and_agents
 template_for: feature
 template_target_path: ../../../features/FT-XXX/README.md
 ---
@@ -41,7 +40,6 @@ derived_from:
   - ../../dna/governance.md
   - feature.md
 status: active
-audience: humans_and_agents
 ```
 
 ## Instantiated body

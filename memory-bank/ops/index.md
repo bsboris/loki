@@ -6,7 +6,6 @@ purpose: Navigation for Loki operations docs: local development (active) and def
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Operations index

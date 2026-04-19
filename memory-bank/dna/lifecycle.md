@@ -6,7 +6,6 @@ purpose: Maintenance rules and sync checklist for governed documents.
 derived_from:
   - governance.md
 status: active
-audience: humans_and_agents
 ---
 # Document lifecycle
 

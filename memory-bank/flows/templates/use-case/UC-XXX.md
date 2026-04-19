@@ -8,7 +8,6 @@ derived_from:
   - ../../../dna/frontmatter.md
   - ../../../domain/problem.md
 status: active
-audience: humans_and_agents
 template_for: use_case
 template_target_path: ../../../use-cases/UC-XXX-short-name.md
 ---
@@ -35,7 +34,6 @@ derived_from:
   # Optional:
   # - ../prd/PRD-XXX-short-name.md
 status: draft
-audience: humans_and_agents
 must_not_define:
   - implementation_sequence
   - architecture_decision

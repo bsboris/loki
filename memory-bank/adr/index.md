@@ -7,7 +7,6 @@ derived_from:
   - ../dna/governance.md
   - ../flows/templates/adr/ADR-XXX.md
 status: active
-audience: humans_and_agents
 ---
 
 # Architecture Decision Records index

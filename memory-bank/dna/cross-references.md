@@ -6,7 +6,6 @@ purpose: Rules for bidirectional navigation between code and documentation.
 derived_from:
   - principles.md
 status: active
-audience: humans_and_agents
 ---
 # Cross-references (code ↔ docs)
 

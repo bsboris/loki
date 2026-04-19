@@ -7,7 +7,6 @@ derived_from:
   - ../dna/governance.md
   - ../flows/templates/prd/PRD-XXX.md
 status: active
-audience: humans_and_agents
 ---
 
 # Product Requirements Documents Index

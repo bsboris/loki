@@ -6,7 +6,6 @@ purpose: Single authoritative definitions for Loki vocabulary used across docs a
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Domain glossary

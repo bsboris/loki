@@ -6,7 +6,6 @@ purpose: Loki local development: bootstrap, stack, canonical commands, and commo
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Development environment

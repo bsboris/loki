@@ -7,7 +7,6 @@ derived_from:
   - ../dna/governance.md
   - ../flows/templates/use-case/UC-XXX.md
 status: active
-audience: humans_and_agents
 ---
 
 # Use Cases Index

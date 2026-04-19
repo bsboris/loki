@@ -6,7 +6,6 @@ purpose: Canonical place for domain data model, module boundaries, integration f
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Architecture patterns

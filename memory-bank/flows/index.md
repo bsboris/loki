@@ -9,7 +9,6 @@ derived_from:
   - workflows.md
   - templates/index.md
 status: active
-audience: humans_and_agents
 ---
 
 # Flows And Templates Index

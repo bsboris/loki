@@ -7,7 +7,6 @@ derived_from:
   - ../dna/governance.md
   - feature-flow.md
 status: active
-audience: humans_and_agents
 ---
 
 # Task Workflows

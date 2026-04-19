@@ -7,7 +7,6 @@ derived_from:
   - ../domain/problem.md
   - ../domain/architecture.md
 status: active
-audience: humans_and_agents
 decision_status: accepted
 date: 2026-04-17
 ---

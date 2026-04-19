@@ -6,7 +6,6 @@ purpose: Placeholder for release process. Populate when a deployment pipeline ex
 derived_from:
   - ../dna/governance.md
 status: draft
-audience: humans_and_agents
 ---
 
 # Release And Deployment

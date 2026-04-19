@@ -6,7 +6,6 @@ purpose: Placeholder for configuration ownership. Populate when environment vari
 derived_from:
   - ../dna/governance.md
 status: draft
-audience: humans_and_agents
 ---
 
 # Configuration Guide

@@ -8,7 +8,6 @@ derived_from:
   - ../../../dna/frontmatter.md
   - ../../../engineering/testing-policy.md
 status: active
-audience: humans_and_agents
 template_for: feature
 template_target_path: ../../../features/FT-XXX/implementation-plan.md
 ---
@@ -44,7 +43,6 @@ purpose: "Execution plan for FT-XXX. Records discovery context, steps, risks, an
 derived_from:
   - feature.md
 status: draft
-audience: humans_and_agents
 must_not_define:
   - ft_xxx_scope
   - ft_xxx_architecture

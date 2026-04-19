@@ -6,7 +6,6 @@ purpose: Navigation for domain documentation: product problem, architecture, glo
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Domain documentation index

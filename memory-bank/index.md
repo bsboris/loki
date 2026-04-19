@@ -6,7 +6,6 @@ purpose: Single navigation entry point for humans and agents into Loki documenta
 derived_from:
   - dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Memory bank index

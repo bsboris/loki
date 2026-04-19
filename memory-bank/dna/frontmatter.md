@@ -6,7 +6,6 @@ purpose: Schema of required and conditionally required YAML frontmatter fields.
 derived_from:
   - governance.md
 status: active
-audience: humans_and_agents
 ---
 # Frontmatter schema
 

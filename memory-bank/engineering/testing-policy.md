@@ -7,7 +7,6 @@ derived_from:
   - ../dna/governance.md
   - ../flows/feature-flow.md
 status: active
-audience: humans_and_agents
 ---
 
 # Testing policy

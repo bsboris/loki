@@ -6,7 +6,6 @@ purpose: Placeholder for UI surfaces, design system, and i18n layer. Read when w
 derived_from:
   - ../dna/governance.md
 status: draft
-audience: humans_and_agents
 ---
 
 # Frontend

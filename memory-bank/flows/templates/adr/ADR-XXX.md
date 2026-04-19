@@ -7,7 +7,6 @@ derived_from:
   - ../../../dna/governance.md
   - ../../../dna/frontmatter.md
 status: active
-audience: humans_and_agents
 template_for: adr
 template_target_path: ../../../adr/ADR-XXX.md
 ---
@@ -32,7 +31,6 @@ derived_from:
 status: draft
 decision_status: proposed
 date: YYYY-MM-DD
-audience: humans_and_agents
 must_not_define:
   - current_system_state
   - implementation_plan

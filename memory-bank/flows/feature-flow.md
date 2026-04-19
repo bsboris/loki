@@ -7,7 +7,6 @@ derived_from:
   - ../dna/governance.md
   - ../dna/frontmatter.md
 status: active
-audience: humans_and_agents
 ---
 # Feature Flow
 

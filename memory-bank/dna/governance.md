@@ -6,7 +6,6 @@ purpose: SSoT implementation and dependency-tree rules. Answers: who owns which 
 derived_from:
   - principles.md
 status: active
-audience: humans_and_agents
 ---
 # Document governance
 

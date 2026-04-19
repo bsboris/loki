@@ -6,7 +6,6 @@ purpose: Loki coding conventions: RuboCop, Rails patterns, locals, POROs, and co
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Coding style

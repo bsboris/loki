@@ -6,7 +6,6 @@ purpose: Canonical description of the product, problem space, and target outcome
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Project problem statement

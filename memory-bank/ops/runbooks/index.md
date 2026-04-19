@@ -6,7 +6,6 @@ purpose: Entry point for operational runbooks. Read to add step-by-step instruct
 derived_from:
   - ../../dna/governance.md
 status: draft
-audience: humans_and_agents
 ---
 
 # Runbooks index

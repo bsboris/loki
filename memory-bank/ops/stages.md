@@ -6,7 +6,6 @@ purpose: Placeholder for access to production-like environments. Populate when s
 derived_from:
   - ../dna/governance.md
 status: draft
-audience: humans_and_agents
 ---
 
 # Stages And Non-Local Environments

@@ -6,7 +6,6 @@ purpose: Loki agent and automation boundaries: safe autopilot, checkpoints, and 
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Autonomy boundaries

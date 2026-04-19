@@ -13,7 +13,6 @@ derived_from:
   - feature/large.md
   - adr/ADR-XXX.md
 status: active
-audience: humans_and_agents
 ---
 
 # Templates Index

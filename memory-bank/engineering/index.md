@@ -6,7 +6,6 @@ purpose: Navigation for Loki engineering rules: style, testing, agent autonomy, 
 derived_from:
   - ../dna/governance.md
 status: active
-audience: humans_and_agents
 ---
 
 # Engineering documentation index

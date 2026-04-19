@@ -6,7 +6,6 @@ purpose: Entry point into DNA — table of contents for governance documents.
 derived_from:
   - principles.md
 status: active
-audience: humans_and_agents
 ---
 
 # DNA index
