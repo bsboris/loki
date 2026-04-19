@@ -31,7 +31,7 @@ Full schema is in [../../../dna/frontmatter.md](../../../dna/frontmatter.md). Fo
 | `title` | required | `"FT-XXX: Name"` |
 | `doc_kind` | required | `feature` |
 | `doc_function` | required | `canonical` |
-| `purpose` | required | 1–2 sentences |
+| `purpose` | recommended | 1–2 sentences |
 | `status` | required | `draft` → `active` → `archived` |
 | `derived_from` | required for `active` | upstream documents |
 | `delivery_status` | required for feature | `planned` → `in_progress` → `done` / `cancelled` |

@@ -2,7 +2,7 @@
 title: Frontmatter schema
 doc_kind: governance
 doc_function: canonical
-purpose: Schema of required and conditionally required YAML frontmatter fields.
+purpose: Schema of required, recommended, and conditionally required YAML frontmatter fields for governed Markdown.
 derived_from:
   - governance.md
 status: active
@@ -13,8 +13,15 @@ status: active
 
 | Field | Type | Description |
 |---|---|---|
+| `title` | string | Human-readable document title. Use for navigation and search; align with the document H1 when the body has one. |
 | `status` | enum | `draft` (not authoritative—scaffolds until populated; see *Scaffold until populated* in [governance.md](governance.md)) / `active` (authoritative) / `archived` (history only) |
 | `derived_from` | list | Direct upstream dependencies (string paths and/or `{path, fit}` objects). **Required** on every governed Markdown file under `memory-bank/` except the authority root [`principles.md`](principles.md), which has no upstream. Matches [governance.md](governance.md) (*Source dependency tree*). |
+
+## Recommended
+
+| Field | Type | Description |
+|---|---|---|
+| `purpose` | string | One or two sentences: what the document is for and when to read it. Strongly encouraged on indexes and canonicals so readers route without opening the full body. |
 
 ## Document kind
 
@@ -57,15 +64,18 @@ Governed documents may contain fields not listed in this schema. Extra fields do
 
 ```yaml
 ---
+title: "FT-XXX: Example feature"
 derived_from:
   - ../../domain/problem.md
 status: active
 delivery_status: planned
+purpose: "Illustrates minimal feature frontmatter; replace with a real title and purpose."
 ---
 ```
 
 ```yaml
 ---
+title: "Example dependency shape"
 derived_from:
   - ../feature.md
   - path: ../../../adr/ADR-NNN-example-slug.md

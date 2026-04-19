@@ -21,7 +21,7 @@ DNA is the constitution of project documentation. It defines principles, documen
   Read when: you edit memory-bank structure, `derived_from`, or `status`, or need to know who owns each class of fact.
 
 - [`frontmatter.md`](frontmatter.md)
-  Required and conditional YAML fields, `doc_kind`, and `doc_function` vocabulary.
+  Required, recommended, and conditional YAML fields, `doc_kind`, and `doc_function` vocabulary.
   Read when: you add or change frontmatter on governed files or need the closed kind/role sets.
 
 - [`lifecycle.md`](lifecycle.md)
