@@ -1,10 +1,12 @@
 ---
+title: Document governance
 doc_kind: governance
 doc_function: canonical
 purpose: SSoT implementation and dependency-tree rules. Answers: who owns which fact.
 derived_from:
   - principles.md
 status: active
+audience: humans_and_agents
 ---
 # Document governance
 
@@ -18,7 +20,7 @@ A `governed document` is a Markdown file under `memory-bank/` with valid YAML fr
 ## Source dependency tree
 
 1. The `derived_from` field lists direct upstream documents. Authority flows upstream → downstream.
-2. The root document is `principles.md` and has no `derived_from`. Every other `active` non-root document must have `derived_from`.
+2. The authority root is `dna/principles.md` and it has no `derived_from`. Every other `active` document must list `derived_from` with at least one upstream path (including `memory-bank/index.md`, which uses `doc_kind: project` and anchors the navigation tree in this file rather than restating governance facts).
 3. Cycles are forbidden. Changing upstream may require updating downstream.
 
 ## Classification fields (`doc_kind`, `doc_function`)

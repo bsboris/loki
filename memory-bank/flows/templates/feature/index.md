@@ -18,7 +18,7 @@ This file describes the template wrapper itself. The instantiated feature README
 
 ## Wrapper notes
 
-The `memory-bank/flows/templates/feature/` directory holds wrapper templates for the feature package: this README template, canonical feature templates for short and large features, and the derived template for `implementation-plan.md`. When creating a new feature package, the embedded README must stay bootstrap-safe: it first routes only to instantiated `feature.md`, while optional `implementation-plan.md` and related ADRs are added after those documents exist.
+The `memory-bank/flows/templates/feature/` directory holds wrapper templates for the feature package: this README template, canonical feature templates for short and large features, and the derived template for `implementation-plan.md`. When creating a new feature package, copy or adapt [`short.md`](short.md) or [`large.md`](large.md) into the new `FT-XXX/` directory as `feature.md` before publishing the embedded README body below. The embedded README must stay bootstrap-safe: it first routes only to that `feature.md`, while optional `implementation-plan.md` and related ADRs are added after those documents exist.
 
 Optional routes for a living feature package are added after the corresponding documents exist. Typical post-bootstrap routes:
 
@@ -26,7 +26,7 @@ Optional routes for a living feature package are added after the corresponding d
   Read when: after this file exists, to break down implementation into steps, workstreams, checkpoints, and traceability to canonical IDs.
   Answers: how to run implementation from current state to acceptance.
 
-- `../../../adr/ADR-XXX.md`
+- [`../../../adr/ADR-XXX.md`](../../../adr/ADR-XXX.md)
   Read when: if there is a related ADR for the feature, to author or verify it with the correct `decision_status`.
   Answers: why a specific architectural or engineering choice applies to the feature and what stage it is in.
 
@@ -55,7 +55,7 @@ The feature package directory holds canonical `feature.md`; optional derived or 
 
 ## Annotated index
 
-- [`feature.md`](feature.md)
+- `feature.md`
   Read when: open the instantiated canonical feature document right after bootstrapping a new feature package.
   Answers: where scope, design, verify, blockers, and canonical IDs for this feature live.
 ```

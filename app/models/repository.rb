@@ -1,3 +1,5 @@
+# Domain aggregate for a connected Git remote; aligns with memory-bank/domain/architecture.md
+# (repository, refs) and memory-bank/domain/glossary.md.
 class Repository < ApplicationRecord
   validates :provider, :namespace_path, :name, presence: true
   validates :name, uniqueness: { scope: %i[provider namespace_path] }

@@ -1,8 +1,10 @@
 ---
+title: Principles
 doc_kind: governance
 doc_function: canonical
 purpose: Foundational documentation principles for Loki. Root document of the dependency tree.
 status: active
+audience: humans_and_agents
 ---
 # Principles
 

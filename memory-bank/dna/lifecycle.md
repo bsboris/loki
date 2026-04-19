@@ -1,10 +1,12 @@
 ---
+title: Document lifecycle
 doc_kind: governance
 doc_function: canonical
 purpose: Maintenance rules and sync checklist for governed documents.
 derived_from:
   - governance.md
 status: active
+audience: humans_and_agents
 ---
 # Document lifecycle
 
@@ -22,6 +24,6 @@ Rules that keep governed documentation consistent when things change.
 
 Before committing changes to governed documentation:
 
-- [ ] frontmatter is valid; `derived_from` is set for `active` non-root docs
+- [ ] frontmatter is valid; `derived_from` is set for every `active` doc except the authority root `dna/principles.md`
 - [ ] canonical `feature` has `delivery_status`; `adr` has `decision_status`
 - [ ] parent `index.md` updated when membership or reading order changes

@@ -1,10 +1,12 @@
 ---
+title: Frontmatter schema
 doc_kind: governance
 doc_function: canonical
 purpose: Schema of required and conditional YAML frontmatter fields.
 derived_from:
   - governance.md
 status: active
+audience: humans_and_agents
 ---
 # Frontmatter schema
 
@@ -66,8 +68,8 @@ delivery_status: planned
 ---
 derived_from:
   - ../feature.md
-  - path: ../../../adr/ADR-001-model-stack.md
-    fit: "only selected models and VRAM constraints apply"
+  - path: ../../../adr/ADR-NNN-example-slug.md
+    fit: "illustrative only — replace NNN and slug with a real ADR path when recording a dependency"
 status: active
 ---
 ```

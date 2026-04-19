@@ -138,7 +138,7 @@ If the feature depends on an ADR, record it explicitly.
 
 | ADR | Current `decision_status` | Used for | Execution rule |
 | --- | --- | --- | --- |
-| [../../adr/ADR-XXX.md](../../adr/ADR-XXX.md) | `proposed` / `accepted` | Which design choice or baseline | `proposed` is only hypothesis / benchmark candidate, not finalized design; `accepted` is canonical input |
+| [../../../adr/ADR-XXX.md](../../../adr/ADR-XXX.md) | `proposed` / `accepted` | Which design choice or baseline | `proposed` is only hypothesis / benchmark candidate, not finalized design; `accepted` is canonical input |
 
 ## Verify
 

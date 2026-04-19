@@ -3,6 +3,8 @@ title: Loki Memory Bank
 doc_kind: project
 doc_function: index
 purpose: Single navigation entry point for humans and agents into Loki documentation under memory-bank/.
+derived_from:
+  - dna/governance.md
 status: active
 audience: humans_and_agents
 ---
@@ -38,6 +40,8 @@ audience: humans_and_agents
   Read when: you create a feature package, move work through lifecycle gates, or copy a governed template.
 
 ## Deferred sections
+
+**Meaning of “deferred” here:** the *instantiated* artifacts (for example `PRD-*.md`, `UC-*.md`, or `memory-bank/features/FT-*` trees) stay empty until each section’s trigger applies. The **section indexes** under these paths remain `active` governed documents so routing, naming rules, and templates stay available—only populate child files when the “Read when” condition matches your work.
 
 Content in these paths is intentionally minimal until the trigger condition applies. Prefer active sections above unless the condition matches your work.
 
