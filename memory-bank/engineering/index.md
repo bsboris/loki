@@ -11,7 +11,7 @@ audience: humans_and_agents
 
 # Engineering documentation index
 
-These documents apply to **Loki** (Rails app, PostgreSQL, RSpec). Use them before inventing new conventions in code reviews or agent instructions.
+These documents govern how the Rails application in this repository is built and reviewed. Stack, bootstrap, and canonical commands live in [`../ops/development.md`](../ops/development.md). Use this index before inventing new conventions in code reviews or agent instructions.
 
 - [`coding-style.md`](coding-style.md)
   RuboCop (rubocop-rails-omakase), Rails conventions, locals vs instance variables, POROs, and how far to abstract.

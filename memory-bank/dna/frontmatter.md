@@ -2,7 +2,7 @@
 title: Frontmatter schema
 doc_kind: governance
 doc_function: canonical
-purpose: Schema of required and conditional YAML frontmatter fields.
+purpose: Schema of required and conditionally required YAML frontmatter fields.
 derived_from:
   - governance.md
 status: active
@@ -15,6 +15,7 @@ audience: humans_and_agents
 | Field | Type | Description |
 |---|---|---|
 | `status` | enum | `draft` (not authoritative—scaffolds until populated; see *Scaffold until populated* in [governance.md](governance.md)) / `active` (authoritative) / `archived` (history only) |
+| `derived_from` | list | Direct upstream dependencies (string paths and/or `{path, fit}` objects). **Required** on every governed Markdown file under `memory-bank/` except the authority root [`principles.md`](principles.md), which has no upstream. Matches [governance.md](governance.md) (*Source dependency tree*). |
 
 ## Document kind
 
@@ -45,7 +46,6 @@ The **`doc_function`** field describes how the file participates in the document
 
 | Field | When | Description |
 |---|---|---|
-| `derived_from` | Upstream document exists | Direct upstream dependencies. Each entry is a string (path) or object `{path, fit}` where `fit` explains dependency scope |
 | `delivery_status` | Feature documents | `planned` / `in_progress` / `done` / `cancelled` |
 | `decision_status` | ADR documents | `proposed` / `accepted` / `superseded` / `rejected` |
 

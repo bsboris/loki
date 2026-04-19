@@ -71,7 +71,7 @@ Application persistence may cache or index content for performance and UX, but t
 
 ## Follow-up
 
-- Repo-level **configuration format** (scopes, paths, locales) remains documented in code and domain architecture until stabilized enough for a dedicated ADR.
+- Repo-level **configuration format** (scopes, paths, locales): intent and boundaries in [`../domain/architecture.md`](../domain/architecture.md) (*Configuration ownership*); exact filename and keys stay in code until an ADR freezes the contract.
 - If **workspace persistence** grows (tables for workspaces, drafts), document how those records remain **subordinate** to Git refs in `domain/architecture.md` or a follow-up ADR.
 
 ## Related links

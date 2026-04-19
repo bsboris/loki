@@ -11,12 +11,12 @@ audience: humans_and_agents
 
 # Memory bank index
 
-**Loki** is a Git-native translation workspace for YAML-based internationalization. Use this file first to find product context, engineering rules, operations, ADRs, workflows, and DNA.
+Use this file first to find product context, engineering rules, operations, ADRs, workflows, and DNA. The canonical product summary lives in [`domain/problem.md`](domain/problem.md); start there when you need what Loki is, for whom, and what is in scope.
 
 ## Active sections
 
 - [`domain/index.md`](domain/index.md)
-  Domain vocabulary, problem statement, architecture, and glossary for Git-centric YAML i18n.
+  Product problem statement, architecture patterns, glossary, and vocabulary.
   Read when: you need product intent, canonical terms, or system boundaries before changing behavior or data that users see.
 
 - [`engineering/index.md`](engineering/index.md)

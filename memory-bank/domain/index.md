@@ -11,7 +11,7 @@ audience: humans_and_agents
 
 # Domain documentation index
 
-Active documents describe **Loki** (Git-native YAML i18n workspace). Use them before duplicating product or architecture background in features or PRDs.
+Use these documents before duplicating product or architecture background in features or PRDs. What the product is and who it serves are owned by [`problem.md`](problem.md) alone at the summary level.
 
 - [`problem.md`](problem.md)
   Canonical product summary, users, MVP goal, workflows (open → explore → edit → publish), non-goals, and constraints (Git as SSoT, no external TMS).

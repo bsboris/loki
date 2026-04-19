@@ -59,8 +59,11 @@ Controllers and models should **rescue** these mapped types (for example on repo
 
 ## Configuration ownership
 
-- **Canonical schema** for what a repo declares (scopes, glob paths, locales) lives **in the repository** as the agreed config file format (document the filename and keys in code or a short ADR when it stabilizes).
-- **Loki** reads that file from the resolved **ref** when building scopes and entry sets; the app does not invent scopes in the database independently of the repo.
+Authority is split intentionally until the on-disk format is frozen under its own ADR:
+
+- **This document** owns product intent: scopes come from repo-declared configuration at a resolved **ref**; Loki does not invent scopes in the database independently of the repo.
+- **Application code** owns the exact config filename, keys, parsing, and validation until an ADR records a stable contract; link from code comments to this section rather than copying intent here.
+- **Canonical schema** for what a repo declares (scopes, glob paths, locales) still lives **in the repository** as files the team commits; only the *literal* schema is code-owned for now.
 - **Rails app config** (credentials, GitHub token, DB) is owned by [`../ops/config.md`](../ops/config.md) when populated; until then, follow `config/` and credentials as in the codebase.
 
 When the environment contract or repo config format changes, update the owner doc and any ADR that records the decision.

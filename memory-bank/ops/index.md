@@ -11,7 +11,7 @@ audience: humans_and_agents
 
 # Operations index
 
-These documents cover **Loki** day-to-day development and (when populated) deployment and operations. Prefer this index over duplicating commands in one-off instructions.
+This tree covers day-to-day development for the application in this repository and (when populated) deployment and operations. Prefer this index over duplicating commands in one-off instructions.
 
 ## Active
 
