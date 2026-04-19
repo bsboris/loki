@@ -29,4 +29,4 @@ A `governed document` is a Markdown file under `memory-bank/` with valid YAML fr
 These fields classify governed Markdown for navigation and authority. The closed **`doc_kind`** vocabulary and **`doc_function`** roles live in [frontmatter.md](frontmatter.md) (sections *Document kind* and *Document role*).
 
 - **DNA and flows** canonicals and indexes should always set both fields consistently with that schema.
-- **Domain, engineering, ADR, and delivery docs** use the same fields with the `doc_kind` values listed there; omitting them is discouraged for new documents.
+- **Domain, engineering, ops, ADR, and delivery docs** use the same fields with the `doc_kind` values listed there; omitting them is discouraged for new documents.

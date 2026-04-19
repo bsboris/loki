@@ -1,6 +1,6 @@
 ---
 title: Runbooks Index
-doc_kind: engineering
+doc_kind: ops
 doc_function: index
 purpose: Entry point for operational runbooks. Read to add step-by-step instructions for a typical ops task or incident.
 derived_from:

@@ -1,6 +1,6 @@
 ---
 title: Operations Index
-doc_kind: engineering
+doc_kind: ops
 doc_function: index
 purpose: Navigation for Loki operations docs: local development (active) and deferred staging, release, config, and runbooks.
 derived_from:

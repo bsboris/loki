@@ -13,6 +13,14 @@ audience: humans_and_agents
 
 Use this file first to find product context, engineering rules, operations, ADRs, workflows, and DNA. The canonical product summary lives in [`domain/problem.md`](domain/problem.md); start there when you need what Loki is, for whom, and what is in scope.
 
+## Default reading order (most code tasks)
+
+1. [`engineering/index.md`](engineering/index.md) — style, tests, Git, and agent autonomy before you edit or run verification.
+2. [`ops/development.md`](ops/development.md) — canonical `bin/*` commands and local setup from the repo root.
+3. [`domain/problem.md`](domain/problem.md) — when product intent, scope, constraints, or user-visible behavior is unclear, or before behavior-changing work that needs the MVP workflow and non-goals.
+
+Then follow “Read when” links from each index to deeper docs (for example [`domain/architecture.md`](domain/architecture.md) or [`engineering/testing-policy.md`](engineering/testing-policy.md)) only as your task requires.
+
 ## Active sections
 
 - [`domain/index.md`](domain/index.md)

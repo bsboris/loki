@@ -1,6 +1,6 @@
 ---
 title: Configuration Guide
-doc_kind: engineering
+doc_kind: ops
 doc_function: canonical
 purpose: Placeholder for configuration ownership. Populate when environment variables and config sources grow beyond a handful.
 derived_from:

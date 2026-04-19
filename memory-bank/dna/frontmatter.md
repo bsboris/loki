@@ -26,7 +26,8 @@ Use the **`doc_kind`** field on governed Markdown under `memory-bank/` to classi
 | `governance` | Meta-rules, flows, lifecycle, cross-refs, templates index | `memory-bank/dna/`, `memory-bank/flows/` (process and template indexes) |
 | `project` | Repository-wide navigation or context that is not domain product docs | e.g. `memory-bank/index.md` |
 | `domain` | Product intent, architecture, glossary | `memory-bank/domain/` |
-| `engineering` | How we build and run the app: style, tests, Git, autonomy, local ops | `memory-bank/engineering/`, `memory-bank/ops/` |
+| `engineering` | How we build the Rails app: style, tests, Git workflow, agent autonomy | `memory-bank/engineering/` |
+| `ops` | How we run and operate the app: local development, environments, releases, configuration contracts, runbooks | `memory-bank/ops/` |
 | `adr` | Architecture decision records | `memory-bank/adr/` |
 | `feature` | Feature packages and feature-shaped templates | `memory-bank/features/`, `memory-bank/flows/templates/feature/` |
 | `prd` | Initiative-level requirements | `memory-bank/prd/`, `memory-bank/flows/templates/prd/` |

@@ -11,6 +11,16 @@ audience: humans_and_agents
 
 # Project problem statement
 
+## Agent summary
+
+Short orientation only; authoritative detail is in the sections below.
+
+- **Product:** Git-native translation workspace over YAML i18n (for example Rails `config/locales`); each branch is a workspace; **publish** = commit, push, and PR on the host.
+- **Authority:** Git is the single source of truth; **no external TMS**.
+- **MVP user flow:** Open → Explore (diff and search) → Edit → Publish.
+- **Product non-goals:** No editing translation **structure** (keys/paths), no in-app collaboration threads, no runtime string-delivery product, no dedicated merge UI inside Loki (resolve in Git).
+- **Integration:** MVP assumes **GitHub** as the host platform unless a separate initiative says otherwise.
+
 **Loki** is a **Git-native translation workspace** for YAML-based internationalization (for example Rails `config/locales`). It exposes a web UI on top of Git branches: each branch is an isolated **translation workspace**. People edit and review translations in the app; **publishing** means commit, push, and standard pull-request workflow on the host Git platform.
 
 Git is the **single source of truth**. There is **no external TMS** (translation management system); branches, files, and merges remain the authority.

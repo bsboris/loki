@@ -1,6 +1,6 @@
 ---
 title: Release And Deployment
-doc_kind: engineering
+doc_kind: ops
 doc_function: canonical
 purpose: Placeholder for release process. Populate when a deployment pipeline exists.
 derived_from:

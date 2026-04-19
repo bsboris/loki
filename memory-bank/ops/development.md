@@ -1,6 +1,6 @@
 ---
 title: Development Environment
-doc_kind: engineering
+doc_kind: ops
 doc_function: canonical
 purpose: Loki local development: bootstrap, stack, canonical commands, and common pitfalls for humans and agents.
 derived_from:
@@ -54,7 +54,7 @@ Some tools behave differently when the `CI` environment variable is set (skips, 
 unset CI && direnv exec <path-to-repository-root> bundle exec <command>
 ```
 
-Replace `<path-to-repository-root>` with the absolute path to this Git checkout on your machine.
+Replace `<path-to-repository-root>` with the absolute path to **this** Git checkout (the Loki repository), not another project’s tree. If shell tooling, direnv, or per-user rules mention a different repo path, override them here so `bundle exec` runs against Loki’s `Gemfile` and environment.
 
 ## Browser and local URL
 
