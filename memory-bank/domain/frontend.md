@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Placeholder for UI surfaces, design system, and i18n layer. Read when working on web, mobile, or internal UI conventions.
 derived_from:
   - ../dna/governance.md
-status: active
+status: draft
 audience: humans_and_agents
 ---
 

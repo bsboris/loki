@@ -28,5 +28,5 @@ Active documents describe **Loki** (Git-native YAML i18n workspace). Use them be
 ## Deferred
 
 - [`frontend.md`](frontend.md)
-  Placeholder for Hotwire/Turbo/Stimulus and UI conventions when the front end needs its own canonical rules.
+  Placeholder for Hotwire/Turbo/Stimulus and UI conventions when the front end needs its own canonical rules. Stays `status: draft` until populated; promote to `active` when it owns real UI conventions per [Document governance](../dna/governance.md) (*Scaffold until populated*).
   Read when: the UI layer grows enough that layout, components, or client-side i18n need explicit standards beyond engineering and domain docs.

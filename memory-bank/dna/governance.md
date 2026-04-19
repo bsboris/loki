@@ -16,6 +16,7 @@ A `governed document` is a Markdown file under `memory-bank/` with valid YAML fr
 
 1. Only `active` documents are authoritative. `draft` does not override `active`.
 2. Publication status (`status`) is separate from entity lifecycle (`delivery_status`, `decision_status`).
+3. **Scaffold until populated.** If a file is only structure—empty tables, generic section prompts, or no real environment-specific facts—until a trigger described in its parent index applies, it must use `status: draft` so readers do not treat blanks as canonical data. When the document genuinely owns facts for its topic, set `status: active` and refresh the parent index if the “Read when” guidance changes.
 
 ## Source dependency tree
 

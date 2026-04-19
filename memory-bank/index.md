@@ -59,7 +59,7 @@ Content in these paths is intentionally minimal until the trigger condition appl
 
 ### Operations (deferred topics)
 
-These files exist under `ops/` but are not maintained for the current MVP; use the operations entry under Active sections as the parent index.
+These files exist under `ops/` but are not maintained for the current MVP; use the operations entry under Active sections as the parent index. Each listed file is `status: draft` until its trigger applies and it is filled with real operational facts (then `active`).
 
 - [`ops/stages.md`](ops/stages.md)
   Staging and production environments, access, logs, and smoke checks.
@@ -80,5 +80,5 @@ These files exist under `ops/` but are not maintained for the current MVP; use t
 ### Domain (deferred file)
 
 - [`domain/frontend.md`](domain/frontend.md)
-  Hotwire, Turbo, Stimulus, and UI-layer conventions.
+  Hotwire, Turbo, Stimulus, and UI-layer conventions. `status: draft` until populated with real UI standards (then `active`).
   Read when: the front-end stack needs explicit conventions beyond what engineering and domain docs already imply.

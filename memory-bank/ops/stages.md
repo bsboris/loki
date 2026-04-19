@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Placeholder for access to production-like environments. Populate when staging or production exists.
 derived_from:
   - ../dna/governance.md
-status: active
+status: draft
 audience: humans_and_agents
 ---
 

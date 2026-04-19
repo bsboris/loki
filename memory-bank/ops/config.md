@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Placeholder for configuration ownership. Populate when environment variables and config sources grow beyond a handful.
 derived_from:
   - ../dna/governance.md
-status: active
+status: draft
 audience: humans_and_agents
 ---
 

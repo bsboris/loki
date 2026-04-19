@@ -21,7 +21,7 @@ These documents cover **Loki** day-to-day development and (when populated) deplo
 
 ## Deferred
 
-These files stay as translated stubs until the triggers in the memory bank plan apply (staging/prod exists, deployment pipeline, larger env surface, or post-launch incidents). Do not treat them as current Loki runbooks yet.
+These files stay as translated stubs until the triggers in the memory bank plan apply (staging/prod exists, deployment pipeline, larger env surface, or post-launch incidents). Each uses `status: draft` until it holds real, environment-specific facts; then set `status: active` per [Document governance](../dna/governance.md) (*Scaffold until populated*). Do not treat them as current Loki runbooks while they are draft.
 
 - [`stages.md`](stages.md)
   Non-local environments, access, logs, and smoke checks.

@@ -24,6 +24,6 @@ Rules that keep governed documentation consistent when things change.
 
 Before committing changes to governed documentation:
 
-- [ ] frontmatter is valid; `derived_from` is set for every `active` doc except the authority root `dna/principles.md`
+- [ ] frontmatter is valid; `derived_from` is set for every governed doc except the authority root `dna/principles.md`; placeholders stay `draft` until populated, then become `active` per `dna/governance.md` (*Scaffold until populated*)
 - [ ] canonical `feature` has `delivery_status`; `adr` has `decision_status`
 - [ ] parent `index.md` updated when membership or reading order changes

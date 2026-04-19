@@ -14,7 +14,7 @@ audience: humans_and_agents
 
 | Field | Type | Description |
 |---|---|---|
-| `status` | enum | `draft` / `active` / `archived` |
+| `status` | enum | `draft` (not authoritative—scaffolds until populated; see *Scaffold until populated* in [governance.md](governance.md)) / `active` (authoritative) / `archived` (history only) |
 
 ## Document kind
 

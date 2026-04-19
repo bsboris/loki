@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Placeholder for release process. Populate when a deployment pipeline exists.
 derived_from:
   - ../dna/governance.md
-status: active
+status: draft
 audience: humans_and_agents
 ---
 
