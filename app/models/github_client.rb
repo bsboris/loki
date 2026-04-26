@@ -1,3 +1,5 @@
+# GitHub API boundary for repository metadata; see memory-bank/domain/architecture.md (Git layer,
+# failure handling) and memory-bank/adr/ADR-001-git-as-single-source-of-truth.md.
 class GithubClient
   class ConfigurationError < StandardError; end
   class Error < StandardError; end
