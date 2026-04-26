@@ -1,109 +1,52 @@
 # Backlog
 
-MVP feature backlog for Loki, aligned with [memory-bank/domain/problem.md](memory-bank/domain/problem.md).
+Incremental MVP for Loki, aligned with [memory-bank/domain/problem.md](memory-bank/domain/problem.md) (**Open → Explore → Edit → Publish**).
 
-## Rules
+## Conventions
 
-- Every issue is expected to include tests as part of completion.
-- Keep issues small, atomic, and independently reviewable.
-- Complete items in order unless a dependency-free exception is explicit.
+- Each numbered item is a **vertical slice**: shippable user-visible behavior with **automated tests** for the slice’s critical paths.
+- Finer tasks belong in PRs or issues, not duplicated here.
+- **Order** follows the journey below; defer parallel polish (jobs, extra filters) until the slice that needs it.
 
-## Status Legend
+## MVP slices
 
-- `[ ]` not started
-- `[~]` in progress
-- `[x]` done
+### 1. App shell and connected repository — Done
 
-## 1. Foundation
+**Outcome:** Operators use a running app, register a GitHub-backed repository (identity + default branch from the host), list repositories, and get clear errors when GitHub or app configuration fails.
 
-- [ ] Initialize Rails app shell with homepage and health check
-- [ ] Add basic authentication boundary for app users
-- [ ] Add `Repository` model and basic CRUD for tracked repositories
-- [ ] Add repository fields for GitHub owner/name and default base branch
-- [ ] Validate repository uniqueness and required connection fields
+### 2. Workspace (open)
 
-## 2. GitHub Integration
+**Outcome:** For a repository, user defines **base_ref** and **head_ref** (pick existing branch or create head from base), persists a **Workspace**, and sees a workspace summary (refs; placeholder or real PR link when publish exists).
 
-- [ ] Add GitHub authentication/token storage needed for repository access
-- [ ] Implement GitHub repository metadata fetch
-- [ ] Implement branch listing from GitHub
-- [ ] Implement branch existence validation for configured repositories
-- [ ] Show GitHub connection and repository access status in UI
+*Depends on: GitHub APIs needed for refs/branches beyond default-branch metadata.*
 
-## 3. Repository Configuration
+### 3. Explore — config and snapshots
 
-- [ ] Add repo-level config file discovery
-- [ ] Parse config file into `scopes`, `paths`, `source_locale`, and `locales`
-- [ ] Show repository configuration status in UI
-- [ ] Surface configuration errors clearly on repository page
+**Outcome:** Loki discovers repo-declared i18n config, loads YAML for configured paths at **both** refs, normalizes into snapshots, and shows understandable errors for bad config or YAML.
 
-## 4. Workspace Setup
+### 4. Explore — diff and “Changed”
 
-- [ ] Add `Workspace` model with `repository`, `base_ref`, `head_ref`, `linked_pr`
-- [ ] Add workspace creation flow for selecting existing branch as `head_ref`
-- [ ] Add workspace creation flow for creating new branch from selected `base_ref`
-- [ ] List workspaces for a repository
-- [ ] Show workspace summary page with refs and PR status
+**Outcome:** Diff base vs head snapshots; entries carry **missing** / **outdated** (and related) signals; **Changed** view with counts.
 
-## 5. Snapshot Loading
+### 5. Explore — search
 
-- [ ] Implement raw file loading for configured translation paths at a given ref
-- [ ] Parse Rails i18n YAML files into normalized structures
-- [ ] Flatten translations into entries by `scope`, `key_path`, and `locale`
-- [ ] Build snapshot loader for workspace `base_ref`
-- [ ] Build snapshot loader for workspace `head_ref`
-- [ ] Handle malformed YAML with explicit workspace errors
+**Outcome:** Search and filter over the **head** snapshot (key path, source/translation text, scope, locale, status flags) for full-tree browsing.
 
-## 6. Diff and Status
+### 6. Edit and review
 
-- [ ] Implement diff engine between base and head snapshots
-- [ ] Mark entries as `missing` when locale value is absent
-- [ ] Mark entries as `outdated` when source changed but translation did not
-- [ ] Show `Changed` view for a workspace
-- [ ] Add counts for changed, missing, and outdated entries
+**Outcome:** Edit non-source locale values, write back YAML without destroying unrelated structure, reload snapshot/diff after save; **review metadata** (reviewed / reviewer / time) visible and filterable in Changed and Search.
 
-## 7. Search
+### 7. Publish
 
-- [ ] Show `Search` view from full head snapshot
-- [ ] Add search by key path
-- [ ] Add search by source value
-- [ ] Add search by translation value
-- [ ] Add filters by scope and locale
-- [ ] Add filters for missing and outdated states
+**Outcome:** Commit workspace changes to **head_ref**, push, open or reuse a **PR** to **base_ref**, persist linked PR, prevent obvious duplicate PR mistakes, and show publish result + link; add **audit-friendly** logging (or equivalent) for publish actions.
 
-## 8. Review Metadata
+### 8. Access boundary (MVP gate for multi-user / hosted)
 
-- [ ] Add `Metadata` persistence for review state
-- [ ] Allow marking a single entry as reviewed
-- [ ] Allow unmarking a reviewed entry
-- [ ] Record reviewer and reviewed timestamp
-- [ ] Show review state in Changed and Search views
-- [ ] Add filter for reviewed and unreviewed entries
+**Outcome:** Only intended users reach repositories and Git-backed operations (exact mechanism TBD: e.g. app login, SSO, or single-tenant deployment rule). Document how GitHub token scope maps to what Loki can do.
 
-## 9. Editing
+---
 
-- [ ] Add entry edit form for target locale values
-- [ ] Prevent editing source locale values
-- [ ] Write edited values back into the correct YAML file structure
-- [ ] Preserve untouched YAML content outside edited keys
-- [ ] Refresh workspace snapshot and diff after edit
-- [ ] Validate YAML remains valid after edit
+## Post-MVP / reactive
 
-## 10. Workspace Flow
-
-- [ ] Add navigation to next and previous actionable entry
-- [ ] Show workspace pending changes indicator
-
-## 11. Publish
-
-- [ ] Implement publish action to commit workspace changes
-- [ ] Implement push action to workspace branch on GitHub
-- [ ] Implement PR creation from `head_ref` to `base_ref`
-- [ ] Store linked PR URL/number on workspace
-- [ ] Prevent duplicate PR creation when linked PR already exists
-- [ ] Show publish result and PR link on workspace page
-
-## 12. Operational Safety
-
-- [ ] Add audit-friendly logging for publish actions
-- [ ] Add background job wrapper for longer GitHub operations if synchronous requests become too slow
+- Move long-running GitHub work to **background jobs** only if synchronous paths fail UX or timeouts.
+- Anything under [non-goals](memory-bank/domain/problem.md#non-goals) stays out unless a separate initiative changes scope.
