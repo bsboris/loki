@@ -13,7 +13,14 @@ status: active
 
 The `memory-bank/features/` directory holds instantiated feature packages as `FT-XXX/`.
 
-*No packages yet — create an `FT-XXX/` directory when a delivery unit is registered here.*
+## Registered packages
+
+| Package | Title | Tracker | Notes |
+| --- | --- | --- | --- |
+| [`FT-002/`](FT-002/index.md) | Verifiable application startup baseline | [issue #2](https://github.com/bsboris/loki/issues/2) | Root `GET /` + request spec |
+| [`FT-004/`](FT-004/index.md) | Repository registration baseline | [issue #4](https://github.com/bsboris/loki/issues/4) | `Repository` + `GET /repositories` index |
+| [`FT-008/`](FT-008/index.md) | GitHub repository connection | [issue #8](https://github.com/bsboris/loki/issues/8) | Octokit client + create flow |
+| [`FT-062/`](FT-062/index.md) | daisyUI styling system | [issue #62](https://github.com/bsboris/loki/issues/62) | Tailwind plugin + shared partials |
 
 ## Rules
 
