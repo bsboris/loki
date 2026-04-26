@@ -61,8 +61,8 @@ Content in these paths is intentionally minimal until the trigger condition appl
   Read when: core flows (open, explore, edit, publish) are stable enough to canonicalize.
 
 - [`features/index.md`](features/index.md)
-  Parallel feature backlog beyond a single focused sprint.
-  Read when: you are tracking a parallel backlog beyond a single focused sprint.
+  Navigation for instantiated feature packages. Read to find an existing delivery unit or decide where to create a new one.
+  Read when: you are tracking an existing delivery unit or deciding where to create a new one.
 
 ### Operations (deferred topics)
 
