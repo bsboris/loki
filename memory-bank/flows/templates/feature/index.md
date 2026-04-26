@@ -1,23 +1,23 @@
 ---
-title: FT-XXX Feature README Template
+title: FT-XXX Feature Index Template
 doc_kind: feature
 doc_function: template
-purpose: Governed wrapper template for feature-level `README.md`. Read to instantiate a bootstrap-safe routing layer for a feature without mixing wrapper metadata and the target README frontmatter.
+purpose: Governed wrapper template for feature-level `index.md`. Read to instantiate a bootstrap-safe routing layer for a feature without mixing wrapper metadata and the target index frontmatter.
 derived_from:
   - ../../feature-flow.md
   - ../../../dna/frontmatter.md
 status: active
 template_for: feature
-template_target_path: ../../../features/FT-XXX/README.md
+template_target_path: ../../../features/FT-XXX/index.md
 ---
 
 # FT-XXX Feature Template
 
-This file describes the template wrapper itself. The instantiated feature README lives below as an embedded contract and is copied into the feature package without wrapper frontmatter and history.
+This file describes the template wrapper itself. The instantiated feature `index.md` lives below as an embedded contract and is copied into the feature package without wrapper frontmatter and history.
 
 ## Wrapper notes
 
-The `memory-bank/flows/templates/feature/` directory holds wrapper templates for the feature package: this README template, canonical feature templates for short and large features, and the derived template for `implementation-plan.md`. When creating a new feature package, copy or adapt [`short.md`](short.md) or [`large.md`](large.md) into the new `FT-XXX/` directory as `feature.md` before publishing the embedded README body below. The embedded README must stay bootstrap-safe: it first routes only to that `feature.md`, while optional `implementation-plan.md` and related ADRs are added after those documents exist.
+The `memory-bank/flows/templates/feature/` directory holds wrapper templates for the feature package: this directory-index template, canonical feature templates for short and large features, and the derived template for `implementation-plan.md`. When creating a new feature package, copy or adapt [`short.md`](short.md) or [`large.md`](large.md) into the new `FT-XXX/` directory as `feature.md` before publishing the embedded `index.md` body below. The embedded index must stay bootstrap-safe: it first routes only to that `feature.md`, while optional `implementation-plan.md` and related ADRs are added after those documents exist.
 
 Optional routes for a living feature package are added after the corresponding documents exist. Typical post-bootstrap routes:
 

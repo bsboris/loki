@@ -17,9 +17,9 @@ This document defines the order in which feature artifacts appear. The agent mus
 1. All documents for one feature live under `memory-bank/features/FT-XXX/`.
 2. **Feature = vertical slice.** One feature is one unit of user value across all touched layers (UI, API, storage, infra). Horizontal cuts ("all endpoints", "all UI") are only allowed for purely infra or refactoring work and must be explicitly justified via `NS-*`.
 3. `feature.md` is the canonical owner for intent, delivery-scoped target outcome/KPI, design, and verify for the delivery unit.
-4. `README.md` is created together with `feature.md` and remains the routing layer for the full lifecycle.
+4. `index.md` is created together with `feature.md` and remains the routing layer for the full lifecycle.
 5. `implementation-plan.md` is a derived execution document. It must not exist until sibling `feature.md` is design-ready.
-6. For canonical `feature.md`, feature-level `README.md`, and `implementation-plan.md`, use wrapper templates from `memory-bank/flows/templates/feature/`: the template file has `doc_function: template`, while frontmatter/body of the instantiated document live inside the embedded template contract.
+6. For canonical `feature.md`, feature-level `index.md`, and `implementation-plan.md`, use wrapper templates from `memory-bank/flows/templates/feature/`: the template file has `doc_function: template`, while frontmatter/body of the instantiated document live inside the embedded template contract.
 7. The meaning of stable identifiers (`REQ-*`, `NS-*`, `CHK-*`, `STEP-*`, etc.) is defined in the "Stable identifiers" section below.
 8. Acceptance scenarios (`SC-*`) cover the vertical slice end-to-end: from input event to observable outcome across all touched layers. Testing a single layer in isolation is allowed as an implementation detail of the plan but does not replace end-to-end acceptance.
 9. **Task tracker link.** When creating a feature package, the agent must add links to `feature.md` and, once it exists, to `implementation-plan.md` in the originating task or ticket. This enables navigation from the task tracker to the spec without manual repo search.
@@ -56,7 +56,7 @@ Each gate is a set of checkable predicates. A transition is allowed if and only 
 
 ### Bootstrap feature package
 
-- [ ] `README.md` created from `templates/feature/index.md`
+- [ ] `index.md` created from `templates/feature/index.md`
 - [ ] `feature.md` created from `short.md` or `large.md`
 - [ ] `implementation-plan.md` absent
 

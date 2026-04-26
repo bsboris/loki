@@ -21,7 +21,7 @@ The `memory-bank/flows/templates/` directory holds reference documentation templ
 
 - [PRD-XXX: Product Initiative Name](prd/PRD-XXX.md) — compact Product Requirements Document for an initiative not yet decomposed into a single feature slice.
 - [UC-XXX: Use Case Name](use-case/UC-XXX.md) — canonical use case for a durable user or operational scenario.
-- [FT-XXX Feature README Template](feature/index.md) — README template for a feature directory. Answers: how to structure the feature-level index.
+- [FT-XXX Feature Index Template](feature/index.md) — directory index template (`index.md`) for a feature package. Answers: how to structure the feature-level routing document.
 - [FT-XXX: Feature Template - Short](feature/short.md) — minimal canonical feature for a small feature. Answers: what a short feature document looks like.
 - [FT-XXX: Feature Template - Large](feature/large.md) — canonical feature with assumptions, blockers, contracts, and verify layer. Answers: what a large feature document looks like.
 - [FT-XXX: Implementation Plan](feature/implementation-plan.md) — derived execution plan template. Answers: how to structure sequencing and checkpoints.
