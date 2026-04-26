@@ -23,9 +23,8 @@ This document defines the order in which feature artifacts appear. The agent mus
 7. For canonical `feature.md`, feature-level `index.md`, `brief.md` (large path), and `implementation-plan.md`, use wrapper templates from `memory-bank/flows/templates/feature/`: the template file has `doc_function: template`, while frontmatter/body of the instantiated document live inside the embedded template contract.
 8. The meaning of stable identifiers (`REQ-*`, `NS-*`, `CHK-*`, `STEP-*`, etc.) is defined in the "Stable identifiers" section below.
 9. Acceptance scenarios (`SC-*`) cover the vertical slice end-to-end: from input event to observable outcome across all touched layers. Testing a single layer in isolation is allowed as an implementation detail of the plan but does not replace end-to-end acceptance.
-10. **Task tracker link.** When creating a feature package, the agent must add links in the originating task or ticket to `index.md`, to `brief.md` when it exists (large path), to `feature.md` once it exists, and to `implementation-plan.md` once it exists. This enables navigation from the task tracker to the spec without manual repo search.
-11. If the feature is part of a larger initiative, `feature.md` may depend on a PRD in `memory-bank/prd/`, but the PRD does not replace the feature package itself. Upstream context may be summarized in `brief.md` before it is reflected as deltas in `feature.md`.
-12. If the feature creates a new durable project scenario or materially changes an existing one, the corresponding `UC-*` in `memory-bank/use-cases/` must be created or updated before closure.
+10. If the feature is part of a larger initiative, `feature.md` may depend on a PRD in `memory-bank/prd/`, but the PRD does not replace the feature package itself. Upstream context may be summarized in `brief.md` before it is reflected as deltas in `feature.md`.
+11. If the feature creates a new durable project scenario or materially changes an existing one, the corresponding `UC-*` in `memory-bank/use-cases/` must be created or updated before closure.
 
 ## Choosing the `feature.md` template
 
