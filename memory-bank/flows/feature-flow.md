@@ -2,7 +2,7 @@
 title: Feature Flow
 doc_kind: governance
 doc_function: canonical
-purpose: "Defines stage-based flow for feature documentation and taxonomy of stable identifiers (REQ-*, CHK-*, STEP-*, etc.). Read when creating or maintaining a feature catalog."
+purpose: "Defines stage-based flow for feature documentation (including large-path brief.md), taxonomy of stable identifiers (REQ-*, CHK-*, STEP-*, etc.). Read when creating or maintaining a feature catalog."
 derived_from:
   - ../dna/governance.md
   - ../dna/frontmatter.md
@@ -17,14 +17,15 @@ This document defines the order in which feature artifacts appear. The agent mus
 1. All documents for one feature live under `memory-bank/features/FT-XXX/`.
 2. **Feature = vertical slice.** One feature is one unit of user value across all touched layers (UI, API, storage, infra). Horizontal cuts ("all endpoints", "all UI") are only allowed for purely infra or refactoring work and must be explicitly justified via `NS-*`.
 3. `feature.md` is the canonical owner for intent, delivery-scoped target outcome/KPI, design, and verify for the delivery unit.
-4. `index.md` is created together with `feature.md` and remains the routing layer for the full lifecycle.
-5. `implementation-plan.md` is a derived execution document. It must not exist until sibling `feature.md` is design-ready.
-6. For canonical `feature.md`, feature-level `index.md`, and `implementation-plan.md`, use wrapper templates from `memory-bank/flows/templates/feature/`: the template file has `doc_function: template`, while frontmatter/body of the instantiated document live inside the embedded template contract.
-7. The meaning of stable identifiers (`REQ-*`, `NS-*`, `CHK-*`, `STEP-*`, etc.) is defined in the "Stable identifiers" section below.
-8. Acceptance scenarios (`SC-*`) cover the vertical slice end-to-end: from input event to observable outcome across all touched layers. Testing a single layer in isolation is allowed as an implementation detail of the plan but does not replace end-to-end acceptance.
-9. **Task tracker link.** When creating a feature package, the agent must add links to `feature.md` and, once it exists, to `implementation-plan.md` in the originating task or ticket. This enables navigation from the task tracker to the spec without manual repo search.
-10. If the feature is part of a larger initiative, `feature.md` may depend on a PRD in `memory-bank/prd/`, but the PRD does not replace the feature package itself.
-11. If the feature creates a new durable project scenario or materially changes an existing one, the corresponding `UC-*` in `memory-bank/use-cases/` must be created or updated before closure.
+4. `brief.md` is an optional problem-formalization artifact: **required** when the package uses [`large.md`](templates/feature/large.md), **absent** when the package uses [`short.md`](templates/feature/short.md). It captures context, problem, success sketch, constraints, sketch non-goals, and open questions in prose and bullets only—it does not own stable identifiers (`REQ-*`, `SC-*`, …), traceability, or implementation sequence.
+5. `index.md` is the routing layer for the full lifecycle. **Short path:** create `index.md` and `feature.md` together at bootstrap. **Large path (greenfield):** create `index.md` and `brief.md` at bootstrap; **do not add `feature.md`** until `brief.md` is reviewed, finalized, and `status: active`, then create `feature.md` and link it from `index.md`. **Large path (upgrade from `short.md`):** add and finalize `brief.md` to `status: active` before evolving the existing `feature.md` toward the `large.md` contract—treat the pre-brief file as provisional until the active brief is reflected.
+6. `implementation-plan.md` is a derived execution document. It must not exist until sibling `feature.md` is design-ready.
+7. For canonical `feature.md`, feature-level `index.md`, `brief.md` (large path), and `implementation-plan.md`, use wrapper templates from `memory-bank/flows/templates/feature/`: the template file has `doc_function: template`, while frontmatter/body of the instantiated document live inside the embedded template contract.
+8. The meaning of stable identifiers (`REQ-*`, `NS-*`, `CHK-*`, `STEP-*`, etc.) is defined in the "Stable identifiers" section below.
+9. Acceptance scenarios (`SC-*`) cover the vertical slice end-to-end: from input event to observable outcome across all touched layers. Testing a single layer in isolation is allowed as an implementation detail of the plan but does not replace end-to-end acceptance.
+10. **Task tracker link.** When creating a feature package, the agent must add links in the originating task or ticket to `index.md`, to `brief.md` when it exists (large path), to `feature.md` once it exists, and to `implementation-plan.md` once it exists. This enables navigation from the task tracker to the spec without manual repo search.
+11. If the feature is part of a larger initiative, `feature.md` may depend on a PRD in `memory-bank/prd/`, but the PRD does not replace the feature package itself. Upstream context may be summarized in `brief.md` before it is reflected as deltas in `feature.md`.
+12. If the feature creates a new durable project scenario or materially changes an existing one, the corresponding `UC-*` in `memory-bank/use-cases/` must be created or updated before closure.
 
 ## Choosing the `feature.md` template
 
@@ -37,11 +38,21 @@ This document defines the order in which feature artifacts appear. The agent mus
 
 If any condition fails, the agent must choose or upgrade to `large.md` before continuing. Upgrade is also mandatory if the feature started as `short.md` but later required `ASM-*`, `DEC-*`, `CTR-*`, `FM-*`, more than one acceptance scenario, or more than one `CHK-*` / `EVID-*`.
 
+When `large.md` is chosen (including after an upgrade from `short.md`), if `brief.md` is missing the agent must create it from [`brief.md`](templates/feature/brief.md) before any canonical `feature.md` work. Complete review and finalization until `brief.md` → `status: active`, **then** create or upgrade `feature.md` from [`large.md`](templates/feature/large.md) and align it with the active brief before promoting `feature.md` to design-ready.
+
+## Problem brief (`brief.md`)
+
+For the **large** path only, `brief.md` is the first place to nail intent: context, a single sharp problem statement, a success sketch, constraints, sketch non-goals, and open questions. **Greenfield:** `feature.md` is not created until `brief.md` is `status: active`. **Upgrade from short:** any pre-existing `feature.md` is not authoritative for large-slice design until `brief.md` is `status: active` and the file is aligned with it. Authority order for scope and acceptance remains **`feature.md` > `brief.md`**: if they diverge after design-ready, update or archive `brief.md` and keep `feature.md` canonical.
+
+Stable IDs begin in `feature.md`, not in `brief.md`.
+
 ## Lifecycle
 
 ```mermaid
 flowchart LR
-    DF["Draft Feature<br/>feature.md: draft<br/>delivery_status: planned<br/>plan: absent"] --> DR["Design Ready<br/>feature.md: active<br/>delivery_status: planned"]
+    BI["Bootstrap large<br/>index.md + brief.md<br/>feature absent"] --> BF["Brief finalized<br/>brief.md: active"]
+    BF --> DF["Draft Feature<br/>feature.md created draft<br/>delivery_status: planned<br/>plan: absent"]
+    DF --> DR["Design Ready<br/>feature.md: active<br/>delivery_status: planned"]
     DR --> PR["Plan Ready<br/>implementation-plan.md: active"]
     PR --> EX["Execution<br/>delivery_status: in_progress<br/>plan: active"]
     DR --> CL["Cancelled<br/>delivery_status: cancelled<br/>plan: absent or archived"]
@@ -50,14 +61,34 @@ flowchart LR
     EX --> CL
 ```
 
+On the **short** path, omit the `BI` and `BF` nodes: bootstrap creates `index.md` and `feature.md` together, with no `brief.md` file. The **short** path joins at `DF`.
+
 ## Transition gates
 
 Each gate is a set of checkable predicates. A transition is allowed if and only if all predicates are true.
 
-### Bootstrap feature package
+**Short → large upgrade:** If the directory already has `feature.md` from the short path, skip **Bootstrap feature package — large path**; add and finalize `brief.md`, then satisfy **Brief finalized → draft feature allowed** (treating the existing file as provisional until aligned with the active brief and `large.md`).
+
+### Bootstrap feature package — short path
 
 - [ ] `index.md` created from `templates/feature/index.md`
-- [ ] `feature.md` created from `short.md` or `large.md`
+- [ ] `feature.md` created from `short.md`
+- [ ] `implementation-plan.md` absent
+- [ ] `brief.md` must not exist
+
+### Bootstrap feature package — large path (brief-first, greenfield)
+
+- [ ] `index.md` created from `templates/feature/index.md`
+- [ ] `brief.md` created from `templates/feature/brief.md` and linked from `index.md` (see template body)
+- [ ] `implementation-plan.md` absent
+- [ ] `feature.md` must not exist
+
+### Brief finalized → draft feature allowed (large path only)
+
+- [ ] `brief.md` reviewed and finalized (stakeholder alignment as required by the initiative)
+- [ ] `brief.md` → `status: active`
+- [ ] `feature.md` instantiated **or** updated from `large.md`, aligned with the active brief, and linked from `index.md`
+- [ ] `feature.md` → `status: draft`, `delivery_status: planned`
 - [ ] `implementation-plan.md` absent
 
 ### Draft → Design ready
@@ -68,6 +99,7 @@ Each gate is a set of checkable predicates. A transition is allowed if and only 
 - [ ] each `REQ-*` traces to ≥ 1 `SC-*` via the traceability matrix
 - [ ] `Verify` contains ≥ 1 `CHK-*` and ≥ 1 `EVID-*`
 - [ ] if the deliverable cannot be accepted without negative/edge coverage → ≥ 1 `NEG-*`
+- [ ] if `brief.md` exists: `brief.md` is already `status: active` from the upstream gate **or** `archived` with a one-line note that intent was folded into `feature.md`; prose there must not contradict `feature.md` `What` / `Verify`
 
 ### Design ready → Plan ready
 
@@ -96,7 +128,13 @@ Each gate is a set of checkable predicates. A transition is allowed if and only 
 - [ ] `feature.md` → `delivery_status: done`
 - [ ] `implementation-plan.md` → `status: archived`
 
-### → Cancelled (from any stage after draft)
+### → Cancelled (large path, before `feature.md` exists)
+
+- [ ] `brief.md` → `status: archived` with a one-line note that the slice will not proceed to canonical `feature.md` (or equivalent abandonment signal per template)
+- [ ] `feature.md` remains absent
+- [ ] `implementation-plan.md` absent
+
+### → Cancelled (from any stage after feature draft)
 
 - [ ] `feature.md` → `delivery_status: cancelled`
 - [ ] `implementation-plan.md` absent ∨ `status: archived`
@@ -104,14 +142,15 @@ Each gate is a set of checkable predicates. A transition is allowed if and only 
 ## Boundary rules
 
 1. `feature.md` must contain `What`, `How`, and `Verify` sections.
-2. `Verify` in `feature.md` defines the canonical test case inventory for the delivery unit: positive cases via `SC-*`, feature-specific negative coverage via `NEG-*` when needed, executable checks via `CHK-*`, and evidence via `EVID-*`.
-3. If the feature depends on an ADR, `feature.md` links to the file in `memory-bank/adr/` and respects its `decision_status`; `proposed` is not considered finalized design.
-4. If the feature depends on a canonical use case, `feature.md` links to the file in `memory-bank/use-cases/`. The use case remains owner of trigger/preconditions/main flow/postconditions at project level; `feature.md` only records slice-specific implementation.
-5. `implementation-plan.md` remains a derived execution document: it references canonical IDs from `feature.md` or ADRs, records test strategy for execution, required local/CI suites and approval refs for manual-only gaps, and does not redefine scope, architecture, blockers, acceptance criteria, or the evidence contract.
-6. If scope, architecture, acceptance criteria, or the evidence contract change, update `feature.md` or the ADR first, then the downstream plan.
-7. If a numeric target threshold applies only to one delivery unit, the canonical owner is the corresponding `feature.md`. Promote such a KPI to a project-level document only after it becomes a shared upstream fact for several features.
-8. A good `implementation-plan.md` starts with discovery context: relevant paths, local reference patterns, unresolved questions, test surfaces, and execution environment must be recorded before sequencing changes.
-9. For risky, irreversible, or externally visible actions, `implementation-plan.md` must explicitly describe human approval gates and must not hide them inside prose steps.
+2. `brief.md` must not define `REQ-*` / `SC-*` / `CHK-*` / `EVID-*` inventories, traceability matrices, or `STEP-*` / workstream sequencing. It may reference upstream PRDs or ADRs by link; it does not supersede them or `feature.md`.
+3. `Verify` in `feature.md` defines the canonical test case inventory for the delivery unit: positive cases via `SC-*`, feature-specific negative coverage via `NEG-*` when needed, executable checks via `CHK-*`, and evidence via `EVID-*`.
+4. If the feature depends on an ADR, `feature.md` links to the file in `memory-bank/adr/` and respects its `decision_status`; `proposed` is not considered finalized design.
+5. If the feature depends on a canonical use case, `feature.md` links to the file in `memory-bank/use-cases/`. The use case remains owner of trigger/preconditions/main flow/postconditions at project level; `feature.md` only records slice-specific implementation.
+6. `implementation-plan.md` remains a derived execution document: it references canonical IDs from `feature.md` or ADRs, records test strategy for execution, required local/CI suites and approval refs for manual-only gaps, and does not redefine scope, architecture, blockers, acceptance criteria, or the evidence contract.
+7. If scope, architecture, acceptance criteria, or the evidence contract change, update `feature.md` or the ADR first, then the downstream plan. If `brief.md` exists and intent changed materially, update or archive `brief.md` so it does not mislead readers.
+8. If a numeric target threshold applies only to one delivery unit, the canonical owner is the corresponding `feature.md`. Promote such a KPI to a project-level document only after it becomes a shared upstream fact for several features.
+9. A good `implementation-plan.md` starts with discovery context: relevant paths, local reference patterns, unresolved questions, test surfaces, and execution environment must be recorded before sequencing changes.
+10. For risky, irreversible, or externally visible actions, `implementation-plan.md` must explicitly describe human approval gates and must not hide them inside prose steps.
 
 ## Test ownership summary
 

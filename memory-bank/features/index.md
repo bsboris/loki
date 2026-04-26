@@ -25,7 +25,7 @@ The `memory-bank/features/` directory holds instantiated feature packages as `FT
 ## Rules
 
 - Each package follows [`../flows/feature-flow.md`](../flows/feature-flow.md).
-- For bootstrap, use templates under [`../flows/templates/feature/`](../flows/templates/feature/).
+- For bootstrap, use templates under [`../flows/templates/feature/`](../flows/templates/feature/). Large-path greenfield: `index.md` and `brief.md` first; add `feature.md` from `large.md` only after `brief.md` is `status: active`. Short-path packages omit `brief.md`.
 - If a feature implements or materially changes a durable project scenario, it must link to the corresponding `UC-*` in [`../use-cases/index.md`](../use-cases/index.md).
 
 ## Naming

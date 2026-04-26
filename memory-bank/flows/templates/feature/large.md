@@ -20,6 +20,8 @@ This file describes the wrapper template. The instantiated `feature.md` lives be
 
 Use this template when any `short.md` rule stops holding: the feature touches several surfaces, changes contracts, needs explicit assumptions / blockers, or needs a non-trivial verify layer.
 
+On the large path, [`brief.md`](brief.md) must reach `status: active` before this `feature.md` is instantiated (greenfield) or before canonical work proceeds on an upgraded file—see [`feature-flow.md`](../../feature-flow.md). Problem formalization stays in the brief; stable IDs and verify live in this `feature.md`.
+
 Use stable identifiers from the taxonomy in [../../feature-flow.md#stable-identifiers](../../feature-flow.md#stable-identifiers).
 
 ### Frontmatter quick reference

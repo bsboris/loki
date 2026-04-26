@@ -20,6 +20,8 @@ This file describes the wrapper template. The instantiated `feature.md` lives be
 
 Use this template only if the feature fits one local slice and can be described with `REQ-*`, `NS-*`, one `SC-*`, at most one `CON-*`, one `EC-*`, one `CHK-*`, and one `EVID-*`.
 
+The short path does not use [`brief.md`](brief.md); that artifact is for the large path only.
+
 If you need `ASM-*`, `DEC-*`, `CTR-*`, `FM-*`, feature-specific negative cases, more than one acceptance scenario, more than one `CHK-*` / `EVID-*`, or explicit ADR-dependent design logic, upgrade to `large.md` before continuing. Prefix meanings are fixed in [../../feature-flow.md](../../feature-flow.md#stable-identifiers).
 
 ### Frontmatter quick reference

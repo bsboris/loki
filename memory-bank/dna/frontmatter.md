@@ -46,6 +46,7 @@ The **`doc_function`** field describes how the file participates in the document
 | Value | Meaning |
 | --- | --- |
 | `canonical` | Owns facts for its topic; downstream docs link here rather than restating |
+| `brief` | Problem formalization for a large feature slice; upstream of canonical `feature.md` for intent; does not own verify IDs or execution sequence |
 | `index` | Table of contents; lists children and when to read them |
 | `template` | Governed shape for new documents (often with embedded example frontmatter) |
 
